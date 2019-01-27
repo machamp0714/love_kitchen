@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
+  username: <%= ENV["MYSQL_USER_DEVELOPMENT"] %>
+  password: <%= ENV["MYSQL_PASS_DEVELOPMENT"]  %>
   socket: /tmp/mysql.sock
 
 development:
@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: love_kitchen_production
-  username: love_kitchen
-  password: <%= ENV['LOVE_KITCHEN_DATABASE_PASSWORD'] %>
+  username: <%= ENV["MYSQL_USER_PRODUCTION"] %>
+  password: <%= ENV["MYSQL_PASS_PRODUCTION"] %>
