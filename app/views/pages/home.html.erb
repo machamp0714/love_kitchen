@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<nav class="navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="#page-top" class="navbar-brand page-scroll">LoveKitchen</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <li> <%= link_to 'About', '#', class: 'page-scroll' %> </li>
+                <li> <%= link_to 'New', '#', class: 'page-scroll' %> </li>
+                <li> <%= link_to 'Login', '#', class: 'page-scroll' %> </li>
+            </ul>
+        </div>
+    </div>
+</nav>
