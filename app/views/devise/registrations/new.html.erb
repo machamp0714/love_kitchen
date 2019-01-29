@@ -1,29 +1,31 @@
-<div class="container">
-  <div class="col-md-8">
-    <%= form_for(resource, as: resource_name, url: signup_path) do |f| %>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= f.label :password %>
-            <%= f.password_field :password, autocomplete: 'new_password', class: 'form-control' %>
+<div id="contact" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>無料会員登録</h2>
+      <hr>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <%= form_for(resource, as: resource_name, url: signup_path) do |f| %>
+        <div class="form-group">
+          <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control', placeholder: 'ユーザー名' %>
+        </div>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'メールアドレス' %>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.password_field :password, autocomplete: 'new_password', class: 'form-control', placeholder: 'パスワード' %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.password_field :password_confirmation, autocomplete: 'new_password', class: 'form-control', placeholder: '確認用パスワード' %>
+            </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, autocomplete: 'new_password', class: 'form-control' %>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
-      </div>
-      <%= f.submit '登録する', class: 'btn btn-default' %>
-    <% end %>
+        <%= f.submit '登録する', class: 'btn btn-default' %>
+      <% end %>
+    </div>
   </div>
 </div>
