@@ -5,6 +5,7 @@
       <hr>
     </div>
     <div class="col-md-8 col-md-offset-2">
+      <%= devise_error_messages! %>
       <%= form_for(resource, as: resource_name, url: signup_path) do |f| %>
         <div class="form-group">
           <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control', placeholder: 'ユーザー名' %>
