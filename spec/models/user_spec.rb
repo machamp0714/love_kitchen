@@ -43,6 +43,11 @@ RSpec.describe User, type: :model do
         user.password = nil
         expect(user).to_not be_valid
       end
+
+      it '確認用パスワードがパスワードと一致しない時無効であること' do
+        user.password_confirmation = 'hogehoge'
+        expect(user).to_not be_valid
+      end
     end
 
     context 'メールアドレスに対するvalidation' do
