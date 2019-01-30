@@ -10,19 +10,21 @@ ja:
               too_long: "は%{count}文字以下に設定してください"
             email:
               blank: "が入力されていません"
-              taken: "既に使用されています"
+              taken: "は既に使用されています"
               invalid: "は有効ではありません"
             password:
               blank: "が入力されていません"
               too_short: "は%{count}文字以上に設定してください"
               too_long: "は%{count}文字以下に設定してください"
+            password_confirmation:
+              confirmation: "が一致しません"
     attributes:
       user:
         current_password: "現在のパスワード"
         name: "ユーザー名"
         email: "メールアドレス"
         password: "パスワード"
-        password_confirmation: "確認用パスワード"
+        password_confirmation: "パスワード"
         remember_me: "ログインを記憶"
     models:
       user: "ユーザ"
