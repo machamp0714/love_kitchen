@@ -16,12 +16,7 @@ RSpec.describe User, type: :model do
         user.name = nil
         expect(user).to_not be_valid
       end
-
-      it 'ユーザー名が４文字以下の場合無効であること' do
-        user.name = 'a' * 3
-        expect(user).to_not be_valid
-      end
-
+      
       it 'ユーザー名が１２文字以上の場合無効であること' do
         user.name = 'a' * 13
         expect(user).to_not be_valid
@@ -51,6 +46,9 @@ RSpec.describe User, type: :model do
     end
 
     context 'メールアドレスに対するvalidation' do
+      before do
+        FactoryBot.create(:bob)
+      end
       it 'メールアドレスに@が含まれていない場合無効であること' do
         user.email = 'alice.com' 
         expect(user).to_not be_valid
@@ -58,6 +56,11 @@ RSpec.describe User, type: :model do
 
       it 'メールアドレスが存在しない場合無効であること' do
         user.email = nil
+        expect(user).to_not be_valid
+      end
+
+      it 'メールアドレスが既に存在している場合無効であること' do
+        user.email = 'bob@email.com'
         expect(user).to_not be_valid
       end
     end
