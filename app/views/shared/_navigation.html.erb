@@ -1,0 +1,25 @@
+<!-- Navigation -->
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="#page-top" class="navbar-brand page-scroll">LoveKitchen</a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <% if user_signed_in? %>
+                    <li> <%= link_to 'お気に入り', '#' %> </li>
+                    <li> <%= link_to '投稿する', '#' %> </li>
+                    <li> <%= link_to 'ログアウト', '#' %> </li>
+                <% else %>
+                    <li> <%= link_to 'LoveKitchenとは', '#about', class: 'page-scroll' %> </li>
+                    <li> <%= link_to '無料会員登録', signup_path, class: 'page-scroll' %> </li>
+                    <li> <%= link_to 'ログイン', '#', class: 'page-scroll' %> </li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+</nav>
