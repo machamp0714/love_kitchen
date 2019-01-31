@@ -13,11 +13,11 @@
                 <% if user_signed_in? %>
                     <li> <%= link_to 'お気に入り', '#' %> </li>
                     <li> <%= link_to '投稿する', '#' %> </li>
-                    <li> <%= link_to 'ログアウト', '#' %> </li>
+                    <li> <%= link_to 'ログアウト', logout_path, method: :delete %> </li>
                 <% else %>
                     <li> <%= link_to 'LoveKitchenとは', '#about', class: 'page-scroll' %> </li>
                     <li> <%= link_to '無料会員登録', signup_path, class: 'page-scroll' %> </li>
-                    <li> <%= link_to 'ログイン', '#', class: 'page-scroll' %> </li>
+                    <li> <%= link_to 'ログイン', login_path %> </li>
                 <% end %>
             </ul>
         </div>
