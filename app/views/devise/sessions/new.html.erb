@@ -1,27 +1,18 @@
-<div id="contact" class="text-center">
-  <div class="container">
-    <div class="section-title center">
-      <h2>ログイン</h2>
-      <hr>
-    </div>
-    <div class="col-md-8 col-md-offset-2">
-      <%= devise_error_messages! %>
-      <%= form_for(resource, as: resource_name, url: login_path) do |f| %>
-        <div class="form-group">
-          <%= f.email_field :email, autofocus: true, autocomplete: 'name', class: 'form-control', placeholder: 'メールアドレス' %>
-        </div>
-        <div class="form-group">
-          <%= f.password_field :password, autocomplete: 'current_password', class: 'form-control', placeholder: 'パスワード' %>
-        </div>
-
-        <% if devise_mapping.rememberable? -%>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-        <% end -%>
-        <%= f.submit 'ログインする', class: 'btn btn-default' %>
-      <% end %>
-    </div>
+<div class="container">
+  <div class="page-title text-center">
+    <h2>ログイン</h2>
+    <hr>
+  </div>
+  <div class="form">
+    <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: login_path) do |f| %>
+      <div class="form-group">
+        <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'メールアドレス' %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, autocomplete: 'new_password', class: 'form-control', placeholder: 'パスワード' %>
+      </div>
+      <%= f.submit 'ログインする', class: 'btn btn-default' %>
+    <% end%>
   </div>
 </div>
