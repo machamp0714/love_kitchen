@@ -1,15 +1,20 @@
 .navbar-custom {    
     letter-spacing: 2px;
+    .navbar-brand {
+        color: #fff;
+        font-weight: bold;
+    }
+    .nav-item {
+        .nav-link {
+            color: #fff;
+            &:hover {
+                outline: 0;
+                color: #E75926;
+                background-color: transparent;
+            }
+        }
+    }
 }
-.navbar-custom .navbar-brand {
-    color: #fff;
-    font-weight: bold;
-}
-.navbar-custom .nav-item .nav-link  {
-    color: #fff;
-}
-.navbar-custom .nav-item .nav-link:hover {
-    outline: 0;
-	color: #E75926;
-	background-color: transparent;
+.dropdown-menu {
+    background-color: #343a40
 }
