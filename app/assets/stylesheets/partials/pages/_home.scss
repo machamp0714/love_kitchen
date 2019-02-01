@@ -1,0 +1,53 @@
+#top {
+    display: table;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 100px 0;
+    background-color: #000;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+    color: #fff;
+    .top-body {
+        display: table-cell;
+        vertical-align: middle;
+        H1 {
+            font-size: 76px;
+            font-weight: bold;
+            color: rgba(255,255,255,0.8);
+        }
+        .brand-heading {
+            color: #E75926;
+            text-shadow: 0 4px #a13e1a;
+        }
+        .top-text {
+            font-size: 18px;
+        }
+    }
+}
+@media(min-width:768px) {
+    #top {
+        height: 100%;
+        padding: 0;
+        .top-body {
+            .top-text {
+                font-size: 18px;
+                letter-spacing: 1px;
+                margin-bottom: 100px;
+                color: rgba(255,255,255,0.8);
+            }
+        }
+    }
+}
+.btn-default {
+    color: #f6f6f6;
+    letter-spacing: 1px;
+    background: #cf5022;
+    border: 0;
+    padding: 12px 24px;
+    margin: 0 8px;
+    font-size: 18px;
+    transition: all 0.5s;
+}
