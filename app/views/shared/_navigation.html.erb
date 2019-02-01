@@ -7,11 +7,19 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbar-content">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
                     <li class="nav-item"> <%= link_to 'お気に入り', '#', class: 'nav-link' %> </li>
                     <li class="nav-item"> <%= link_to '投稿する', '#', class: 'nav-link' %> </li>
-                    <li class="nav-item"> <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %> </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            マイページ
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <%= link_to 'プロフィール', '#', class: 'nav-link' %>
+                            <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %>
+                        </div>
+                    </li>
                 <% else %>
                     <li class="nav-item"> <%= link_to 'About', '#', class: 'nav-link' %> </li>
                     <li class="nav-item"> <%= link_to '無料会員登録', signup_path, class: 'nav-link' %> </li>
