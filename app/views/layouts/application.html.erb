@@ -11,8 +11,10 @@
   </head>
 
   <body>
-    <%= render 'shared/navigation' %>
-    <%= render 'layouts/flash' %>
-    <%= yield %>
+    <div class="allWrapper">
+      <%= render 'shared/navigation' %>
+      <%= render 'layouts/flash' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
