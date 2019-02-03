@@ -6,4 +6,6 @@ class User < ApplicationRecord
   validates :name,
     presence: true,
     length: { maximum: 12 }
+  validates :introduce,
+    length: { maximum: 200 }
 end
