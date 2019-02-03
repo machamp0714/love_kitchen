@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="profile-avatar">
-                    <img src="/Users/rakkusann/portfolio/love_kitchen/app/assets/images/profle.png" alt="プロフィール画像">
+                    <%= image_tag(current_user.avatar_url) %>
                 </div>
                 <div class="profile-username">
                     <h3> <%= current_user.name %> </h3>
