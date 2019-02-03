@@ -23,6 +23,7 @@ ja:
         current_password: "現在のパスワード"
         name: "ユーザー名"
         email: "メールアドレス"
+        introduce: "自己紹介"
         password: "パスワード"
         password_confirmation: "パスワード"
         remember_me: "ログインを記憶"
