@@ -26,7 +26,9 @@
           </div>
 
           <div class="settings-avatar">
-            <%= image_tag current_user.avatar_url, size: '64x64' %>
+            <div class="profile-avatar-icon">
+              <%= image_tag current_user.avatar_url, size: '64x64' %>
+            </div>
             <div class="avatar-upload">
               <%= f.file_field :avatar, class: 'form-control-file' %>
               10 MB まで
