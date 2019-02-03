@@ -47,9 +47,13 @@
     background: #cf5022;
     border: 0;
     padding: 12px 24px;
-    margin: 0 8px;
     font-size: 18px;
+    font-weight: 500;
     transition: all 0.5s;
+    &:hover {
+        background: #E75926;
+        color: #fff;
+    }
 }
 .mypage {
     margin-top: 20px;
