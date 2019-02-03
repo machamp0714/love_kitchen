@@ -2,7 +2,7 @@
 <div id="main">
     <div class="container mypage">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 profile-bg">
                 <div class="profile-avatar">
                     <img src="/Users/rakkusann/portfolio/love_kitchen/app/assets/images/profle.png" alt="プロフィール画像">
                 </div>
@@ -10,6 +10,9 @@
                     <h3> <%= current_user.name %> </h3>
                 </div>
                 <div class="profile-info">
+                    <div class="profile-introduce">
+                        自己紹介
+                    </div>
                     <%= link_to 'プロフィールを編集する', '#', class: 'edit-profile' %>
                 </div>
             </div>
