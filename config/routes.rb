@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'signup', to: 'users/registrations#new'
     post 'signup', to: 'users/registrations#create'
     get 'setting/profile', to: 'users/registrations#edit'
-    patch 'edit/profile', to: 'users/registrations#update'
+    patch 'setting/profile', to: 'users/registrations#update'
     get 'login', to: 'users/sessions#new'
     post 'login', to: 'users/sessions#create'
     delete 'logout', to: 'users/sessions#destroy'
