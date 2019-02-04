@@ -26,7 +26,7 @@ RSpec.feature "Users", type: :feature do
     click_link "プロフィールを編集する"
     fill_in "自己紹介", with: "hello, my name is bob."
     click_on "更新する"
-    expect(page).to have_content "編集が完了しました。"
+    expect(page).to have_content "アカウント情報を変更しました。"
 
   end
 end
