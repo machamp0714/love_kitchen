@@ -1,34 +1,37 @@
-<!-- Header -->
-<div id="intro">
-    <div class="intro-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <h1>Love <span class="brand-heading">Kitchen</span></h1>
-                    <p class="intro-text">料理好きな人の”こだわり”を共有出来るサービスです</p>
-                    <a href="#signup" class="btn btn-default page-scroll">すぐに始める</a>
+<% if user_signed_in? %>
+<div id="main">
+    <div class="container mypage">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="profile-avatar">
+                    <%= image_tag(current_user.avatar_url) %>
+                </div>
+                <div class="profile-username">
+                    <h3> <%= current_user.name %> </h3>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-introduce">
+                        <%= current_user.introduce %>
+                    </div>
+                    <%= link_to 'プロフィールを編集する', setting_profile_path, class: 'edit-profile' %>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<!-- About Section -->
-<div id="about">
-    <div class="container">
-        <div class="section-title text-center center">
-            <h2>LoveKitchenとは</h2>
-            <hr>
+<% else %>
+<!-- Header -->
+<div id="top">
+    <div class="top-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1>Love <span class="brand-heading">Kitchen</span></h1>
+                    <p class="top-text">料理好きな人の”こだわり”をシェア出来るサービスです</p>
+                    <%= link_to '今すぐ始める！', signup_path, class: 'btn btn-default' %>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-<!-- Sign up Section -->
-<div id="signup" class="text-center">
-    <div class="container">
-        <div class="section-title text-center center">
-            <h2>無料会員登録</h2>
-            <hr>
-        </div>
-    </div>
-</div>
+<% end %>

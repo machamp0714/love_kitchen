@@ -1,23 +1,30 @@
 <!-- Navigation -->
-<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-fixed-top navbar-expand-md navbar-dark bg-dark navbar-custom">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a href="#page-top" class="navbar-brand page-scroll">LoveKitchen</a>
-        </div>
+        <%= link_to 'LoveKitchen', root_path, class: 'navbar-brand' %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="collapse navbar-collapse navbar-main-collapse">
-            <ul class="nav navbar-nav">
+        <div class="collapse navbar-collapse" id="navbar-content">
+            <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
-                    <li> <%= link_to 'お気に入り', '#' %> </li>
-                    <li> <%= link_to '投稿する', '#' %> </li>
-                    <li> <%= link_to 'ログアウト', logout_path, method: :delete %> </li>
+                    <li class="nav-item"> <%= link_to 'お気に入り', '#', class: 'nav-link' %> </li>
+                    <li class="nav-item"> <%= link_to '投稿する', '#', class: 'nav-link' %> </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            マイページ
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <%= link_to 'プロフィール', '#', class: 'nav-link' %>
+                            <div class="dropdown-divider"></div>
+                            <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %>
+                        </div>
+                    </li>
                 <% else %>
-                    <li> <%= link_to 'LoveKitchenとは', '#about', class: 'page-scroll' %> </li>
-                    <li> <%= link_to '無料会員登録', signup_path, class: 'page-scroll' %> </li>
-                    <li> <%= link_to 'ログイン', login_path %> </li>
+                    <li class="nav-item"> <%= link_to 'About', '#', class: 'nav-link' %> </li>
+                    <li class="nav-item"> <%= link_to '無料会員登録', signup_path, class: 'nav-link' %> </li>
+                    <li class="nav-item"> <%= link_to 'ログイン', login_path, class: 'nav-link' %> </li>
                 <% end %>
             </ul>
         </div>

@@ -7,7 +7,7 @@ gem 'rails', '~> 5.2.2'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.2.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
@@ -18,6 +18,8 @@ gem 'jquery-ui-rails'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'carrierwave'
+gem 'rmagick'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

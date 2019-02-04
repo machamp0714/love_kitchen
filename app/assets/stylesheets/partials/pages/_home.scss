@@ -1,0 +1,91 @@
+#top {
+    display: table;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 100px 0;
+    background-color: #000;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+    color: #fff;
+    .top-body {
+        display: table-cell;
+        vertical-align: middle;
+        H1 {
+            font-size: 76px;
+            font-weight: bold;
+            color: rgba(255,255,255,0.8);
+        }
+        .brand-heading {
+            color: #E75926;
+            text-shadow: 0 4px #a13e1a;
+        }
+        .top-text {
+            font-size: 18px;
+        }
+    }
+}
+@media(min-width:768px) {
+    #top {
+        height: 100%;
+        padding: 0;
+        .top-body {
+            .top-text {
+                font-size: 18px;
+                letter-spacing: 1px;
+                margin-bottom: 100px;
+                color: rgba(255,255,255,0.8);
+            }
+        }
+    }
+}
+.btn-default {
+    color: #f6f6f6;
+    letter-spacing: 1px;
+    background: #cf5022;
+    border: 0;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.5s;
+    &:hover {
+        background: #E75926;
+        color: #fff;
+    }
+}
+.mypage {
+    margin-top: 20px;
+}
+.profile-avatar {
+    margin-bottom: 20px;
+}
+.profile-username {
+    margin-bottom: 16px;
+    h3 {
+        font-size: 24px;
+        font-weight: 700;
+    }
+}
+.profile-info {
+    margin-bottom: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+    color: #444;
+    a {
+        color: #999;
+        font-size: 13px;
+        &:hover {
+            color: #23527c;
+            text-decoration: underline;
+        }
+    }
+}
+.profile-introduce {
+    font-size: 13px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 12px;
+    
+}

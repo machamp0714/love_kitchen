@@ -18,11 +18,14 @@ ja:
               too_long: "は%{count}文字以下に設定してください"
             password_confirmation:
               confirmation: "が一致しません"
+            current_password:
+              blank: "が入力されていません"
     attributes:
       user:
-        current_password: "現在のパスワード"
+        current_password: "パスワード"
         name: "ユーザー名"
         email: "メールアドレス"
+        introduce: "自己紹介"
         password: "パスワード"
         password_confirmation: "パスワード"
         remember_me: "ログインを記憶"

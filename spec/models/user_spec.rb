@@ -64,5 +64,11 @@ RSpec.describe User, type: :model do
         expect(user).to_not be_valid
       end
     end
+    context '自己紹介に対するvalidation' do
+      it '自己紹介が200文字以上の場合無効であること' do
+        user.introduce = 'a' * 201
+        expect(user).to_not be_valid
+      end
+    end
   end
 end

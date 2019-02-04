@@ -1,0 +1,57 @@
+.settings-profile {
+    margin-top: 32px;
+}
+.settings-profile-menu {
+    padding: 16px;
+    a {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        color: #555;
+        border-top: 1px solid #eee;
+        padding: 8px 0;
+        &:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+.settings-profile-main {
+    padding: 12px;
+}
+.form-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 7px;
+}
+.settings-avatar {
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile-avatar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.avatar-upload {
+    flex: 1 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 16px;
+    font-size: 13px;
+    color: #333
+}
+.form-control-file {
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
