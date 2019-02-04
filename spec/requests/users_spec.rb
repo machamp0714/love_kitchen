@@ -11,4 +11,11 @@ RSpec.describe "Users", type: :request do
       expect(response).to redirect_to root_url
     end
   end
+
+  describe 'GET #edit' do
+    it 'ログインしていない場合、ログインページにリダイレクトすること' do
+      get setting_profile_path
+      expect(response).to redirect_to login_url
+    end
+  end
 end
