@@ -18,4 +18,13 @@ RSpec.describe "Users", type: :request do
       expect(response).to redirect_to login_url
     end
   end
+
+  describe 'PATCH #update' do
+    it 'ログインしていない場合、401エラーが出ること' do
+      patch setting_profile_path(user), params: {
+        user: { name: 'alice' }
+      }
+      expect(response.status).to eq 401
+    end
+  end
 end
