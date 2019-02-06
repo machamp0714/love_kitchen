@@ -1,0 +1,27 @@
+<div class="container setting-profile">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="setting-profile-menu">
+                <%= link_to 'プロフィール', setting_profile_path %>
+                <%= link_to 'パスワード', setting_password_path %>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form settings-profile-main">
+                <%= form_for(@user, url: { action: 'update_password'} ) do %>
+                    <%= devise_error_messages! %>
+                    <div class="form-group">
+                        <%= f.label :password, class: 'form-label' %>
+                        <%= f.password_field :password, autocomplete: "off "%>
+                    </div>
+
+                    <div class="form-group">
+                        <%= f.label :password_confirmation, 'form-label' %>
+                        <%= f.password_field :password_confirmation %>
+                    </div>
+                    <%= f.submit '変更する', class: 'btn btn-default' %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
