@@ -24,4 +24,14 @@ RSpec.feature "Users", type: :feature do
     click_on "更新する"
     expect(page).to have_content "アカウント情報を変更しました。"
   end
+
+  scenario 'パスワードを変更できること' do
+    sign_in_as user
+    click_link "プロフィールを編集する"
+    click_link "パスワード"
+    fill_in "パスワード", with: "hogehoge"
+    fill_in "確認用パスワード", with: "hogehoge"
+    click_on "変更する"
+    expect(page).to have_content "パスワードが変更されました。"
+  end
 end
