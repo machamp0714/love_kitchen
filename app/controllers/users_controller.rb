@@ -9,17 +9,16 @@ class UsersController < ApplicationController
         @user = current_user
         if @user.update(user_params)
             bypass_sign_in(@user)
-            flash[:notice] = "パスワードが変更されました。"
-            redirect_to root_url
+            redirect_to root_url, notice: "パスワードが変更されました。"
         else
-            flash[:alert] = "入力に誤りがあります。"
+            flash.now[:alert] = "入力に誤りがあります。"
             render :edit
         end
     end
 
     private
 
-    def user_params
-        params.require(:user).permit(:pssword, :password_confirmation)
-    end
+        def user_params
+            params.require(:user).permit(:password, :password_confirmation)
+        end
 end
