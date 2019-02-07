@@ -16,9 +16,24 @@ RSpec.describe User, type: :model do
         user.name = nil
         expect(user).to_not be_valid
       end
+
+      it 'ユーザー名が3文字以下の場合無効であること' do
+        user.name = 'a' * 2
+        expect(user).to_not be_valid
+      end
       
-      it 'ユーザー名が１２文字以上の場合無効であること' do
-        user.name = 'a' * 13
+      it 'ユーザー名が20文字以上の場合無効であること' do
+        user.name = 'a' * 21
+        expect(user).to_not be_valid
+      end
+
+      it 'ユーザー名に半角英数字以外が使われている場合無効であること' do
+        user.name = 'アリス'
+        expect(user).to_not be_valid
+      end
+
+      it 'ユーザー名が数字のみの場合無効であること' do
+        user.name = '1234'
         expect(user).to_not be_valid
       end
     end
