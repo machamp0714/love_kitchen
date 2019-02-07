@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'pages#home'
-  get '/:id', to: 'users#show'
+  get 'profile/:id', to: 'users#show', as: :profile
   get 'setting/password', to: 'users#edit'
   patch 'setting/password', to: 'users#update_password'
   
