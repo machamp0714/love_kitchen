@@ -16,7 +16,7 @@
                             マイページ
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <%= link_to 'プロフィール', '#', class: 'nav-link' %>
+                            <%= link_to 'プロフィール', current_user, class: 'nav-link' %>
                             <div class="dropdown-divider"></div>
                             <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %>
                         </div>

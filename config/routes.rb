@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   scope do
-    resources :user, only: :show, path: '/'
+    resources :users, only: :show, path: '/'
   end
   get 'setting/password', to: 'users#edit'
   patch 'setting/password', to: 'users#update_password'

@@ -1,24 +1,5 @@
 <% if user_signed_in? %>
-<div id="main">
-    <div class="container mypage">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="profile-avatar">
-                    <%= image_tag current_user.avatar.to_s, size: '255x255' %>
-                </div>
-                <div class="profile-username">
-                    <h3> <%= current_user.name %> </h3>
-                </div>
-                <div class="profile-info">
-                    <div class="profile-introduce">
-                        <%= current_user.introduce %>
-                    </div>
-                    <%= link_to 'プロフィールを編集する', setting_profile_path, class: 'edit-profile' %>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+トップページ
 <% else %>
 <!-- Header -->
 <div id="top">
