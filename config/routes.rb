@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'pages#home'
-  get 'profile/:id', to: 'users#show', as: :profile
+  scope do
+    resources :user, only: :show, path: '/'
+  end
   get 'setting/password', to: 'users#edit'
   patch 'setting/password', to: 'users#update_password'
   
