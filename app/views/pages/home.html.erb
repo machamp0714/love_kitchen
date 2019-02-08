@@ -1,31 +1,12 @@
 <% if user_signed_in? %>
-<div id="main">
-    <div class="container mypage">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="profile-avatar">
-                    <%= image_tag(current_user.avatar_url) %>
-                </div>
-                <div class="profile-username">
-                    <h3> <%= current_user.name %> </h3>
-                </div>
-                <div class="profile-info">
-                    <div class="profile-introduce">
-                        <%= current_user.introduce %>
-                    </div>
-                    <%= link_to 'プロフィールを編集する', setting_profile_path, class: 'edit-profile' %>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+トップページ
 <% else %>
 <!-- Header -->
 <div id="top">
     <div class="top-body">
         <div class="container">
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-10 top-header">
                     <h1>Love <span class="brand-heading">Kitchen</span></h1>
                     <p class="top-text">料理好きな人の”こだわり”をシェア出来るサービスです</p>
                     <%= link_to '今すぐ始める！', signup_path, class: 'btn btn-default' %>

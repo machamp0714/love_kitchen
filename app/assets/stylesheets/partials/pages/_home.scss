@@ -31,14 +31,15 @@
     #top {
         height: 100%;
         padding: 0;
-        .top-body {
-            .top-text {
-                font-size: 18px;
-                letter-spacing: 1px;
-                margin-bottom: 100px;
-                color: rgba(255,255,255,0.8);
-            }
-        }
+    }
+    .top-header {
+        margin-left: 97.5px;
+    }
+    .top-text {
+        font-size: 18px;
+        letter-spacing: 1px;
+        margin-bottom: 100px;
+        color: rgba(255,255,255,0.8);
     }
 }
 .btn-default {
@@ -87,5 +88,5 @@
     padding-bottom: 12px;
     border-bottom: 1px solid #eee;
     margin-bottom: 12px;
-    
+    overflow-wrap: break-word;
 }

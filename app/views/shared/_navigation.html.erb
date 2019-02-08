@@ -16,13 +16,13 @@
                             マイページ
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <%= link_to 'プロフィール', '#', class: 'nav-link' %>
+                            <%= link_to 'プロフィール', current_user, class: 'nav-link' %>
                             <div class="dropdown-divider"></div>
                             <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %>
                         </div>
                     </li>
                 <% else %>
-                    <li class="nav-item"> <%= link_to 'About', '#', class: 'nav-link' %> </li>
+                    <li class="nav-item"> <%= link_to 'LoveKitchenとは', '#', class: 'nav-link' %> </li>
                     <li class="nav-item"> <%= link_to '無料会員登録', signup_path, class: 'nav-link' %> </li>
                     <li class="nav-item"> <%= link_to 'ログイン', login_path, class: 'nav-link' %> </li>
                 <% end %>

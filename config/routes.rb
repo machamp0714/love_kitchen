@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'pages#home'
+  scope do
+    resources :users, only: :show, path: 'profile'
+  end
+  get 'setting/password', to: 'users#edit'
+  patch 'setting/password', to: 'users#update_password'
   
   devise_scope :user do
     get 'signup', to: 'users/registrations#new'
