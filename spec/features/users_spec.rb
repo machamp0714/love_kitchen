@@ -19,6 +19,7 @@ RSpec.feature "Users", type: :feature do
 
   scenario 'プロフィールを編集出来ること' do
     sign_in_as user
+    click_link "プロフィール"
     click_link "プロフィールを編集する"
     fill_in "自己紹介", with: "hello, my name is alice."
     click_on "更新する"
@@ -27,6 +28,7 @@ RSpec.feature "Users", type: :feature do
 
   scenario 'パスワードを変更できること' do
     sign_in_as user
+    click_link "プロフィール"
     click_link "プロフィールを編集する"
     click_link "パスワード"
     fill_in "パスワード", with: "hogehoge"
