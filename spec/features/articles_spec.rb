@@ -9,8 +9,8 @@ RSpec.feature "Articles", type: :feature do
     click_link "投稿する"
     expect {
       fill_in "タイトル", with: "アルミパン"
-      fill_in "ストーリー", with: "アルミパンはコスパがいい"
-      click_on "投稿"
+      fill_in "article[content]", with: "アルミパンはコスパがいい"
+      click_on "LoveKitchenに投稿"
     }.to change(Article, :count).by(1)
     expect(page).to have_content "Success!!"
   end

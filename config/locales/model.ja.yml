@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        article:
+          attributes:
+            title: 
+              blank: "を入力してください。"
+            content:
+              blank: "を入力してください。"
+    attributes:
+      article:
+        title: "タイトル"
+        content: "ストーリー"
