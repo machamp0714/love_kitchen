@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  let(:article) { FactoryBot.build(:test) }
+
+  describe '投稿が無効な場合' do
+    it 'タイトルが空白の場合無効であること' do
+      article.title = ""
+      expect(article).to_not be_valid
+    end
+  end
 end
