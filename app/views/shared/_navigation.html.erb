@@ -10,7 +10,7 @@
             <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
                     <li class="nav-item"> <%= link_to 'お気に入り', '#', class: 'nav-link' %> </li>
-                    <li class="nav-item"> <%= link_to '投稿する', '#', class: 'nav-link' %> </li>
+                    <li class="nav-item"> <%= link_to '投稿する', new_article_path, class: 'nav-link' %> </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             マイページ

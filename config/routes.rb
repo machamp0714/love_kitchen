@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'pages#home'
+
   scope do
     resources :users, only: :show, path: 'profile'
   end
+
   get 'setting/password', to: 'users#edit'
   patch 'setting/password', to: 'users#update_password'
   
@@ -17,5 +19,6 @@ Rails.application.routes.draw do
     post 'login', to: 'users/sessions#create'
     delete 'logout', to: 'users/sessions#destroy'
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  resources :articles, only: [:new, :create, :edit, :update, :destroy]
 end
