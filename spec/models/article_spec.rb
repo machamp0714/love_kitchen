@@ -9,5 +9,10 @@ RSpec.describe Article, type: :model do
       article.title = ""
       expect(article).to_not be_valid
     end
+
+    it '記事が空白の場合無効であること' do
+      article.content = ""
+      expect(article).to_not be_valid
+    end
   end
 end
