@@ -24,8 +24,8 @@ RSpec.feature "Articles", type: :feature do
     click_link @article.title
     click_link "編集する"
     fill_in "article[title]", with: "編集テスト"
-    fill_in "article[content", with: "テスト投稿"
-    click_on "編集する"
+    fill_in "article[content]", with: "テスト投稿"
+    click_on "更新する"
     expect(page).to have_content "Updated!!"
   end
 end
