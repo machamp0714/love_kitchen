@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
     before_action :authenticate_user!
     before_action :correct_user, only: [:edit, :update, :destroy]
+    before_action :set_article, only: [:show, :edit, :update]
 
     def new
         @article = Article.new
@@ -16,15 +17,14 @@ class ArticlesController < ApplicationController
     end
 
     def show 
-        @article = Article.find(params[:id])
+        
     end
 
     def edit
-        @article = Article.find(params[:id])
+        
     end
 
     def update
-        @article = Article.find(params[:id])
         if @article.update(article_params)
             redirect_to current_user, notice: 'Updated!!'
         else
@@ -41,6 +41,10 @@ class ArticlesController < ApplicationController
     def correct_user
         @article = current_user.articles.find(params[:id])
         redirect_to root_url if @article.nil?
+    end
+
+    def set_article
+        @article = Article.find(params[:id])
     end
 
 end
