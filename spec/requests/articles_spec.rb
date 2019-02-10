@@ -22,4 +22,12 @@ RSpec.describe "Articles", type: :request do
       expect(response).to redirect_to root_url
     end
   end
+
+  describe 'DELETE #destroy' do
+    it '他のユーザーの記事を削除できないこと' do
+      sign_in alice
+      delete article_path(@bob_article)
+      expect(response).to redirect_to root_url
+    end
+  end
 end
