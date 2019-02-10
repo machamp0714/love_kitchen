@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
     before_action :authenticate_user!
+    before_action :correct_user, only: [:edit, :update, :destroy]
 
     def new
         @article = Article.new
@@ -22,6 +23,11 @@ class ArticlesController < ApplicationController
 
     def article_params
         params.require(:article).permit(:title, :content)
+    end
+
+    def correct_user
+        @article = current_user.articles.find(params[:id])
+        redirect_to root_url if @article.nil?
     end
 
 end
