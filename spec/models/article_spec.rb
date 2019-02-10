@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Article, type: :model do
   
-  let(:article) { FactoryBot.build(:test) }
+  let(:article) { FactoryBot.build(:alice_article) }
 
   describe '投稿が無効な場合' do
     it 'タイトルが空白の場合無効であること' do
