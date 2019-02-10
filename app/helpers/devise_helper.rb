@@ -20,4 +20,8 @@ module DeviseHelper
     def devise_error_messages?
         resource.errors.empty? ? false : true
     end
+
+    def current_user?(user)
+        user == current_user
+    end
 end
