@@ -23,6 +23,15 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
     end
 
+    def update
+        @article = Article.find(params[:id])
+        if @article.update(article_params)
+            redirect_to current_user, notice: 'Updated!!'
+        else
+            render :edit
+        end
+    end
+
     private
 
     def article_params
