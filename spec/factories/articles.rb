@@ -9,7 +9,7 @@ FactoryBot.define do
   factory :bob_article, class: Article do
     title { "美味しいトマトソースを作るにはコレ" }
     content { "トマトソースを作るときはいつもこのトマト缶を使っています" }
-    association :user, factory: :bob_article
+    association :user, factory: :bob
     created_at { 3.days.ago }
   end
 end
