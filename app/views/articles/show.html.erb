@@ -1,6 +1,6 @@
 <%= @article.title %>
 <%= @article.content %>
 <% if current_user?(@article.user) %>
-    <%= link_to '編集する', '#' %>
+    <%= link_to '編集する', edit_article_path %>
     <%= link_to '削除する', '#', method: :delete %>
 <% end %>
