@@ -2,5 +2,5 @@
 <%= @article.content %>
 <% if current_user?(@article.user) %>
     <%= link_to '編集する', edit_article_path %>
-    <%= link_to '削除する', '#', method: :delete %>
+    <%= link_to '削除する', article_path, method: :delete %>
 <% end %>
