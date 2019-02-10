@@ -1,0 +1,24 @@
+<div class="articleEditor">
+    <%= form_for(@article) do |f| %>
+        <div class="editor-content">
+            <div class="editorTitle">
+                <%= f.text_field :title, class: 'form-control' %>
+            </div>
+            <div class="editorBody">
+                <div class="editorStory">
+                    <div class="editorStory_textareaWrapper">
+                        <%= f.text_area :content, class: 'editorStory_textarea' %>
+                    </div>
+                </div>
+                <div class="editorChart">
+                    ユーザーがレーダーチャートを作成できるようにする予定
+                </div>
+            </div>
+        </div>
+        <div class="editorFooter">
+            <div class="editorSubmit">
+                <%= f.submit '更新する', class: 'btn btn-default'%>
+            </div>
+        </div>
+    <% end %>
+</div>
