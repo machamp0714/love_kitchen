@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
-
-  root 'pages#home'
-
-  scope do
-    resources :users, only: :show, path: 'profile'
-  end
-
-  get 'setting/password', to: 'users#edit'
-  patch 'setting/password', to: 'users#update_password'
-  
+  # devise_for :users
   devise_scope :user do
     get 'signup', to: 'users/registrations#new'
     post 'signup', to: 'users/registrations#create'
@@ -19,6 +9,11 @@ Rails.application.routes.draw do
     post 'login', to: 'users/sessions#create'
     delete 'logout', to: 'users/sessions#destroy'
   end
-  
-  resources :articles, only: [:new, :create, :edit, :update, :destroy]
+  scope do
+    resources :users, only: :show, path: '/'
+  end
+  get 'setting/password', to: 'users#edit'
+  patch 'setting/password', to: 'users#update_password'
+
+  root 'pages#home'
 end
