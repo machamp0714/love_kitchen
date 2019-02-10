@@ -4,7 +4,7 @@ RSpec.feature "Articles", type: :feature do
 
   given(:alice) { FactoryBot.create(:alice) }
   before do
-    @article = FactoryBot.create(:test, user: alice)
+    @article = FactoryBot.create(:alice_article, user: alice)
   end
 
   scenario '記事を投稿できること' do
