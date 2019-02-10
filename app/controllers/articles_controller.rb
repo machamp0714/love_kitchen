@@ -19,6 +19,10 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
     end
 
+    def edit
+        
+    end
+
     private
 
     def article_params
