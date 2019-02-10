@@ -15,6 +15,11 @@
                     <%= link_to 'プロフィールを編集する', setting_profile_path, class: 'edit-profile' %>
                 </div>
             </div>
+            <div class="col-md-9">
+                <% @articles.each do |article| %>
+                    <%= link_to article.title, '#' %>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>
