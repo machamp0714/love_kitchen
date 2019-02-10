@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
     before_action :authenticate_user!
     before_action :correct_user, only: [:edit, :update, :destroy]
-    before_action :set_article, only: [:show, :edit, :update]
+    before_action :set_article, only: [:show, :edit, :update, :destroy]
 
     def new
         @article = Article.new
@@ -30,6 +30,11 @@ class ArticlesController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def destroy
+        @article.destroy
+        redirect_to current_user, notice: 'Deleted!!'
     end
 
     private
