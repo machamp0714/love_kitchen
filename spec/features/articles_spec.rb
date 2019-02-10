@@ -11,7 +11,7 @@ RSpec.feature "Articles", type: :feature do
     sign_in_as alice
     click_link "投稿する"
     expect {
-      fill_in "タイトル", with: "アルミパン"
+      fill_in "article[title]", with: "アルミパン"
       fill_in "article[content]", with: "アルミパンはコスパがいい"
       click_on "LoveKitchenに投稿"
     }.to change(Article, :count).by(1)
@@ -27,5 +27,15 @@ RSpec.feature "Articles", type: :feature do
     fill_in "article[content]", with: "テスト投稿"
     click_on "更新する"
     expect(page).to have_content "Updated!!"
+  end
+
+  scenario '記事を削除できること' do
+    sign_in_as alice
+    click_link "プロフィール"
+    click_link @article.title
+    expect {
+      click_link "削除する"
+    }.to change(Article, :count).by(-1)
+    expect(page).to have_content "Deleted!!"
   end
 end
