@@ -19,8 +19,7 @@ RSpec.feature "Users", type: :feature do
 
   scenario 'プロフィールを編集出来ること' do
     sign_in_as user
-    click_link "プロフィール"
-    click_link "プロフィールを編集する"
+    go_to_profile
     fill_in "自己紹介", with: "hello, my name is alice."
     click_on "更新する"
     expect(page).to have_content "アカウント情報を変更しました。"
@@ -28,8 +27,7 @@ RSpec.feature "Users", type: :feature do
 
   scenario 'パスワードを変更できること' do
     sign_in_as user
-    click_link "プロフィール"
-    click_link "プロフィールを編集する"
+    go_to_profile
     click_link "パスワード"
     fill_in "パスワード", with: "hogehoge"
     fill_in "確認用パスワード", with: "hogehoge"
@@ -39,11 +37,15 @@ RSpec.feature "Users", type: :feature do
 
   scenario 'アカウントを削除できること' do
     sign_in_as user
-    click_link "プロフィール"
-    click_link "プロフィールを編集する"
+    go_to_profile
     expect {
       click_link "アカウントを削除する"
     }.to change(User, :count).by(-1)
     expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
+  end
+
+  def go_to_profile
+    click_link "プロフィール"
+    click_link "プロフィールを編集する"
   end
 end
