@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, skip: :all
+  
   devise_scope :user do
     get 'signup', to: 'users/registrations#new'
     post 'signup', to: 'users/registrations#create'
     get 'setting/profile', to: 'users/registrations#edit'
     patch 'setting/profile', to: 'users/registrations#update'
+    delete 'delete', to: 'users/registrations#destroy'
     get 'login', to: 'users/sessions#new'
     post 'login', to: 'users/sessions#create'
     delete 'logout', to: 'users/sessions#destroy'
