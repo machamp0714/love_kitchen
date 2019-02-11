@@ -36,6 +36,9 @@
           </div>
           <%= f.submit '更新する', class: 'btn btn-default' %>
         <% end %>
+        <div class="delete-heading">アカウント削除</div>
+        <div class="delete-help">一度アカウントを削除すると、二度と元に戻せません。</div>
+        <%= link_to 'アカウントを削除する', delete_path, method: :delete, class: 'btn btn-default btn-danger' %>
       </div>
     </div>
   </div>

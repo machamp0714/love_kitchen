@@ -1,0 +1,14 @@
+.btn-default {
+    color: #f6f6f6;
+    letter-spacing: 1px;
+    background: #cf5022;
+    border: 0;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.5s;
+    &:hover {
+        background: #E75926;
+        color: #fff;
+    }
+}
