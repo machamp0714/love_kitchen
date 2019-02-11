@@ -36,4 +36,14 @@ RSpec.feature "Users", type: :feature do
     click_on "変更する"
     expect(page).to have_content "パスワードが変更されました。"
   end
+
+  scenario 'アカウントを削除できること' do
+    sign_in_as user
+    click_link "プロフィール"
+    click_link "プロフィールを編集する"
+    expect {
+      click_link "アカウントを削除する"
+    }.to change(User, :count).by(-1)
+    expect(page).to have_content 'アカウントが削除されました'
+  end
 end
