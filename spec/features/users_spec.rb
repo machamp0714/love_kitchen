@@ -44,6 +44,17 @@ RSpec.feature "Users", type: :feature do
     expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
   end
 
+  scenario 'アカウントを削除すると、紐づけられている記事も削除されること' do
+    alice = FactoryBot.create(:alice) do |u|
+      u.articles.create(FactoryBot.attributes_for(:alice_article))
+    end
+    sign_in_as alice
+    go_to_profile
+    expect {
+      click_link "アカウントを削除する"
+    }.to change(Article, :count).by(-1)
+  end
+
   def go_to_profile
     click_link "プロフィール"
     click_link "プロフィールを編集する"
