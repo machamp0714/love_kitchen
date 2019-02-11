@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, skip: :all
   devise_scope :user do
     get 'signup', to: 'users/registrations#new'
     post 'signup', to: 'users/registrations#create'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :users, only: :show, path: '/'
   end
 
-  resources :articles
+  resources :articles, only: [:new, :create, :show, :edit, :update, :destroy]
 
   root 'pages#home'
 end
