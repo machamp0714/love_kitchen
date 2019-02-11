@@ -44,6 +44,6 @@ RSpec.feature "Users", type: :feature do
     expect {
       click_link "アカウントを削除する"
     }.to change(User, :count).by(-1)
-    expect(page).to have_content 'アカウントが削除されました'
+    expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
   end
 end
