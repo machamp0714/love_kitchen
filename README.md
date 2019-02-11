@@ -1,24 +1,25 @@
-# README
+# LoveKitchen
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+料理好きなユーザーが普段使っているキッチンツール(フライパン、包丁...)や
+調味料等をシェアできるサービスです。
 
-Things you may want to cover:
+## Description
 
-* Ruby version
+記事を閲覧して、お気に入りの記事はストックしたりコメントを送信することもできます。
+また、記事を投稿する際は、写真を添付したり、必要であればグラフも挿入することが出来ます。
 
-* System dependencies
+## Features
 
-* Configuration
+- 記事を投稿する(写真を複数添付、レーダーチャートを作成できる)
+- コメントの送信、またコメントの返信が可能
+- 記事にいいねすることが可能
+- 記事をストックすることが可能
 
-* Database creation
+***DEMO:***
 
-* Database initialization
+準備中
 
-* How to run the test suite
+## Requirement
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ruby 2.5.3
+rails 5.2.2
