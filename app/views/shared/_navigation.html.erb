@@ -24,7 +24,11 @@
                 <% else %>
                     <li class="nav-item"> <%= link_to 'LoveKitchenとは', '#', class: 'nav-link' %> </li>
                     <li class="nav-item"> <%= link_to '無料会員登録', signup_path, class: 'nav-link' %> </li>
-                    <li class="nav-item"> <%= link_to 'ログイン', login_path, class: 'nav-link' %> </li>
+                    <li class="nav-item"> 
+                        <%= link_to login_path, class: 'nav-link' do %>
+                            <i class="fas fa-lock"></i> ログイン
+                        <% end %>
+                    </li>
                 <% end %>
             </ul>
         </div>
