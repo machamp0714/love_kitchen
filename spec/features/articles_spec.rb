@@ -11,7 +11,9 @@ RSpec.feature "Articles", type: :feature do
     expect {
       fill_in "article[title]", with: "アルミパン"
       fill_in "article[content]", with: "アルミパンはコスパがいい"
-      click_on "LoveKitchenに投稿"
+      within '.editorSubmit' do
+        click_on "投稿する"
+      end
     }.to change(Article, :count).by(1)
     expect(page).to have_content "Success!!"
   end
