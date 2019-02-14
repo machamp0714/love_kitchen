@@ -1,0 +1,79 @@
+.articleEditor {
+    position: absolute;
+    top: 51px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #f8faf7;
+}
+.editor-content {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 0;
+    left: 5px;
+}
+.editorTitle {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 44px;
+    input {
+        border: 1px solid #ddd;
+        font-size: 24px;
+        height: 100%;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-right: 78px;
+        padding-left: 10px;
+    }
+}
+.editorBody {
+    width: 100%;
+    position: absolute;
+    top: 54px;
+    bottom: 40px;
+    border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    .row {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+.editorStory {
+    padding: 0;
+    border-top-left-radius: 3px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+}
+.editorStory_textareaWrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+.editorChart {
+    padding: 0;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    border-left: 1px solid #ddd;
+    color: #999;
+}
+.chart-sheet {
+    padding: 10px 20px;
+    h4 {
+        font-size: 18px;
+        color: #bbb;
+        font-weight: 400;
+    }
+}
