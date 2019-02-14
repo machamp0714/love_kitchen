@@ -75,8 +75,22 @@
     h4 {
         font-size: 18px;
         color: #bbb;
-        font-weight: 400;
+        font-weight: 700;
     }
+}
+.editorFooter {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    padding: 4px 5px;
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+}
+.editorSubmit {
+    float: right;
 }
 @media(max-width: 768px) {
     .editorChart {
