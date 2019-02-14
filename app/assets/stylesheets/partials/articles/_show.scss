@@ -50,6 +50,12 @@
     line-height: 1.4;
     font-feature-settings: "palt";
 }
+.article-story {
+    font-size: 16px;
+    color: #333;
+    word-wrap: break-word;
+    word-break: break-all;
+}
 @media(max-width: 480px) {
     .articleWrapper {
         background-color: #fff;
@@ -64,4 +70,36 @@
     .header-title {
         font-size: 30px;
     }
+}
+.author-info {
+    width: 100%;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+}
+.author-image {
+    display: flex;
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+}
+
+.author-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 8px;
+    a {
+        font-size: 16px;
+        font-weight: 700;
+        color: #333;
+        &:hover {
+            color: #337ab7;
+            text-decoration: underline;
+        }
+    }
+}
+.author-introduce {
+    font-size: 14px;
+    color: #777;
 }

@@ -12,6 +12,22 @@
                 </div>
                 <h1 class="header-title"> <%= @article.title %> </h1>
             </div>
+            <section class="article-story">
+                <%= @article.content %>
+            </section>
+            <div class="author-info">
+                <div class="author-content">
+                    <%= link_to @article.user do %>
+                        <%= image_tag @article.user.avatar_url, class: 'author-image' %>
+                    <% end %>
+                    <div class="author-body">
+                        <div class="author-header">
+                            <%= link_to @article.user.name, @article.user %>
+                        </div>
+                        <div class="author-introduce"> <%= @article.user.introduce %> </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
