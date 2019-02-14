@@ -8,6 +8,17 @@
                             <%= link_to @article.user.name, @article.user %>
                         </div>
                         <div class="article-time"> <%= @article.updated_at %> </div>
+                        <div class="article-meta">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="articleEditMenu" data-toggle="dropdown">
+                                    <i class="fas fatools"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <li> <%= link_to '編集する', edit_article_path %> </li>
+                                    <li> <%= link_to '削除する', article_path, method: :delete %> </li>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <h1 class="header-title"> <%= @article.title %> </h1>
