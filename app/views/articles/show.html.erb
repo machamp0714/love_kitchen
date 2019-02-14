@@ -1,6 +1,15 @@
-<%= @article.title %>
-<%= @article.content %>
-<% if current_user?(@article.user) %>
-    <%= link_to '編集する', edit_article_path %>
-    <%= link_to '削除する', article_path, method: :delete %>
-<% end %>
+<div class="articleWrapper">
+    <div class="container">
+        <div class="article-main">
+            <div class="article-header">
+                <div class="u-flex-center-between mb-3">
+                    <div class="article-header-info">
+                        <div class="article-author"></div>
+                        <div class="article-time"></div>
+                    </div>
+                    <h1 class="header-title"> <%= @article.title %> </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
