@@ -26,3 +26,32 @@ window.draw_example_chart = ->
             }
         }
     })
+
+window.draw_chart = ->
+    ctx = document.getElementById("myRadarChart").getContext('2d')
+    myRadarChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: gon.labels,
+            datasets: [{
+                label: '例',
+                data: gon.data,
+                backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                borderColor: 'rgba(255, 206, 86, 1.0)',
+                borderWidth: 1,
+                pointRadius: 3.5,
+                pointBackgroundColor: 'rgba(255, 206, 86, 1)',
+                pointBorderColor: '#fff'
+            }]
+        },
+        options: {
+            scales: {
+                ticks: {
+                    suggestedMax: 5,
+                    suggestedMin: 0,
+                    beginAtZero: true,
+                    stepSize: 1
+                }
+            }
+        }
+    })
