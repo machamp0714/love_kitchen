@@ -34,7 +34,7 @@
     width: 100%;
     position: absolute;
     top: 54px;
-    bottom: 40px;
+    bottom: 60px;
     border-radius: 3px;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -62,13 +62,14 @@
     color: #222;
     line-height: 1.5;
 }
-.editorChart {
+.editorChartBody {
     padding: 0;
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px;
     background-color: #fff;
     color: #999;
     border-left: 1px solid #ddd;
+    overflow: scroll;
 }
 .chart-sheet {
     padding: 10px 20px;
@@ -93,7 +94,7 @@
     float: right;
 }
 @media(max-width: 768px) {
-    .editorChart {
+    .editorChartBody {
         border-left: none;
         border-top: 1px solid #ddd;
     }
