@@ -26,6 +26,9 @@
             <section class="article-story">
                 <%= @article.content %>
             </section>
+            <div class="article-radar-chart">
+                <canvas id="myRadarChart"></canvas>
+            </div>
             <div class="author-info">
                 <div class="author-content">
                     <%= link_to @article.user do %>
@@ -42,3 +45,4 @@
         </div>
     </div>
 </div>
+<script>draw_chart();</script>

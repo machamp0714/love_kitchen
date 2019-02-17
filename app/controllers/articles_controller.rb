@@ -4,20 +4,29 @@ class ArticlesController < ApplicationController
     before_action :set_article, only: [:show, :edit, :update, :destroy]
 
     def new
-        @article = Article.new
+        @article = current_user.articles.build
+        @article.build_chart
     end
 
     def create
         @article = current_user.articles.build(article_params)
         if @article.save
-            redirect_to current_user, notice: 'Success!!'
+            redirect_to @article, notice: 'Success!!'
         else
             render :new
         end
     end
 
     def show 
-        
+        numbers = [0, 1, 2, 3, 4]
+        labels = [@article.chart.label1, @article.chart.label2, @article.chart.label3, @article.chart.label4, @article.chart.label5]
+        data = [@article.chart.data1, @article.chart.data2, @article.chart.data3, @article.chart.data4, @article.chart.data5]
+        gon.labels = []
+        gon.data = []
+        numbers.each do |n| 
+            gon.labels << labels[n]
+            gon.data << data[n]
+        end
     end
 
     def edit
@@ -40,7 +49,7 @@ class ArticlesController < ApplicationController
     private
 
     def article_params
-        params.require(:article).permit(:title, :content)
+        params.require(:article).permit(:title, :content, chart_attributes: [:label1, :label2, :label3, :label4, :label5, :data1, :data2, :data3, :data4, :data5, :article_id])
     end
 
     def correct_user
