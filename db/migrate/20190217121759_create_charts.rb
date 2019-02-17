@@ -6,6 +6,7 @@ class CreateCharts < ActiveRecord::Migration[5.2]
       t.string :label3
       t.string :label4
       t.string :label5
+      
       t.integer :data1
       t.integer :data2
       t.integer :data3
