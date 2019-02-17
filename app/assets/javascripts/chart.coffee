@@ -1,4 +1,4 @@
-window.draw_chart = -> 
+window.draw_example_chart = -> 
     ctx = document.getElementById("myChart").getContext('2d')
     myChart = new Chart(ctx, {
         type: 'radar',
