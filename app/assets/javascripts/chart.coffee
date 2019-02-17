@@ -32,7 +32,7 @@ window.draw_chart = ->
         data: {
             labels: gon.labels,
             datasets: [{
-                label: '例',
+                label: 'chart',
                 data: gon.data,
                 backgroundColor: 'rgba(255, 206, 86, 0.2)',
                 borderColor: 'rgba(255, 206, 86, 1.0)',

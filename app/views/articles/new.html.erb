@@ -1,5 +1,5 @@
 <div class="articleEditor">
-    <%= form_for(@article) do |f| %>
+    <%= form_for @article do |f| %>
         <div class="editor-content">
             <div class="editorTitle">
                 <%= f.text_field :title, placeholder: 'タイトル', class: 'form-control' %>
@@ -15,7 +15,7 @@
                         <h4>レーダーチャートを作成できます。</h4>
                         <canvas id="myChart"></canvas>
                         <div class="editorChart">
-                            <%= fileds_for @article.chart do |chart| %>
+                            <%= f.fields_for :chart do |chart| %>
                                 <div class="editor-chart-label">
                                     <%= chart.text_field :label1, placeholder: 'ラベル1', class: 'form-control chart-label-form' %>
                                     <%= chart.select :data1, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="editor-chart-label">
                                     <%= chart.text_field :label4, placeholder: 'ラベル4', class: 'form-control chart-label-form' %>
-                                    <%= chart.select :data5, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+                                    <%= chart.select :data4, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
                                 </div>
                                 <div class="editor-chart-label">
                                     <%= chart.text_field :label5, placeholder: 'ラベル5', class: 'form-control chart-label-form' %>
