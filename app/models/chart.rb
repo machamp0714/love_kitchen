@@ -1,0 +1,2 @@
+class Chart < ApplicationRecord
+end
