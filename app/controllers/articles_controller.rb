@@ -17,7 +17,15 @@ class ArticlesController < ApplicationController
     end
 
     def show 
-        
+        numbers = [0, 1, 2, 3, 4]
+        labels = [@article.label1, @article.label2, @article.label3, @article.label4, @article.label5]
+        data = [@article.data1, @article.data2, @article.data3, @article.data4, @article.data5]
+        gon.labels = []
+        gon.data = []
+        numbers.each do |n| 
+            gon.labels << labels[n]
+            gon.data << data[n]
+        end
     end
 
     def edit
