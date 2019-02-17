@@ -25,7 +25,7 @@ window.draw_example_chart = ->
                 }
             }
         }
-    })
+    });
 
 window.draw_chart = ->
     ctx = document.getElementById("myRadarChart").getContext('2d')
@@ -47,11 +47,12 @@ window.draw_chart = ->
         options: {
             scales: {
                 ticks: {
-                    suggestedMax: 5,
-                    suggestedMin: 0,
+                    max: 5,
+                    min: 0,
                     beginAtZero: true,
-                    stepSize: 1
+                    stepSize: 10,
+                    maxTicksLimit: 6
                 }
             }
         }
-    })
+    });
