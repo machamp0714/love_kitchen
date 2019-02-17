@@ -75,6 +75,8 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chart-js-rails (0.1.6)
+      railties (> 3.1)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (2.1.0)
@@ -283,6 +285,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   carrierwave
+  chart-js-rails
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise

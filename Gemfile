@@ -23,6 +23,7 @@ gem 'rails-i18n', '~> 5.1'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'friendly_id'
+gem "chart-js-rails"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
