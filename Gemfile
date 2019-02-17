@@ -23,7 +23,6 @@ gem 'rails-i18n', '~> 5.1'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'friendly_id'
-gem "chart-js-rails"
 gem 'gon'
 
 group :development, :test do
