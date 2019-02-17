@@ -9,22 +9,46 @@
         <div class="collapse navbar-collapse" id="navbar-content">
             <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
-                    <li class="nav-item"> <%= link_to 'お気に入り', '#', class: 'nav-link' %> </li>
-                    <li class="nav-item"> <%= link_to '投稿する', new_article_path, class: 'nav-link' %> </li>
+                    <li class="nav-item"> 
+                        <%= link_to '#', class: 'nav-link' do %>
+                            <i class="fas fa-heart"></i> お気に入り
+                        <% end %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to new_article_path, class: 'nav-link' do %>
+                            <i class="fas fa-edit"></i> 投稿する
+                        <% end %>
+                    </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             マイページ
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <%= link_to 'プロフィール', current_user, class: 'nav-link' %>
+                            <%= link_to current_user, class: 'nav-link' do %>
+                                <i class="fas fa-user-alt"></i> プロフィール
+                            <% end %>
                             <div class="dropdown-divider"></div>
-                            <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %>
+                            <%= link_to logout_path, method: :delete, class: 'nav-link' do %>
+                                <i class="fas fa-sign-out-alt"></i> ログアウト
+                            <% end %>
                         </div>
                     </li>
                 <% else %>
-                    <li class="nav-item"> <%= link_to 'LoveKitchenとは', '#', class: 'nav-link' %> </li>
-                    <li class="nav-item"> <%= link_to '無料会員登録', signup_path, class: 'nav-link' %> </li>
-                    <li class="nav-item"> <%= link_to 'ログイン', login_path, class: 'nav-link' %> </li>
+                    <li class="nav-item"> 
+                        <%= link_to '#', class: 'nav-link' do %>
+                            <i class="fas fa-cocktail"></i> LoveKitchenとは
+                        <% end %>
+                    </li>
+                    <li class="nav-item"> 
+                        <%= link_to signup_path, class: 'nav-link' do %>
+                            <i class="fas fa-rocket"></i> 無料会員登録
+                        <% end %>
+                    </li>
+                    <li class="nav-item"> 
+                        <%= link_to login_path, class: 'nav-link' do %>
+                            <i class="fas fa-lock"></i> ログイン
+                        <% end %>
+                    </li>
                 <% end %>
             </ul>
         </div>

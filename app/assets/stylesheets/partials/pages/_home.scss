@@ -42,37 +42,3 @@
         color: rgba(255,255,255,0.8);
     }
 }
-.mypage {
-    margin-top: 20px;
-}
-.profile-avatar {
-    margin-bottom: 20px;
-}
-.profile-username {
-    margin-bottom: 16px;
-    h3 {
-        font-size: 24px;
-        font-weight: 700;
-    }
-}
-.profile-info {
-    margin-bottom: 12px;
-    padding-top: 12px;
-    border-top: 1px solid #eee;
-    color: #444;
-    a {
-        color: #999;
-        font-size: 13px;
-        &:hover {
-            color: #23527c;
-            text-decoration: underline;
-        }
-    }
-}
-.profile-introduce {
-    font-size: 13px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 12px;
-    overflow-wrap: break-word;
-}

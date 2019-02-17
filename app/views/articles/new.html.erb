@@ -4,20 +4,22 @@
             <div class="editorTitle">
                 <%= f.text_field :title, placeholder: 'タイトル', class: 'form-control' %>
             </div>
-            <div class="editorBody">
-                <div class="editorStory">
+            <div class="editorBody row">
+                <div class="editorStory col-md-6">
                     <div class="editorStory_textareaWrapper">
-                        <%= f.text_area :content, placeholder: '持ってるアイテムのいい所をみんなに教えてあげよう', class: 'editorStory_textarea' %>
+                        <%= f.text_area :content, placeholder: '持ってるアイテムのいい所をみんなに教えてあげよう!', class: 'editorStory_textarea' %>
                     </div>
                 </div>
-                <div class="editorChart">
-                    ユーザーがレーダーチャートを作成できるようにする予定
-                </div>
+                <div class="editorChart col-md-6">
+                    <div class="chart-sheet">
+                        <h4>レーダーチャートを作成できます(予定)</h4>
+                    </div>
+                </div>              
             </div>
         </div>
         <div class="editorFooter">
             <div class="editorSubmit">
-                <%= f.submit 'LoveKitchenに投稿', class: 'btn btn-default'%>
+                <%= f.submit '投稿する', class: 'btn btn-default'%>
             </div>
         </div>
     <% end %>

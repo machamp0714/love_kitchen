@@ -1,0 +1,108 @@
+.articleWrapper {
+    background-color: #f6f6f6;
+    .container {
+        padding-top: 24px;
+        padding-bottom: 40px;
+    }
+}
+.article-main {
+    background-color: #fff;
+    padding: 32px;
+}
+.article-header {
+    color: #333;
+    margin-bottom: 40px;
+}
+.u-flex-center-between {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.article-header-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.article-author {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+    a {
+        color: #333;
+        font-size: 18px;
+        &:hover {
+            color: #337ab7;
+            text-decoration: underline;
+        }
+    }
+}
+.article-time {
+    color: #999;
+    font-size: 14px;
+    margin-right: 16px;
+}
+.header-title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.4;
+    font-feature-settings: "palt";
+}
+.article-story {
+    font-size: 16px;
+    color: #333;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+@media(max-width: 480px) {
+    .articleWrapper {
+        background-color: #fff;
+    }
+    .article-main {
+        padding: 0;
+    }
+    .article-header-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-title {
+        font-size: 30px;
+    }
+}
+.author-info {
+    width: 100%;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+}
+.author-content {
+    display: flex;
+}
+.author-image {
+    width: 60px;
+    height: 60px;
+}
+.author-body {
+    margin-left: 20px;
+}
+.author-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 8px;
+    a {
+        font-size: 16px;
+        font-weight: 700;
+        color: #333;
+        &:hover {
+            color: #337ab7;
+            text-decoration: underline;
+        }
+    }
+}
+.author-introduce {
+    font-size: 14px;
+    color: #777;
+}
