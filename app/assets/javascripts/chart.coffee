@@ -6,7 +6,7 @@ window.draw_example_chart = ->
             labels: ['オススメ', '価格', 'デザイン', '切れ味', '使い易さ'],
             datasets: [{
                 label: '例',
-                data: [5, 4, 5, 4, 3],
+                data: [4, 4, 4, 4, 3],
                 backgroundColor: 'rgba(255, 206, 86, 0.2)',
                 borderColor: 'rgba(255, 206, 86, 1.0)',
                 borderWidth: 1,
@@ -17,12 +17,10 @@ window.draw_example_chart = ->
         },
         options: {
             scales: {
-                ticks: {
-                    suggestedMax: 5,
-                    suggestedMin: 0,
-                    beginAtZero: true,
-                    stepSize: 1
-                }
+                max: 10,
+                min: 0,
+                beginAtZero: true,
+                stepSize: 1
             }
         }
     });
