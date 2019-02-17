@@ -24,6 +24,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'friendly_id'
 gem "chart-js-rails"
+gem 'gon'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
