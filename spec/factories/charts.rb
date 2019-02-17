@@ -10,5 +10,6 @@ FactoryBot.define do
     data3 { 1 }
     data4 { 1 }
     data5 { 1 }
+    article { nil }
   end
 end
