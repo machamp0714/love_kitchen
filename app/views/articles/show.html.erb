@@ -26,9 +26,11 @@
             <section class="article-story">
                 <%= @article.content %>
             </section>
-            <div class="article-radar-chart">
-                <canvas id="myRadarChart"></canvas>
-            </div>
+            <% unless @article.chart.nil? %>
+                <div class="article-radar-chart">
+                    <canvas id="myRadarChart"></canvas>
+                </div>
+            <% end %>
             <div class="author-info">
                 <div class="author-content">
                     <%= link_to @article.user do %>
