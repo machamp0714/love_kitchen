@@ -7,9 +7,17 @@
     right: 0;
 }
 .editor-content {
-    padding: 5px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
 }
 .editorTitle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
     width: 100%;
     height: 44px;
     input {
@@ -24,7 +32,11 @@
 }
 .editorBody {
     display: flex;
-    margin-top: 4px;
+    position: absolute;
+    top: 49px;
+    right: 0;
+    left: 0;
+    bottom: 56px;
     border: 1px solid #ddd;
     border-radius: 3px;
 }
@@ -46,19 +58,32 @@
     background-color: #fff;
     width: 50%;
     border-left: 1px solid #ddd;
+    overflow-y: scroll;
 }
+.editorFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.editorSubmit {
 
+}
 @media(max-width: 425px) {
     .editorBody {
         flex-direction: column;
-        height: 100%;
+        
     }
     .editorStory {
-        width: 100%;
+        
     }
     .editorChartBody {
         width: 100%;
         border-top: 1px solid #ddd;
         border-left: none;
+        overflow: visible;
     }
 }
