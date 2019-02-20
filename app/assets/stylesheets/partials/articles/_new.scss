@@ -57,8 +57,24 @@
 .editorChartBody {
     background-color: #fff;
     width: 50%;
+    padding: 10px;
     border-left: 1px solid #ddd;
     overflow-y: scroll;
+}
+.chart-text {
+    font-size: 18px;
+    color: #bbb;
+    font-weight: 700;
+}
+.editorChart {
+    margin-top: 20px;
+}
+.editor-chart-label {
+    display: flex;
+    margin-bottom: 15px;
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 .editorFooter {
     display: flex;
