@@ -39,6 +39,9 @@
     width: 100%;
     padding: 16px;
     border-bottom: 1px solid #ddd;
+    &:first-child {
+        padding-top: 0;
+    }
 }
 .tr-Item_userImage {
     width: 40px;
