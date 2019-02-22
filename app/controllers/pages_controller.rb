@@ -1,6 +1,13 @@
 class PagesController < ApplicationController
   def home
     if user_signed_in?
+      articles_index
+    end
+  end
+
+  private
+
+    def articles_index
       @articles = []
       users = User.all
       users.each do |user| 
@@ -10,5 +17,4 @@ class PagesController < ApplicationController
         @articles << article
       end
     end
-  end
 end
