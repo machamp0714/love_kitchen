@@ -19,14 +19,14 @@
             <div class="col-md-9">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a href="#posted-articles" id="posted-articles-tab" data-toggle="tab" class="nav-link active" role="tab" aria-controls="posted-articles" aria-selected="true">投稿した記事</a>
+                        <a href="#posted-articles" id="posted-articles-tab" data-toggle="tab" class="nav-link posted-tab active" role="tab" aria-controls="posted-articles" aria-selected="true">投稿した記事</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#liked-articles" id="liked-articles-tab" data-toggle="tab" class="nav-link" role="tab" aria-controls="liked-articles" aria-selected="false">いいねした記事</a>
+                        <a href="#liked-articles" id="liked-articles-tab" data-toggle="tab" class="nav-link posted-tab" role="tab" aria-controls="liked-articles" aria-selected="false">いいねした記事</a>
                     </li>
                 </ul>
                 <div class="tab-content mt-3" id="myTabContent">
-                    <div class="tab-pane fade show active" id="posted-articles" role="tabpanel" aria-labelledby="posted-articles-tab">
+                    <div class="tab-pane show active" id="posted-articles" role="tabpanel" aria-labelledby="posted-articles-tab">
                         <% @articles.each do |article| %>
                             <div class="tr-Item">
                                 <%= link_to article.user, class: 'tr-Item_userImage' do %>
@@ -42,7 +42,7 @@
                             </div>
                         <% end %>
                     </div>
-                    <div class="tab-pane fade" id="liked-articles" role="tabpanel" aria-labelledby="liked-articles-tab">
+                    <div class="tab-pane" id="liked-articles" role="tabpanel" aria-labelledby="liked-articles-tab">
                         いいねした記事
                     </div>
                 </div>
