@@ -18,7 +18,7 @@
             <div class="col-md-9">
                 <% @articles.each do |article| %>
                     <div class="tr-Item">
-                        <%= link_to article, class: 'tr-Item_userImage' do %>
+                        <%= link_to article.user, class: 'tr-Item_userImage' do %>
                             <%= image_tag article.user.avatar_url %>
                         <% end %>
                         <div class="tr-Item_body">
