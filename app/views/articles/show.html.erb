@@ -2,33 +2,33 @@
     <div class="container">
         <div class="article-main">
             <div class="article-header">
-                <div class="u-flex-center-between mb-3">
-                    <div class="article-header-info">
-                        <div class="article-author">
-                            <%= link_to @article.user.name, @article.user %>
-                        </div>
-                        <div class="article-time"> <%= @article.updated_at %> </div>
-                        <div class="article-meta">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="articleEditMenu" data-toggle="dropdown">
-                                    <i class="fas fatools"></i>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <li> <%= link_to '編集する', edit_article_path %> </li>
-                                    <li> <%= link_to '削除する', article_path, method: :delete %> </li>
-                                </div>
-                            </div>
-                        </div>
+                <div class="articleAuthor">
+                    <div class="articleAuthor-profile">
+                        <%= link_to @article.user do %>
+                            <%= image_tag @article.user.avatar_url, class: 'article-user-avatar' %>
+                        <% end %>
+                        <%= link_to @article.user.name, @article.user, class: 'article-user-name' %>
                     </div>
+                    <div class="article-updated">
+                        <%= @article.updated_at.strftime('%Y年%m月%d日') %>
+                    </div>
+                    <% if correct_user? %>
+                        <div class="article-settings">
+                            <%= link_to '編集する', edit_article_path %>
+                            <%= link_to '削除する', article_path, method: :delete %>
+                        </div>
+                    <% end %>
                 </div>
                 <h1 class="header-title"> <%= @article.title %> </h1>
             </div>
             <section class="article-story">
                 <%= @article.content %>
             </section>
-            <div class="article-radar-chart">
-                <canvas id="myRadarChart"></canvas>
-            </div>
+            <% unless @article.chart.nil? %>
+                <div class="article-radar-chart">
+                    <canvas id="myRadarChart"></canvas>
+                </div>
+            <% end %>
             <div class="author-info">
                 <div class="author-content">
                     <%= link_to @article.user do %>

@@ -18,14 +18,18 @@ class ArticlesController < ApplicationController
     end
 
     def show 
-        numbers = [0, 1, 2, 3, 4]
-        labels = [@article.chart.label1, @article.chart.label2, @article.chart.label3, @article.chart.label4, @article.chart.label5]
-        data = [@article.chart.data1, @article.chart.data2, @article.chart.data3, @article.chart.data4, @article.chart.data5]
-        gon.labels = []
-        gon.data = []
-        numbers.each do |n| 
-            gon.labels << labels[n]
-            gon.data << data[n]
+        if @article.chart.nil?
+            @article
+        else
+            numbers = [0, 1, 2, 3, 4]
+            labels = [@article.chart.label1, @article.chart.label2, @article.chart.label3, @article.chart.label4, @article.chart.label5]
+            data = [@article.chart.data1, @article.chart.data2, @article.chart.data3, @article.chart.data4, @article.chart.data5]
+            gon.labels = []
+            gon.data = []
+            numbers.each do |n| 
+                gon.labels << labels[n]
+                gon.data << data[n]
+            end
         end
     end
 
