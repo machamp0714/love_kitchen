@@ -18,6 +18,9 @@
     align-items: center;
     margin-bottom: 20px;
 }
+.articleAuthor >:last-child {
+    margin-left: auto;
+}
 .articleAuthor-profile {
     display: flex;
     align-items: center;
@@ -30,14 +33,25 @@
 }
 .article-user-name {
     font-size: 18px;
+    color: #333;
     &:hover {
         color: #337ab7;
         text-decoration: underline;
     }
 }
 .article-updated {
-    font-size: 14px;
+    font-size: 12px;
     color: #999;
+}
+.article-settings {
+    a {
+        font-size: 14px;
+        color: #999;
+        &:hover {
+            color: #337ab7;
+            text-decoration: underline;
+        }
+    }
 }
 .article-radar-chart {
     margin-top: 40px;
