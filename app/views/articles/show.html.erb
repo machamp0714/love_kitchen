@@ -12,10 +12,12 @@
                     <div class="article-updated">
                         <%= @article.updated_at %>
                     </div>
-                    <div class="article-settings">
-                        <%= link_to '編集する', edit_article_path %>
-                        <%= link_to '削除する', article_path, method: :delete %>
-                    </div>
+                    <% if correct_user? %>
+                        <div class="article-settings">
+                            <%= link_to '編集する', edit_article_path %>
+                            <%= link_to '削除する', article_path, method: :delete %>
+                        </div>
+                    <% end %>
                 </div>
                 <h1 class="header-title"> <%= @article.title %> </h1>
             </div>
