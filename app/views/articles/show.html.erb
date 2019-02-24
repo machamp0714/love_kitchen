@@ -34,13 +34,19 @@
                         <!-- カルーセル部分 -->
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <%= image_tag @article.pictures[0].image.to_s, class: 'd-block, w-100' %>
+                                <% unless @article.pictures[0].nil? %>
+                                    <%= image_tag @article.pictures[0].image.to_s, class: 'd-block, w-100' %>
+                                <% end %>
                             </div>
                             <div class="carousel-item">
-                                <%= image_tag @article.pictures[1].image.to_s, class: 'd-block, w-100' %>
+                                <% unless @article.pictures[1].nil? %>
+                                    <%= image_tag @article.pictures[1].image.to_s, class: 'd-block, w-100' %>
+                                <% end %>
                             </div>
                             <div class="carousel-item">
-                                <%= image_tag @article.pictures[2].image.to_s, class: 'd-block, w-100' %>
+                                <% unless @article.pictures[2].nil? %>
+                                    <%= image_tag @article.pictures[2].image.to_s, class: 'd-block, w-100' %>
+                                <% end %>
                             </div>
                         </div>
                         <!-- コントローラ部分 -->
