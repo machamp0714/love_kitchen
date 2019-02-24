@@ -22,14 +22,14 @@
                 </div>
                 <h1 class="header-title"> <%= @article.title %> </h1>
             </div>
-            <section class="article-story">
+            <section class="articleContent">
                 <%= @article.content %>
+                <% unless @article.chart.nil? %>
+                    <div class="article-radar-chart">
+                        <canvas id="myRadarChart"></canvas>
+                    </div>
+                <% end %>
             </section>
-            <% unless @article.chart.nil? %>
-                <div class="article-radar-chart">
-                    <canvas id="myRadarChart"></canvas>
-                </div>
-            <% end %>
             <div class="author-info">
                 <div class="author-content">
                     <%= link_to @article.user do %>
