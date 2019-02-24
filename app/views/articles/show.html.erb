@@ -23,17 +23,23 @@
                 <h1 class="header-title"> <%= @article.title %> </h1>
             </div>
             <section class="articleContent">
-                <div id="carouselControls" class="carousel slide" data-ride="carousel">
+                <div id="carouselControls" id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                    <!-- インジケータ部分 -->
+                    <ol class="carousel-indicators">
+                        <li class="active" data-target="#carouselIndicators" data-slide-to="0"></li>
+                        <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselIndicators" data-slide-to="2"></li>
+                    </ol>
                     <!-- カルーセル部分 -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <%= image_tag @article.pictures[0].image.to_s %>
+                            <%= image_tag @article.pictures[0].image.to_s, class: 'd-block, w-100' %>
                         </div>
                         <div class="carousel-item">
-                            <%= image_tag @article.pictures[1].image.to_s %>
+                            <%= image_tag @article.pictures[1].image.to_s, class: 'd-block, w-100' %>
                         </div>
                         <div class="carousel-item">
-                            <%= image_tag @article.pictures[2].image.to_s %>
+                            <%= image_tag @article.pictures[2].image.to_s, class: 'd-block, w-100' %>
                         </div>
                     </div>
                     <!-- コントローラ部分 -->
