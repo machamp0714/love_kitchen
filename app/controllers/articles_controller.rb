@@ -54,7 +54,11 @@ class ArticlesController < ApplicationController
     private
 
     def article_params
-        params.require(:article).permit(:title, :content, chart_attributes: [:label1, :label2, :label3, :label4, :label5, :data1, :data2, :data3, :data4, :data5, :article_id])
+        params.require(:article).permit(:title,
+            :content,
+            chart_attributes: [:label1, :label2, :label3, :label4, :label5, :data1, :data2, :data3, :data4, :data5, :article_id],
+            pictures_attributes: [:image]
+            )
     end
 
     def correct_user
