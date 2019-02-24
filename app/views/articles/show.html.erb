@@ -23,7 +23,8 @@
                 <h1 class="header-title"> <%= @article.title %> </h1>
             </div>
             <section class="articleContent">
-                <div class="carousel slide" data-ride="carousel">
+                <div id="carouselControls" class="carousel slide" data-ride="carousel">
+                    <!-- カルーセル部分 -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <%= image_tag @article.pictures[0].image.to_s %>
@@ -35,6 +36,15 @@
                             <%= image_tag @article.pictures[2].image.to_s %>
                         </div>
                     </div>
+                    <!-- コントローラ部分 -->
+                    <a href="#carouselControls" class="carousel-control-prev" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">前へ戻る</span>
+                    </a>
+                    <a href="#carouselControls" class="carousel-control-next" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">次へ送る</span>
+                    </a>
                 </div>
                 <div class="articleContent_story">
                     <%= @article.content %>
