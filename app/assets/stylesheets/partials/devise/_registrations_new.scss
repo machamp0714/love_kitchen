@@ -16,6 +16,14 @@
 	font-size: 14px;
 	margin-top: 20px;
 }
+.lead-path {
+	color: #878787;
+	font-size: 14px;
+	&:hover {
+		color: #337ab7;
+		text-decoration: underline;
+	}
+}
 .sessionsLayout_option {
 	margin-bottom: 8px;
 	display: flex;
@@ -23,6 +31,9 @@
 }
 .remember-label {
 	font-size: 14px;
+}
+.sessionsLayout_sns {
+	margin-bottom: 20px;
 }
 .forgot-password {
 	font-size: 13px;
