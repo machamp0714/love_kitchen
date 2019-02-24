@@ -1,24 +1,41 @@
-<div class="container">
-  <div class="page-title text-center">
-    <h2>ログイン</h2>
-    <hr>
-  </div>
-  <div class="form">
-    <%= devise_error_messages! %>
-    <%= form_for(resource, as: resource_name, url: login_path) do |f| %>
-      <div class="form-group">
-        <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'メールアドレス' %>
-      </div>
-      <div class="form-group">
-        <%= f.password_field :password, autocomplete: 'new_password', class: 'form-control', placeholder: 'パスワード' %>
-      </div>
-      <% if devise_mapping.rememberable? -%>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+<%= provide(:title, 'LOGIN') %>
+<div class="sessionsLayout_bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        <div class="sessionsLayoutBody">
+          <h1 class="sessionsLayoutBody_title">Login</h1>
+          <hr>
+          <p class="lead">メールアドレスでログイン</p>
+          <%= form_for(resource, as: resource_name, url: login_path) do |f| %>
+            <div class="form-group">
+              <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'メールアドレス' %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password, autocomplete: 'new_password', class: 'form-control', placeholder: 'パスワード' %>
+            </div>
+            <% if devise_mapping.rememberable? -%>
+              <div class="sessionsLayout_option">
+                <div class="sessionsLayout_remember">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me, class: 'remember-label' %>
+                </div>
+                <%= link_to 'パスワードを忘れた方はコチラ', '#', class: 'forgot-password' %>
+              </div>
+            <% end %>
+            <%= f.submit 'ログイン', class: 'btn btn-default' %>
+          <% end %>
+          <p class="lead">-Login with-</p>
+          <div class="sessionsLayout_sns">
+            <%= link_to '#', class: 'btn btn-twitter' do %>
+              <i class="fab fa-twitter"></i>
+            <% end %>
+          </div>
+          <%= link_to 'アカウントをお持ちでない方はコチラ', signup_path, class: 'lead-path' %>
         </div>
-      <% end %>
-      <%= f.submit 'ログインする', class: 'btn btn-default' %>
-    <% end%>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
   </div>
 </div>

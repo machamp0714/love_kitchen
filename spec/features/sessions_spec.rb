@@ -11,7 +11,7 @@ RSpec.feature "Sessions", type: :feature do
     click_link 'ログイン'
     fill_in 'メールアドレス', with: 'alice@email.com'
     fill_in 'パスワード', with: 'password'
-    click_on 'ログインする'
+    click_button "ログイン"
     expect(page).to have_content 'ログインしました'
   end
 
@@ -20,7 +20,7 @@ RSpec.feature "Sessions", type: :feature do
     click_link 'ログイン'
     fill_in 'メールアドレス', with: 'alice@email.com'
     fill_in 'パスワード', with: 'password'
-    click_on 'ログインする'
+    click_button 'ログイン'
     click_link 'ログアウト'
     expect(page).to have_content 'ログアウトしました'
   end

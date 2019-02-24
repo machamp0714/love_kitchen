@@ -1,3 +1,4 @@
+// side bar 
 .userPage {
     margin-top: 20px;
 }
@@ -31,4 +32,56 @@
     border-bottom: 1px solid #eee;
     margin-bottom: 12px;
     overflow-wrap: break-word;
+}
+// main content
+.tr-Item {
+    display: flex;
+    width: 100%;
+    padding: 16px;
+    border-bottom: 1px solid #ddd;
+    &:first-child {
+        padding-top: 0;
+    }
+}
+.tr-Item_userImage {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    margin-top: 2px;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.tr-Item_title {
+    color: #444;
+    font-weight: 700;
+    font-size: 16px;
+    &:hover {
+        text-decoration: underline;
+        color: inherit;
+    }
+}
+.tr-Item_meta {
+    display: flex;
+    flex-wrap: wrap;
+    color: #999;
+    font-size: 12px;
+}
+.tr-Item_author {
+    font-size: 12px;
+    color: #999;
+    margin-right: 6px;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.posted-tab {
+    color: #23527c;
+    font-size: 14px;
+    font-weight: 500;
+    &:hover {
+        color: #23527c;
+    }
 }

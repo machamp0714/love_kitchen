@@ -1,6 +1,46 @@
-.page-title {
-	h2 {
-		padding-top: 50px;
-		margin-bottom: 20px;
+.sessionsLayout_bg {
+	background: #f8faf7;
+	padding: 60px 0;
+}
+.sessionsLayoutBody {
+	background: #fff;
+	padding: 60px;
+	text-align: center;
+}
+.sessionsLayoutBody_title {
+	font-size: 26px;
+	font-weight: 700;
+}
+.lead {
+	color: #878787;
+	font-size: 14px;
+	margin-top: 20px;
+}
+.lead-path {
+	color: #878787;
+	font-size: 14px;
+	&:hover {
+		color: #337ab7;
+		text-decoration: underline;
+	}
+}
+.sessionsLayout_option {
+	margin-bottom: 8px;
+	display: flex;
+	justify-content: space-between;
+}
+.remember-label {
+	font-size: 14px;
+}
+.sessionsLayout_sns {
+	margin-bottom: 20px;
+}
+.forgot-password {
+	font-size: 13px;
+	color: #337ab7;
+	text-decoration: underline;
+	padding-top: 4px;
+	&:hover {
+		text-decoration: underline;
 	}
 }

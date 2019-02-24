@@ -1,3 +1,4 @@
+<%= provide(:title, @user.name) %>
 <div id="main">
     <div class="container userPage">
         <div class="row">
@@ -16,9 +17,22 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <% @articles.each do |article| %>
-                    <%= link_to article.title, article %>
-                <% end %>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a href="#posted-articles" id="posted-articles-tab" data-toggle="tab" class="nav-link posted-tab active" role="tab" aria-controls="posted-articles" aria-selected="true">投稿した記事</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#liked-articles" id="liked-articles-tab" data-toggle="tab" class="nav-link posted-tab" role="tab" aria-controls="liked-articles" aria-selected="false">いいねした記事</a>
+                    </li>
+                </ul>
+                <div class="tab-content mt-3" id="myTabContent">
+                    <div class="tab-pane show active" id="posted-articles" role="tabpanel" aria-labelledby="posted-articles-tab">
+                        <%= render 'articles/articles' %>
+                    </div>
+                    <div class="tab-pane" id="liked-articles" role="tabpanel" aria-labelledby="liked-articles-tab">
+                        いいねした記事
+                    </div>
+                </div>
             </div>
         </div>
     </div>
