@@ -23,10 +23,18 @@
                 <h1 class="header-title"> <%= @article.title %> </h1>
             </div>
             <section class="articleContent">
-                <div class="articleContent_pictures">
-                    <% @article.pictures.each do |picture| %>
-                        <%= image_tag picture.image.to_s %>
-                    <% end %>
+                <div class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <%= image_tag @article.pictures[0].image.to_s %>
+                        </div>
+                        <div class="carousel-item">
+                            <%= image_tag @article.pictures[1].image.to_s %>
+                        </div>
+                        <div class="carousel-item">
+                            <%= image_tag @article.pictures[2].image.to_s %>
+                        </div>
+                    </div>
                 </div>
                 <div class="articleContent_story">
                     <%= @article.content %>
