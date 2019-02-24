@@ -53,22 +53,27 @@
         }
     }
 }
-.article-radar-chart {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-}
 .header-title {
     font-size: 40px;
     font-weight: 700;
     line-height: 1.4;
     font-feature-settings: "palt";
 }
-.article-story {
+.articleContent {
     font-size: 16px;
     color: #333;
     word-wrap: break-word;
     word-break: break-all;
+}
+.articleContent_story {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+.articleContent_chart {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
 }
 @media(max-width: 480px) {
     .articleWrapper {

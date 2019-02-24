@@ -1,25 +1,53 @@
-<%= provide(:title, '記事編集') %>
 <div class="articleEditor">
-    <%= form_for(@article) do |f| %>
+    <%= form_for @article do |f| %>
         <div class="editor-content">
             <div class="editorTitle">
-                <%= f.text_field :title, class: 'form-control' %>
+                <%= f.text_field :title, placeholder: 'タイトル', class: 'form-control' %>
             </div>
             <div class="editorBody">
                 <div class="editorStory">
-                    <div class="editorStory_textareaWrapper">
-                        <%= f.text_area :content, class: 'editorStory_textarea' %>
-                    </div>
+                    <%= f.text_area :content, placeholder: '持ってるアイテムのいい所をみんなに教えてあげよう!', class: 'editorStory_textarea' %>
                 </div>
-                <div class="editorChart">
-                    ユーザーがレーダーチャートを作成できるようにする予定
-                </div>
+                <div class="editorChartBody">
+                    <h4 class="chart-text">グラフを作成できます。</h4>
+                    <canvas id="myChart"></canvas>
+                    <%= f.fields_for :chart do |chart| %>
+                        <div class="editorChart">
+                            <div class="editor-chart-label">
+                                <%= chart.text_field :label1, placeholder: 'ラベル１', class: 'form-control mr-3' %>
+                                <%= chart.select :data1, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+                            </div>
+                            <div class="editor-chart-label">
+                                <%= chart.text_field :label2, placeholder: 'ラベル２', class: 'form-control mr-3' %>
+                                <%= chart.select :data2, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+                            </div>
+                            <div class="editor-chart-label">
+                                <%= chart.text_field :label3, placeholder: 'ラベル３', class: 'form-control mr-3' %>
+                                <%= chart.select :data3, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+                            </div>
+                            <div class="editor-chart-label">
+                                <%= chart.text_field :label4, placeholder: 'ラベル４', class: 'form-control mr-3' %>
+                                <%= chart.select :data4, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+                            </div>
+                            <div class="editor-chart-label">
+                                <%= chart.text_field :label5, placeholder: 'ラベル５', class: 'form-control mr-3' %>
+                                <%= chart.select :data5, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>              
             </div>
-        </div>
-        <div class="editorFooter">
-            <div class="editorSubmit">
-                <%= f.submit '更新する', class: 'btn btn-default'%>
+            <div class="editorFooter">
+                <div class="editorPicture">
+                    <%= f.fields_for :pictures do |picture| %>
+                        <%= picture.file_field :image, class: 'form-control-file'%>
+                    <% end %>
+                </div>
+                <div class="editorSubmit">
+                    <%= f.submit '更新する', class: 'btn btn-default'%>
+                </div>
             </div>
         </div>
     <% end %>
 </div>
+<script>draw_example_chart();</script>

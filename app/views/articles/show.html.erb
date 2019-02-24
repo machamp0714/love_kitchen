@@ -22,14 +22,53 @@
                 </div>
                 <h1 class="header-title"> <%= @article.title %> </h1>
             </div>
-            <section class="article-story">
-                <%= @article.content %>
-            </section>
-            <% unless @article.chart.nil? %>
-                <div class="article-radar-chart">
-                    <canvas id="myRadarChart"></canvas>
+            <section class="articleContent">
+                <% unless @article.pictures.empty? %>
+                    <div id="carouselControls" id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                        <!-- インジケータ部分 -->
+                        <ol class="carousel-indicators">
+                            <li class="active" data-target="#carouselIndicators" data-slide-to="0"></li>
+                            <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <!-- カルーセル部分 -->
+                        <div class="carousel-inner">
+                            <% unless @article.pictures[0].nil? %>
+                                <div class="carousel-item active">
+                                    <%= image_tag @article.pictures[0].image.to_s, class: 'd-block, w-100' %>
+                                </div>
+                            <% end %>
+                            <% unless @article.pictures[1].nil? %>
+                                <div class="carousel-item">
+                                    <%= image_tag @article.pictures[1].image.to_s, class: 'd-block, w-100' %>
+                                </div>
+                            <% end %>
+                            <% unless @article.pictures[2].nil? %>
+                                <div class="carousel-item">
+                                    <%= image_tag @article.pictures[2].image.to_s, class: 'd-block, w-100' %>
+                                </div>
+                            <% end %>
+                        </div>
+                        <!-- コントローラ部分 -->
+                        <a href="#carouselControls" class="carousel-control-prev" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">前へ戻る</span>
+                        </a>
+                        <a href="#carouselControls" class="carousel-control-next" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">次へ送る</span>
+                        </a>
+                    </div>
+                <% end %>
+                <div class="articleContent_story">
+                    <%= @article.content %>
                 </div>
-            <% end %>
+                <% unless @article.chart.nil? %>
+                    <div class="articleContent_chart">
+                        <canvas id="myRadarChart"></canvas>
+                    </div>
+                <% end %>
+            </section>
             <div class="author-info">
                 <div class="author-content">
                     <%= link_to @article.user do %>
