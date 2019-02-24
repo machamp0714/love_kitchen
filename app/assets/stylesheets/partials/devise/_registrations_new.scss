@@ -29,4 +29,7 @@
 	color: #337ab7;
 	text-decoration: underline;
 	padding-top: 4px;
+	&:hover {
+		text-decoration: underline;
+	}
 }
