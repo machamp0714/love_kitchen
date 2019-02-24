@@ -14,5 +14,19 @@
 .lead {
 	color: #ccc;
 	font-size: 14px;
-	margin-top: 10px;
+	margin-top: 20px;
+}
+.sessionsLayout_option {
+	margin-bottom: 8px;
+	display: flex;
+	justify-content: space-between;
+}
+.remember-label {
+	font-size: 14px;
+}
+.forgot-password {
+	font-size: 13px;
+	color: #337ab7;
+	text-decoration: underline;
+	padding-top: 4px;
 }
