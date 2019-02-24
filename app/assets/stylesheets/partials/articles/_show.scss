@@ -53,11 +53,6 @@
         }
     }
 }
-.article-radar-chart {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-}
 .header-title {
     font-size: 40px;
     font-weight: 700;
@@ -69,6 +64,11 @@
     color: #333;
     word-wrap: break-word;
     word-break: break-all;
+}
+.articleContent_chart {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
 }
 @media(max-width: 480px) {
     .articleWrapper {
