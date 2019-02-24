@@ -40,7 +40,9 @@
             </div>
             <div class="editorFooter">
                 <div class="editorPicture">
-                
+                    <%= f.fields_for :pictures do |picture| %>
+                        <%= picture.file_field :image, class: 'form-control-file'%>
+                    <% end %>
                 </div>
                 <div class="editorSubmit">
                     <%= f.submit '投稿する', class: 'btn btn-default'%>
