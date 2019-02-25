@@ -29,6 +29,7 @@ ja:
         password: "パスワード"
         password_confirmation: "パスワード"
         remember_me: "ログインを記憶"
+        remove_avatar: "画像を削除する"
     models:
       user: "ユーザ"
   devise:
