@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
 
     def update
         if @article.update(article_params)
-            redirect_to current_user, notice: 'Updated!!'
+            redirect_to @article, notice: 'Updated!!'
         else
             render :edit
         end
