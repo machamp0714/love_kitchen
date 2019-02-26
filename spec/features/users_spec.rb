@@ -61,7 +61,17 @@ RSpec.feature "Users", type: :feature do
     go_to_profile
     attach_file "user[avatar]", image_path
     click_on "更新する"
-    expect(page.find('#profile-avatar')['src']).to have_content 'love_kitchen.png'
+    expect(page.find('#profile-avatar')['alt']).to have_content 'love_kitchen.png'
+  end
+
+  scenario 'アップロードした画像を削除できること' do
+    sign_in_as user
+    go_to_profile
+    attach_file "user[avatar]", image_path
+    click_on "更新する"
+    check "user[remove_avatar]"
+    click_on "更新する"
+    expect(page.find('#profile-avatar')['alt']).to have_content 'default.png'
   end
 
   def go_to_profile
