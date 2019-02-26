@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature "Users", type: :feature do
   
   given(:user) { FactoryBot.create(:alice) }
+  given(:image_path) { File.join(Rails.root, 'spec/fixtures/love_kitchen.png') }
 
   scenario '新しいユーザーを作成できること' do
     visit root_path
@@ -53,6 +54,14 @@ RSpec.feature "Users", type: :feature do
     expect {
       click_link "アカウントを削除する"
     }.to change(Article, :count).by(-1)
+  end
+
+  scenario 'アバター画像をアップロードできること' do
+    sign_in_as user
+    go_to_profile
+    attach_file "user[avatar]", image_path
+    click_on "更新する"
+    expect(page.find('#profile-avatar')['src']).to have_content 'love_kitchen.png'
   end
 
   def go_to_profile
