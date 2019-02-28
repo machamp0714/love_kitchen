@@ -18,8 +18,4 @@ class User < ApplicationRecord
 
   validates :introduce,
     length: { maximum: 200 }
-
-  def articles_find
-    Article.where('user_id', id)
-  end
 end
