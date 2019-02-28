@@ -7,7 +7,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   mount_uploader :avatar, AvatarUploader
+
   has_many :articles, dependent: :destroy
+  has_many :comments, through: :articles
 
   validates :name,
     presence: true,
@@ -16,8 +18,4 @@ class User < ApplicationRecord
 
   validates :introduce,
     length: { maximum: 200 }
-
-  def articles_find
-    Article.where('user_id', id)
-  end
 end
