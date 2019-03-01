@@ -9,7 +9,7 @@ RSpec.feature "Comments", type: :feature do
     sign_in_as user
     click_link article.title
     expect {
-      fill_in :content, with: "コメントテスト"
+      fill_in 'comment[content]', with: "コメントテスト"
       click_on "投稿"
     }.to change(Comment, :count).by(1)
   end
