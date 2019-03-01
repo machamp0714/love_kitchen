@@ -90,5 +90,21 @@
             <div class="col-sm-2"></div>
         </div>
     </div>
+    <div class="commentsWrapper">
+        <div class="comment-main">
+            <div class="commentForm">
+                <%= form_for current_user.comments.build do |f| %>
+                    <div class="commentForm_header">
+                        <%= image_tag current_user.avatar.to_s %>
+                        <div class="commentForm_headerLabel">コメントを投稿する</div>
+                    </div>
+                    <div class="commentForm_body">
+                        <%= f.text_area :content, placeholder: 'コメントを入力してください', class: 'form-control' %>
+                    </div>
+                    <%= f.submit '投稿', class: 'btn btn-default' %>
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>
 <script>draw_chart();</script>
