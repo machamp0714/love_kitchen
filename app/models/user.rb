@@ -9,7 +9,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   has_many :articles, dependent: :destroy
-  has_many :comments, through: :articles
+  has_many :comments, dependent: :destroy
 
   validates :name,
     presence: true,
