@@ -1,0 +1,22 @@
+<div class="commentList">
+    <% @article.comments.each do |comment| %>
+        <div class="comment">
+            <div class="commentHeader">
+                <div class="commentHeader_creater">
+                    <%= link_to comment.user do %>
+                        <%= image_tag comment.user.avatar_url %>
+                    <% end %>
+                    <div class="commentHeader_createrInfo">
+                        <%= link_to comment.user.name, comment.user %>
+                    </div>
+                </div>
+                <div class="commentHeader_meradata"> <%= comment.created_at.strftime('%Y年%m月%d日') %> </div>
+            </div>
+            <div class="commentBody">
+                <div class="commentBody_content">
+                    <%= comment.content %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>

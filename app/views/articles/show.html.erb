@@ -92,6 +92,7 @@
     </div>
     <div class="commentsWrapper">
         <div class="comment-main">
+            <%= render 'comments/comments' %>
             <div class="commentForm">
                 <%= form_for current_user.comments.build do |f| %>
                     <div class="commentForm_header">
