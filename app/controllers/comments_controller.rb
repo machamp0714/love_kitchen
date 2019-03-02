@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
         @article = Article.find(params[:comment][:article_id])
         @comment = current_user.comments.build(comment_params)
         if @comment.save
-            respond to do |format|
+            respond_to do |format|
                 format.html { redirect_to @article }
                 format.js
             end
