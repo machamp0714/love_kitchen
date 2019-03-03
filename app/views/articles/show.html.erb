@@ -99,7 +99,7 @@
                         <%= image_tag current_user.avatar.to_s, class: 'article-user-avatar' %>
                         <div class="commentForm_headerLabel">コメントを投稿する</div>
                     </div>
-                    <div class="commentForm_body">
+                    <div class="commentForm_body" id="comment-post">
                         <%= f.text_area :content, placeholder: 'コメントを入力してください', class: 'form-control form-comment' %>
                         <%= hidden_field_tag 'comment[article_id]', @article.id %>
                     </div>
