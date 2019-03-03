@@ -70,3 +70,38 @@
     font-size: 12px;
     color: #7b7b7b;
 }
+.commentBody {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 18px 32px;
+    margin-top: 11px;
+    &::before {
+        position: absolute;
+        top: -20px;
+        left: 7px;
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px;
+        border-color: transparent transparent #ccc transparent;
+    }
+    &::after {
+        position: absolute;
+        top: -19px;
+        left: 7px;
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px;
+        border-color: transparent transparent #fff transparent;
+    }
+}
+.commentBody_content {
+    font-size: 16px;
+    color: #333;
+    word-wrap: break-word;
+    word-break: break-all;
+}
