@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <span class="commentHeader_deleteButton">
-                            <%= link_to '削除', '#' %>
+                            <%= link_to '削除', comment, method: :delete, remote: true %>
                         </span>
                     </div>
                 </div>
