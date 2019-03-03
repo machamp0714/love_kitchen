@@ -16,7 +16,7 @@
                             <div class="article-updated">
                                 <%= @article.updated_at.strftime('%Y年%m月%d日') %>
                             </div>
-                            <% if correct_user? %>
+                            <% if !correct_user? %>
                                 <div class="article-settings">
                                     <%= link_to '編集する', edit_article_path %>
                                     <%= link_to '削除する', article_path, method: :delete %>
