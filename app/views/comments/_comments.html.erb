@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="commentForm">
-                                            <%= form_for(Comment.find_by(content: comment.content), remote: true) do |f| %>
+                                            <%= form_for(current_user.comments.find_by(article_id: params[:id]), remote: true) do |f| %>
                                                 <div class="commentForm_body">
                                                     <%= f.text_area :content, placeholder: 'コメントを入力してください', class: 'form-control form-comment', id: 'comment-edit' %>
                                                     <%= hidden_field_tag 'comment[article_id]', @article.id %>
