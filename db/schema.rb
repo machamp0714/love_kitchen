@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_17_123244) do
+ActiveRecord::Schema.define(version: 2019_02_28_142510) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 2019_02_17_123244) do
   end
 
   create_table "charts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "label1"
-    t.string "label2"
-    t.string "label3"
-    t.string "label4"
-    t.string "label5"
+    t.string "label1", null: false
+    t.string "label2", null: false
+    t.string "label3", null: false
+    t.string "label4", null: false
+    t.string "label5", null: false
     t.integer "data1"
     t.integer "data2"
     t.integer "data3"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 2019_02_17_123244) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_charts_on_article_id"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
+    t.bigint "article_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "friendly_id_slugs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -77,5 +87,7 @@ ActiveRecord::Schema.define(version: 2019_02_17_123244) do
 
   add_foreign_key "articles", "users"
   add_foreign_key "charts", "articles"
+  add_foreign_key "comments", "articles"
+  add_foreign_key "comments", "users"
   add_foreign_key "pictures", "articles"
 end

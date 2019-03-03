@@ -21,5 +21,7 @@ Rails.application.routes.draw do
 
   resources :articles, only: [:new, :create, :show, :edit, :update, :destroy]
 
+  resources :comments, only: [:create, :update, :destroy]
+
   root 'pages#home'
 end
