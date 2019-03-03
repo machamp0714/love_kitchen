@@ -12,6 +12,7 @@
                 </div>
                 <div class="commentHeader_metadata"> 
                     <time> <%= comment.created_at.strftime('%Y年%m月%d日') %> </time>
+                    <% if comment_author?(comment) %>
                     <div class="commentHeader_button">
                         <span class="commentHeader_editButton" data-toggle="modal" data-target="#commentEdit">編集</span>
                         <div class="modal fade" id="commentEdit" tabindex="-1" role="dialog" aria-labelledby="commentEdit" aria-hidden="true">
@@ -46,6 +47,7 @@
                             <%= link_to '削除', comment, method: :delete, remote: true %>
                         </span>
                     </div>
+                    <% end %>
                 </div>
             </div>
             <div class="commentBody">
