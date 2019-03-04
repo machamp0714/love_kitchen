@@ -25,6 +25,20 @@
                         </div>
                         <h1 class="header-title"> <%= @article.title %> </h1>
                     </div>
+                    <div class="articleActions">
+                        <div class="likes-action">
+                            <%= button_to current_user.likes.build, article_id: @article.id, class: 'like-button' do %>
+                                <span class="fas fa-thumbs-up"></span>
+                                <span class="likes-count"> <%= @article.likes.count %> </span>
+                            <% end %>
+                        </div>
+                        <div class="likes-action">
+                            <%= button_to current_user.likes.build, article_id: @article.id, class: 'liked-button' do %>
+                                <span class="fas fa-check"></span>
+                                <span class="likes-count"> <%= @article.likes.count %> </span>
+                            <% end %>
+                        </div>
+                    </div>
                     <section class="articleContent">
                         <% unless @article.pictures.empty? %>
                             <div id="carouselControls" id="carouselIndicators" class="carousel slide" data-ride="carousel">
