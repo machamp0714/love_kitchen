@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
   devise_for :users, skip: :all
   
   devise_scope :user do
