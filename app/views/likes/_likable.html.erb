@@ -1,0 +1,6 @@
+<div class="likes-action" id="likable">
+    <%= button_to current_user.likes.build, article_id: @article.id, class: 'like-button likable' do %>
+        <span class="fas fa-thumbs-up"></span>
+        <span class="likes-count"> <%= @article.likes.count %> </span>
+    <% end %>
+</div>
