@@ -41,7 +41,13 @@
     border: 2px solid #E75926;
 }
 .liked {
+    text-align: center;
+    line-height: 44px;
+    display: block;
     background-color: #E75926;
     color: #fff;
     border: none;
+    &:hover {
+        color: #fff;
+    }
 }
