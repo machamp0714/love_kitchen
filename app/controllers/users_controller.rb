@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     def show
         @user = User.friendly.find(params[:id])
         @articles = @user.articles
+        @liked_articles = []
+        @user.likes.each do |like|
+            article = Article.find(like.article.id)
+            @liked_articles << article
+        end
     end
     
     def edit

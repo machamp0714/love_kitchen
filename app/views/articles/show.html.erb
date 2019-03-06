@@ -25,6 +25,13 @@
                         </div>
                         <h1 class="header-title"> <%= @article.title %> </h1>
                     </div>
+                    <div class="articleActions">
+                        <% if likes?(@article.id) %>
+                            <%= render 'likes/liked' %>
+                        <% else %>
+                            <%= render 'likes/likable' %>
+                        <% end %>
+                    </div>
                     <section class="articleContent">
                         <% unless @article.pictures.empty? %>
                             <div id="carouselControls" id="carouselIndicators" class="carousel slide" data-ride="carousel">
