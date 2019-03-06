@@ -39,6 +39,9 @@
     background-color: #fff;
     color: #E75926;
     border: 2px solid #E75926;
+    &:focus {
+        outline: none;
+    }
 }
 .liked {
     text-align: center;
