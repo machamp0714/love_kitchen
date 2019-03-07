@@ -14,9 +14,9 @@ RSpec.feature "Articles", type: :feature do
       fill_in "article[label1]", with: "label1"
       fill_in "article[label2]", with: "label2"
       fill_in "article[label3]", with: "label3"
-      fill_in "article[data1]", with: 1
-      fill_in "article[data2]", with: 2
-      fill_in "article[data3]", with: 3
+      select 1, from: "article[data1]"
+      select 2, from: "article[data2]"
+      select 3, from: "article[data3]"
       within '.editorSubmit' do
         click_on "投稿する"
       end
