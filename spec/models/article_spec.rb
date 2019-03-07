@@ -14,5 +14,20 @@ RSpec.describe Article, type: :model do
       article.content = ""
       expect(article).to_not be_valid
     end
+
+    it 'ラベル1が空白の場合' do
+      article.label1 = ""
+      expect(article).to_not be_valid
+    end
+
+    it 'ラベルの文字数が11文字の場合' do
+      article.label1 = 'a' * 11
+      expect(article).to_not be_valid
+    end
+
+    it 'data1が空白の場合' do
+      article.data1 = ""
+      expect(article).to_not be_valid
+    end
   end
 end

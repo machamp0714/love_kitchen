@@ -3,6 +3,12 @@ FactoryBot.define do
     title { "中華鍋を買って良かった3つのこと" }
     content { "熱伝導が高いこと" }
     association :user, factory: :alice
+    label1 { "ラベル1" }
+    label2 { "ラベル2" }
+    label3 { "ラベル3" }
+    data1 { 1 }
+    data2 { 2 }
+    data3 { 3 }
     created_at { Time.now.zone }
   end
 
@@ -10,6 +16,12 @@ FactoryBot.define do
     title { "美味しいトマトソースを作るにはコレ" }
     content { "トマトソースを作るときはいつもこのトマト缶を使っています" }
     association :user, factory: :bob
+    label1 { "ラベル1" }
+    label2 { "ラベル2" }
+    label3 { "ラベル3" }
+    data1 { 1 }
+    data2 { 2 }
+    data3 { 3 }
     created_at { 3.days.ago }
   end
 end
