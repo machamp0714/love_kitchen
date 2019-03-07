@@ -8,4 +8,12 @@ class Article < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
+  validates :label1, presence: true, length: { maximum: 10 }
+  validates :label2, presence: true, length: { maximum: 10 }
+  validates :label3, presence: true, length: { maximum: 10 }
+  validates :label4, length: { maximum: 10 }
+  validates :label5, length: { maximum: 10 }
+  validates :data1, presence: true
+  validates :data2, presence: true
+  validates :data3, presence: true
 end
