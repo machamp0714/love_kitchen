@@ -20,8 +20,38 @@ RSpec.describe Article, type: :model do
       expect(article).to_not be_valid
     end
 
-    it 'ラベルの文字数が11文字の場合' do
+    it 'ラベル2が空白の場合' do
+      article.label2 = ""
+      expect(article).to_not be_valid
+    end
+
+    it 'ラベル3が空白の場合' do
+      article.label3 = ""
+      expect(article).to_not be_valid
+    end
+
+    it 'ラベル1の文字数が11文字の場合' do
       article.label1 = 'a' * 11
+      expect(article).to_not be_valid
+    end
+
+    it 'ラベル2の文字数が11文字の場合' do
+      article.label2 = 'a' * 11
+      expect(article).to_not be_valid
+    end
+
+    it 'ラベル3の文字数が11文字の場合' do
+      article.label3 = 'a' * 11
+      expect(article).to_not be_valid
+    end
+
+    it 'ラベル4の文字数が11文字の場合' do
+      article.label4 = 'a' * 11
+      expect(article).to_not be_valid
+    end
+
+    it 'ラベル5の文字数が11文字の場合' do
+      article.label5 = 'a' * 11
       expect(article).to_not be_valid
     end
 
