@@ -5,7 +5,6 @@ class ArticlesController < ApplicationController
 
     def new
         @article = current_user.articles.build
-        @article.build_chart
         3.times { @article.pictures.build }
     end
 
