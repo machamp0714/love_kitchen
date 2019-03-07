@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_131029) do
+ActiveRecord::Schema.define(version: 2019_03_07_123912) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -20,23 +20,6 @@ ActiveRecord::Schema.define(version: 2019_03_04_131029) do
     t.datetime "updated_at", null: false
     t.index ["user_id", "created_at"], name: "index_articles_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_articles_on_user_id"
-  end
-
-  create_table "charts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "label1", null: false
-    t.string "label2", null: false
-    t.string "label3", null: false
-    t.string "label4", null: false
-    t.string "label5", null: false
-    t.integer "data1"
-    t.integer "data2"
-    t.integer "data3"
-    t.integer "data4"
-    t.integer "data5"
-    t.bigint "article_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_charts_on_article_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -96,7 +79,6 @@ ActiveRecord::Schema.define(version: 2019_03_04_131029) do
   end
 
   add_foreign_key "articles", "users"
-  add_foreign_key "charts", "articles"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "pictures", "articles"
