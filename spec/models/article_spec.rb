@@ -59,5 +59,15 @@ RSpec.describe Article, type: :model do
       article.data1 = ""
       expect(article).to_not be_valid
     end
+
+    it 'data2が空白の場合' do
+      article.data2 = ""
+      expect(article).to_not be_valid
+    end
+
+    it 'data3が空白の場合' do
+      article.data3 = ""
+      expect(article).to_not be_valid
+    end
   end
 end
