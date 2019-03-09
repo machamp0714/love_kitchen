@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   patch 'setting/password', to: 'users#update_password'
 
   scope do
-    resources :users, only: :show, path: '/'
+    resources :users, only: :show, path: '/' do
+      resources :favorites, only: [:index, :create, :destroy]
+    end
   end
   
   resources :articles, only: [:new, :create, :show, :edit, :update, :destroy] do
