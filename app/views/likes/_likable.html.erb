@@ -1,5 +1,5 @@
 <div class="likes-action" id="likable">
-    <%= button_to current_user.likes.build, params: { article_id: @article.id }, remote: true, class: 'like-button likable' do %>
+    <%= button_to article_likes_path(@article, current_user.likes.build), params: { article_id: @article.id }, remote: true, class: 'like-button likable' do %>
         <span class="fas fa-thumbs-up"></span>
         <span class="likes-count"> <%= @article.likes.count %> </span>
     <% end %>
