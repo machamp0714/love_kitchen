@@ -13,13 +13,19 @@ Rails.application.routes.draw do
     post 'login', to: 'users/sessions#create'
     delete 'logout', to: 'users/sessions#destroy'
   end
+
   get 'setting/password', to: 'users#edit'
   patch 'setting/password', to: 'users#update_password'
+
   scope do
     resources :users, only: :show, path: '/'
   end
-  resources :articles, only: [:new, :create, :show, :edit, :update, :destroy]
+  
+  resources :articles, only: [:new, :create, :show, :edit, :update, :destroy] do
+    resources :likes, only: [:create, :destroy]
+  end
+
   resources :comments, only: [:create, :update, :destroy]
-  resources :likes, only: [:create, :destroy]
+
   root 'pages#home'
 end
