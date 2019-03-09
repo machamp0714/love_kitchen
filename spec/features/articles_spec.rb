@@ -11,6 +11,12 @@ RSpec.feature "Articles", type: :feature do
     expect {
       fill_in "article[title]", with: "アルミパン"
       fill_in "article[content]", with: "アルミパンはコスパがいい"
+      fill_in "article[label1]", with: "label1"
+      fill_in "article[label2]", with: "label2"
+      fill_in "article[label3]", with: "label3"
+      select 1, from: "article[data1]"
+      select 2, from: "article[data2]"
+      select 3, from: "article[data3]"
       within '.editorSubmit' do
         click_on "投稿する"
       end

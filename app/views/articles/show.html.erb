@@ -73,11 +73,9 @@
                         <div class="articleContent_story">
                             <%= @article.content %>
                         </div>
-                        <% unless @article.chart.nil? %>
-                            <div class="articleContent_chart">
-                                <canvas id="myRadarChart"></canvas>
-                            </div>
-                        <% end %>
+                        <div class="articleContent_chart">
+                            <canvas id="myRadarChart"></canvas>
+                        </div>
                     </section>
                     <div class="author-info">
                         <div class="author-content">
