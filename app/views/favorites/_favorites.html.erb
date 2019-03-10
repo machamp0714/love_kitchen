@@ -1,0 +1,5 @@
+<div class="favorites-action">
+    <%= button_to user_favorites_path(current_user, current_user.favorites.build), params: { article_id: @article.id }, remote: true, class: 'favorites-button favorite' do %>
+        <span class="far fa-heart"></span>
+    <% end %>
+</div>
