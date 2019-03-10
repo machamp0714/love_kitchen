@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     get 'login', to: 'users/sessions#new'
     post 'login', to: 'users/sessions#create'
     delete 'logout', to: 'users/sessions#destroy'
+    get 'forgot_password', to: 'users/passwords#new'
+    post 'forgot_password', to: 'users/passwords#create'
+    get 'password_reset', to: 'users/passwords#edit'
+    patch 'password_reset', to: 'users/passwords#update'
   end
 
   get 'setting/password', to: 'users#edit'
