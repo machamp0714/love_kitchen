@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'favorites/index'
-  get 'favorites/create'
-  get 'favorites/destroy'
   devise_for :users, skip: :all
+  
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   
   devise_scope :user do
     get 'signup', to: 'users/registrations#new'
