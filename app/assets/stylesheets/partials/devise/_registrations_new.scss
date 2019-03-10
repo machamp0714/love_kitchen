@@ -44,3 +44,18 @@
 		text-decoration: underline;
 	}
 }
+.actions {
+	margin-top: 40px;
+}
+@media(max-width: 425px) {
+	.sessionsLayout_bg {
+		padding: 0;
+	}
+	.sessionsLayout_container {
+		padding-right: 0;
+		padding-left: 0;
+	}
+	.sessionsLayoutBody {
+		padding: 30px;
+	}
+}

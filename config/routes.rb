@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'favorites/index'
-  get 'favorites/create'
-  get 'favorites/destroy'
   devise_for :users, skip: :all
   
   devise_scope :user do
@@ -13,6 +10,10 @@ Rails.application.routes.draw do
     get 'login', to: 'users/sessions#new'
     post 'login', to: 'users/sessions#create'
     delete 'logout', to: 'users/sessions#destroy'
+    get 'forgot_password', to: 'users/passwords#new'
+    post 'forgot_password', to: 'users/passwords#create'
+    get 'password_reset', to: 'users/passwords#edit'
+    patch 'password_reset', to: 'users/passwords#update'
   end
 
   get 'setting/password', to: 'users#edit'
