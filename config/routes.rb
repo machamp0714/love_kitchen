@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'likes/create'
-  get 'likes/destroy'
+  get 'favorites/index'
+  get 'favorites/create'
+  get 'favorites/destroy'
   devise_for :users, skip: :all
   
   devise_scope :user do
@@ -18,7 +19,9 @@ Rails.application.routes.draw do
   patch 'setting/password', to: 'users#update_password'
 
   scope do
-    resources :users, only: :show, path: '/'
+    resources :users, only: :show, path: '/' do
+      resources :favorites, only: [:index, :create, :destroy]
+    end
   end
   
   resources :articles, only: [:new, :create, :show, :edit, :update, :destroy] do

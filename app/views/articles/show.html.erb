@@ -31,6 +31,11 @@
                         <% else %>
                             <%= render 'likes/likable' %>
                         <% end %>
+                        <% if favorite?(@article) %>
+                            <%= render 'favorites/unfavorite' %>
+                        <% else %>
+                            <%= render 'favorites/favorites' %>
+                        <% end %>        
                     </div>
                     <section class="articleContent">
                         <% unless @article.pictures.empty? %>

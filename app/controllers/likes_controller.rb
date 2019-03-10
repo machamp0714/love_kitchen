@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
-
   before_action :authenticate_user!
+  before_action :own_article?, only: [:create]
 
   def create
     current_user.likes.create(article_id: params[:article_id])

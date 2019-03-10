@@ -10,7 +10,7 @@
             <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
                     <li class="nav-item"> 
-                        <%= link_to '#', class: 'nav-link' do %>
+                        <%= link_to user_favorites_path(current_user), class: 'nav-link' do %>
                             <i class="fas fa-heart"></i> お気に入り
                         <% end %>
                     </li>

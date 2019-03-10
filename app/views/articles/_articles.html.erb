@@ -10,5 +10,15 @@
                 <time> <%= article.created_at.strftime('%Y年%m月%d日') %> </time>
             </div>
         </div>
+        <div class="tr-Item_status">
+            <div class="tr-Item_likes">
+                <span class="fas fa-thumbs-up"></span>
+                <span class="likes-count"> <%= Like.where(article_id: article.id).count %> </span>
+            </div>
+            <div class="tr_Item_comments">
+                <span class="far fa-comment"></span>
+                <span class="comments-count"> <%= Comment.where(article_id: article.id).count %> </span>
+            </div>
+        </div>
     </div>
 <% end %>
