@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
+  before_action :own_article?, only: [:create]
 
   def index
   end
