@@ -3,6 +3,11 @@ class FavoritesController < ApplicationController
   before_action :own_article?, only: [:create]
 
   def index
+    @articles = []
+    current_user.favorites.order("created_at DESC").each do |favorite|
+      article = Article.find(favorite.article_id)
+      @articles << article
+    end
   end
 
   def create
