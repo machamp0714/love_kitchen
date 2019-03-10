@@ -12,5 +12,12 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
+    @favorite = current_user.favorites.find(params[:id])
+    @article = Article.find(@favorite.article_id)
+    @favorite.destroy
+    respond_to do |format|
+      format.html { redirect_to @article }
+      format.js
+    end
   end
 end
