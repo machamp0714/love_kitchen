@@ -14,35 +14,7 @@
                     <time> <%= comment.created_at.strftime('%Y年%m月%d日') %> </time>
                     <% if comment_author?(comment) %>
                     <div class="commentHeader_button">
-                        <span class="commentHeader_editButton" data-toggle="modal" data-target="#commentEdit">編集</span>
-                        <div class="modal fade" id="commentEdit" tabindex="-1" role="dialog" aria-labelledby="commentEdit" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <div class="commentForm_header">
-                                            <%= image_tag current_user.avatar.to_s, class: 'article-user-avatar' %>
-                                            <div class="commentForm_headerLabel">コメントを編集する</div>
-                                        </div>
-                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="commentForm">
-                                            <%= form_for(current_user.comments.find_by(article_id: params[:id]), remote: true) do |f| %>
-                                                <div class="commentForm_body">
-                                                    <%= f.text_area :content, placeholder: 'コメントを入力してください', class: 'form-control form-comment', id: 'comment-edit' %>
-                                                    <%= hidden_field_tag 'comment[article_id]', @article.id %>
-                                                </div>
-                                                <div class="commentForm_submit">
-                                                    <%= f.submit '更新', class: 'btn btn-default btn-comment' %>
-                                                </div>
-                                            <% end %>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <span class="commentHeader_editButton">編集</span>
                         <span class="commentHeader_deleteButton">
                             <%= link_to '削除', comment, method: :delete, remote: true %>
                         </span>
