@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :pictures, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   accepts_nested_attributes_for :pictures
 
