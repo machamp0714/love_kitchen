@@ -6,6 +6,9 @@
     &:first-child {
         padding-top: 0;
     }
+    >:last-child {
+        margin-left: auto;
+    }
 }
 .tr-Item_userImage {
     width: 40px;
@@ -40,4 +43,13 @@
     &:hover {
         text-decoration: underline;
     }
+}
+.tr-Item_status {
+    font-size: 14px;
+}
+.likes-count {
+    font-weight: 400;
+}
+.comments-count {
+    margin-left: 2px;
 }
