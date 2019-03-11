@@ -91,11 +91,11 @@ RSpec.describe User, type: :model do
     let(:user) { FactoryBot.create(:alice) }
     let(:other_user) { FactoryBot.create(:bob) }
     it 'follow/unfollowできること' do
-      expect(user.following).to_not include other_user
+      expect(user.following?(other_user)).to eq false
       user.follow(other_user)
-      expect(user.following).to include other_user
+      expect(user.following?(other_user)).to eq true
       user.unfollow(other_user)
-      expect(user.following).to_not include other_user
+      expect(user.following?(other_user)).to eq false
     end
   end
 end
