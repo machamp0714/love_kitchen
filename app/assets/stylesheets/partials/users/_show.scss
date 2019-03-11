@@ -41,3 +41,33 @@
         color: #23527c;
     }
 }
+.profileUser_following {
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+}
+.profileUser_following-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 12px;
+}
+.profileUser_following-count {
+    color: #337ab7;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.profileUser_following-body {
+    li {
+        display: inline-block;
+        padding: 0 2px;
+        margin-bottom: 5px;
+    }
+    img {
+        border-radius: 3px;
+        width: 30px;
+        height: 30px;
+    }
+}
