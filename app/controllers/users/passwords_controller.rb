@@ -24,9 +24,18 @@ class Users::PasswordsController < Devise::PasswordsController
   # end
 
   # PUT /resource/password
-  # def update
-  #   super
-  # end
+  def update
+    self.resource = resource_class.reset_password_by_token(resource_params)
+    yield resource if block_given?
+
+    if resource.errors.empty?
+      resource.unlock_access! if unlockable?(resource)
+      redirect_to login_url, notice: '新しいパスワードでログインしてください。'
+    else
+      set_minimum_password_length
+      render :edit
+    end
+  end
 
   # protected
 
