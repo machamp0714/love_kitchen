@@ -1,0 +1,25 @@
+<div class="main">
+    <div class="userPage_header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="userPage_profile">
+                        <div class="userPage_avatar">
+                            <%= link_to @user do %>
+                                <%= image_tag @user.avatar.to_s %>
+                            <% end %>
+                        </div>
+                        <div class="userPage_body">
+                            <h2 class="userPage_heading"> <%= @user.name %> </h2>
+                            <p>
+                                <span class="userPage_articleCount"> <%= @user.articles.count %> </span>
+                                <span class="userPage_posts">Posting</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     end
 
     def following
-
+        @user = User.find_by(name: params[:id])
     end
 
     def update_password
