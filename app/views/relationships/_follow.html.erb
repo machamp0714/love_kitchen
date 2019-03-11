@@ -1,5 +1,6 @@
 <div id="follow-button">
-    <%= button_to current_user.active_relationships.build, params: { followed_id: @user.id }, remote: true, class: 'btn btn-default' do %>
-        <span class="fas fa-user-plus">フォローする</span>
+    <%= button_to current_user.active_relationships.build, params: { followed_id: @user.id }, remote: true, class: 'btn btn-follow' do %>
+        <span class="fas fa-user-plus"></span>
+        <span>フォローする</span>
     <% end %>
 </div>
