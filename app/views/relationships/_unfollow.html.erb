@@ -1,0 +1,5 @@
+<div id="unfollow-button">
+    <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id), html: { method: :delete }) do |f| %>
+        <%= f.submit '解除する', class: 'btn btn-default' %>
+    <% end %>
+</div>
