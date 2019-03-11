@@ -26,6 +26,23 @@
                         <%= link_to 'プロフィールを編集する', setting_profile_path, class: 'edit-profile' %>
                     <% end %>
                 </div>
+                <div class="profileUser_following">
+                    <div class="profileUser_following-header">
+                        <div class="profileUser_following-title"> <i class="fas fa-users"></i> フォロー中のユーザー </div>
+                        <span class="profileUser_following-count"> <%= link_to @user.following.count, '#' %> </span>
+                    </div>
+                    <div class="profileUser_following-body">
+                        <ul>
+                            <% @user.following.each do |user| %>
+                                <li>
+                                    <%= link_to user do %> 
+                                        <%= image_tag user.avatar.to_s %>
+                                    <% end %>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="col-md-9">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
