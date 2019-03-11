@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, skip: :all
-  
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   devise_scope :user do
     get 'signup', to: 'users/registrations#new'
     post 'signup', to: 'users/registrations#create'
