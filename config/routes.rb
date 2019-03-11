@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   scope do
     resources :users, only: :show, path: '/' do
       resources :favorites, only: [:index, :create, :destroy]
+      member do
+        get :following
+      end
     end
   end
   
