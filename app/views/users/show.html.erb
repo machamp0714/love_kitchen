@@ -9,6 +9,12 @@
                 <div class="profile-username">
                     <h3> <%= @user.name %> </h3>
                 </div>
+                <div id="follow-button">
+                    <%= form_for(current_user.active_relationships.build) do |f| %>
+                        <%= f.hidden_field_tag :followed_id, @user.id %>
+                        <%= f.submit "フォローする", class: 'btn btn-default' %>
+                    <% end %>
+                </div>
                 <div class="profile-info">
                     <% unless @user.introduce.nil? %>
                         <div class="profile-introduce">
