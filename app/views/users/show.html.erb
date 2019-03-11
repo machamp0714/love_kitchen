@@ -23,7 +23,9 @@
                         </div>
                     <% end %>
                     <% if current_user?(@user) %>
-                        <%= link_to 'プロフィールを編集する', setting_profile_path, class: 'edit-profile' %>
+                        <%= link_to setting_profile_path, class: 'edit-profile' do %>
+                            <i class="fas fa-cog"></i> プロフィールを編集する
+                        <% end %>
                     <% end %>
                 </div>
                 <div class="profileUser_following">
