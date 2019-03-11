@@ -2,15 +2,15 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  let(:user) { FactoryBot.build(:alice) }
-
   describe 'ユーザーが有効な場合' do
+    let(:user) { FactoryBot.build(:alice) }
     it '有効であること' do
       expect(user).to be_valid
     end
   end
 
   describe 'ユーザーが無効な場合' do
+    let(:user) { FactoryBot.build(:alice) }
     context 'ユーザー名に対するvalidation' do
       it 'ユーザー名が存在しない場合無効であること' do
         user.name = nil
@@ -84,6 +84,18 @@ RSpec.describe User, type: :model do
         user.introduce = 'a' * 201
         expect(user).to_not be_valid
       end
+    end
+  end
+
+  describe 'followingの関連メソッドのテスト' do
+    let(:user) { FactoryBot.create(:alice) }
+    let(:other_user) { FactoryBot.create(:bob) }
+    it 'follow/unfollowできること' do
+      expect(user.following).to_not include other_user
+      user.follow(other_user)
+      expect(user.following).to include other_user
+      user.unfollow(other_user)
+      expect(user.following).to_not include other_user
     end
   end
 end
