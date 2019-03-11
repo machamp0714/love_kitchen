@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authenticate_user!, only: [:edit, :update_password]
+    before_action :authenticate_user!, only: [:edit, :update_password, :following]
 
     def show
         @user = User.friendly.find(params[:id])
@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     
     def edit
         @user = current_user
+    end
+
+    def following
+
     end
 
     def update_password

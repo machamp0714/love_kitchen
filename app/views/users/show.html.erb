@@ -31,7 +31,7 @@
                 <div class="profileUser_following">
                     <div class="profileUser_following-header">
                         <div class="profileUser_following-title"> <i class="fas fa-users"></i> フォロー中のユーザー </div>
-                        <%= link_to @user.following.count, '#', class: 'profileUser_following-count' %>
+                        <%= link_to @user.following.count, following_user_path, class: 'profileUser_following-count' %>
                     </div>
                     <div class="profileUser_following-body">
                         <ul>
