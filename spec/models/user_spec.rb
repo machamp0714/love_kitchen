@@ -93,6 +93,7 @@ RSpec.describe User, type: :model do
     it 'follow/unfollowできること' do
       expect(user.following?(other_user)).to eq false
       user.follow(other_user)
+      expect(other_user.followers).to include user
       expect(user.following?(other_user)).to eq true
       user.unfollow(other_user)
       expect(user.following?(other_user)).to eq false
