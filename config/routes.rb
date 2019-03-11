@@ -31,5 +31,7 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:create, :update, :destroy]
 
+  resources :relationships, only: [:create, :destroy]
+
   root 'pages#home'
 end
