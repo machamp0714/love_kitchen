@@ -10,9 +10,11 @@
                     <h3> <%= @user.name %> </h3>
                 </div>
                 <div class="profile-info">
-                    <div class="profile-introduce">
-                        <%= @user.introduce %>
-                    </div>
+                    <% unless @user.introduce.nil? %>
+                        <div class="profile-introduce">
+                            <%= @user.introduce %>
+                        </div>
+                    <% end %>
                     <% if current_user?(@user) %>
                         <%= link_to 'プロフィールを編集する', setting_profile_path, class: 'edit-profile' %>
                     <% end %>
