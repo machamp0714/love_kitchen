@@ -6,13 +6,13 @@
                     <div class="userPage_profile">
                         <div class="userPage_avatar">
                             <%= link_to @user do %>
-                                <%= image_tag @user.avatar.to_s %>
+                                <%= image_tag @user.avatar.to_s, size: '80x80' %>
                             <% end %>
                         </div>
                         <div class="userPage_body">
                             <h2 class="userPage_heading"> <%= @user.name %> </h2>
                             <p>
-                                <span class="userPage_articleCount"> <%= @user.articles.count %> </span>
+                                <span class="userPage_articleCount"><%= @user.articles.count %></span>
                                 <span class="userPage_posts">Posting</span>
                             </p>
                         </div>
