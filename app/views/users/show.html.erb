@@ -9,10 +9,12 @@
                 <div class="profile-username">
                     <h3> <%= @user.name %> </h3>
                 </div>
-                <% if current_user.following?(@user) %>
-                    <%= render 'relationships/unfollow' %>
-                <% else %>
-                    <%= render 'relationships/follow' %>
+                <% unless current_user?(@user) %>
+                    <% if current_user.following?(@user) %>
+                        <%= render 'relationships/unfollow' %>
+                    <% else %>
+                        <%= render 'relationships/follow' %>
+                    <% end %>
                 <% end %>
                 <div class="profile-info">
                     <% unless @user.introduce.nil? %>
