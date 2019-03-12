@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
     def following
         @user = User.find_by(name: params[:id])
+        @following_user = @user.following
     end
 
     def update_password

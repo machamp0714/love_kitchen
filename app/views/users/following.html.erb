@@ -31,4 +31,26 @@
             </div>
         </div>
     </div>
+    <div class="userPage_main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="tabList">
+                        <% @following_user.each do |user| %>
+                            <div class="tabList_Item">
+                                <div class="tabList_avatar"><%= image_tag user.avatar.to_s, size: '48x48' %></div>
+                                <div class="tabList_info">
+                                    <%= link_to user.name, user %>
+                                    <p><%= user.introduce %></p>
+                                </div>
+                                <div class="tabList_button">
+                                    <%= render 'relationships/unfollow' %>
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
