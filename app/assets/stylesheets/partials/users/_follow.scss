@@ -21,3 +21,20 @@
     font-size: 16px;
     color: #4a4a4a;
 }
+.userPage_ribbon {
+    background: #f8faf7;
+    padding: 14px 0;
+    border-bottom: 1px solid #e8eee4;
+    border-top: 1px solid #e8eee4;
+}
+.userPage_ribbonTitle {
+    color: #4a4a4a;
+    font-size: 14px;
+    font-weight: 700;
+    a {
+        color: #337ab7;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
