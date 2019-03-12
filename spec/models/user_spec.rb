@@ -99,4 +99,21 @@ RSpec.describe User, type: :model do
       expect(user.following?(other_user)).to eq false
     end
   end
+
+  describe '他のユーザーをフォローしている場合' do
+    let(:alice) { FactoryBot.create(:alice) }
+    let(:bob) { FactoryBot.create(:bob) }
+    let(:carol) { FactoryBot.create(:carol) }
+    let!(:alice_article) { FactoryBot.create(:alice_article, user: alice) }
+    let!(:bob_article) { FactoryBot.create(:bob_article, user: bob) }
+    let!(:carol_article) { FactoryBot.create(:carol_article, user: carol) }
+    before do
+      FactoryBot.create(:relationship, followed: bob, follower: alice)
+    end
+    it 'タイムラインが表示されること' do
+      expect(alice.feed).to include bob_article
+      expect(alice.feed).to include alice_article
+      expect(alice.feed).to_not include carol_article
+    end
+  end
 end
