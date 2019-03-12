@@ -45,6 +45,23 @@
                         </ul>
                     </div>
                 </div>
+                <div class="profileUser_following">
+                    <div class="profileUser_following-header">
+                        <div class="profileUser_following-title"> <i class="fas fa-user-check"></i> フォロワーリスト </div>
+                        <%= link_to @user.followers.count, followers_user_path, class: 'profileUser_following-count' %>
+                    </div>
+                    <div class="profileUser_following-body">
+                        <ul>
+                            <% @user.followers.each do |user| %>
+                                <li>
+                                    <%= link_to user do %> 
+                                        <%= image_tag user.avatar.to_s %>
+                                    <% end %>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="col-md-9">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
