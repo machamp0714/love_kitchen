@@ -20,6 +20,11 @@ class UsersController < ApplicationController
         @following_user = @user.following
     end
 
+    def followers
+        @user = User.find_by(name: params[:id])
+        @followers_user = @user.followers
+    end
+
     def update_password
         @user = current_user
         if @user.update(user_params)
