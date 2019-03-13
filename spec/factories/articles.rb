@@ -24,4 +24,17 @@ FactoryBot.define do
     data3 { 3 }
     created_at { 3.days.ago }
   end
+
+  factory :carol_article, class: Article do
+    title { "包丁ランキング" }
+    content { "包丁ランキング" }
+    association :user, factory: :carol
+    label1 { "ラベル1" }
+    label2 { "ラベル2" }
+    label3 { "ラベル3" }
+    data1 { 1 }
+    data2 { 2 }
+    data3 { 3 }
+    created_at { 1.years.ago }
+  end
 end

@@ -9,17 +9,64 @@
                 <div class="profile-username">
                     <h3> <%= @user.name %> </h3>
                 </div>
+                <% unless current_user?(@user) %>
+                    <% if current_user.following?(@user) %>
+                        <%= render 'relationships/unfollow' %>
+                    <% else %>
+                        <%= render 'relationships/follow' %>
+                    <% end %>
+                <% end %>
                 <div class="profile-info">
-                    <div class="profile-introduce">
-                        <%= @user.introduce %>
+                    <% unless @user.introduce.nil? %>
+                        <div class="profile-introduce">
+                            <%= @user.introduce %>
+                        </div>
+                    <% end %>
+                    <% if current_user?(@user) %>
+                        <%= link_to setting_profile_path, class: 'edit-profile' do %>
+                            <i class="fas fa-cog"></i> プロフィールを編集する
+                        <% end %>
+                    <% end %>
+                </div>
+                <div class="profileUser_following">
+                    <div class="profileUser_following-header">
+                        <div class="profileUser_following-title"> <i class="fas fa-users"></i> フォロー中のユーザー </div>
+                        <%= link_to @user.following.count, following_user_path, class: 'profileUser_following-count' %>
                     </div>
-                    <%= link_to 'プロフィールを編集する', setting_profile_path, class: 'edit-profile' %>
+                    <div class="profileUser_following-body">
+                        <ul>
+                            <% @user.following.each do |user| %>
+                                <li>
+                                    <%= link_to user do %> 
+                                        <%= image_tag user.avatar.to_s %>
+                                    <% end %>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
+                <div class="profileUser_following">
+                    <div class="profileUser_following-header">
+                        <div class="profileUser_following-title"> <i class="fas fa-user-check"></i> フォロワーリスト </div>
+                        <%= link_to @user.followers.count, followers_user_path, class: 'profileUser_following-count' %>
+                    </div>
+                    <div class="profileUser_following-body">
+                        <ul>
+                            <% @user.followers.each do |user| %>
+                                <li>
+                                    <%= link_to user do %> 
+                                        <%= image_tag user.avatar.to_s %>
+                                    <% end %>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="col-md-9">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a href="#posted-articles" id="posted-articles-tab" data-toggle="tab" class="nav-link posted-tab active" role="tab" aria-controls="posted-articles" aria-selected="true">投稿した記事</a>
+                    <li class="nav-item active">
+                        <a href="#posted-articles" id="posted-articles-tab" data-toggle="tab" class="nav-link posted-tab" role="tab" aria-controls="posted-articles" aria-selected="true">投稿した記事</a>
                     </li>
                     <li class="nav-item">
                         <a href="#liked-articles" id="liked-articles-tab" data-toggle="tab" class="nav-link posted-tab" role="tab" aria-controls="liked-articles" aria-selected="false">いいねした記事</a>

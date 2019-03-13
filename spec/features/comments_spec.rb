@@ -8,7 +8,9 @@ RSpec.feature "Comments", type: :feature do
 
   scenario 'コメントを投稿できること' do
     sign_in_as user
-    click_link article.title
+    within '#posted-order' do
+      click_link article.title
+    end
     expect {
       within '#comment-post' do
         fill_in 'comment[content]', with: "コメントテスト"
@@ -19,7 +21,9 @@ RSpec.feature "Comments", type: :feature do
 
   scenario 'コメントを削除できること' do
     sign_in_as user
-    click_link article.title
+    within '#posted-order' do
+      click_link article.title
+    end
     expect {
       click_link '削除'
     }.to change(Comment, :count).by(-1)

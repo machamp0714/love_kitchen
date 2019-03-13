@@ -2,15 +2,15 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  let(:user) { FactoryBot.build(:alice) }
-
   describe 'ユーザーが有効な場合' do
+    let(:user) { FactoryBot.build(:alice) }
     it '有効であること' do
       expect(user).to be_valid
     end
   end
 
   describe 'ユーザーが無効な場合' do
+    let(:user) { FactoryBot.build(:alice) }
     context 'ユーザー名に対するvalidation' do
       it 'ユーザー名が存在しない場合無効であること' do
         user.name = nil
@@ -84,6 +84,36 @@ RSpec.describe User, type: :model do
         user.introduce = 'a' * 201
         expect(user).to_not be_valid
       end
+    end
+  end
+
+  describe 'followingの関連メソッドのテスト' do
+    let(:user) { FactoryBot.create(:alice) }
+    let(:other_user) { FactoryBot.create(:bob) }
+    it 'follow/unfollowできること' do
+      expect(user.following?(other_user)).to eq false
+      user.follow(other_user)
+      expect(other_user.followers).to include user
+      expect(user.following?(other_user)).to eq true
+      user.unfollow(other_user)
+      expect(user.following?(other_user)).to eq false
+    end
+  end
+
+  describe '他のユーザーをフォローしている場合' do
+    let(:alice) { FactoryBot.create(:alice) }
+    let(:bob) { FactoryBot.create(:bob) }
+    let(:carol) { FactoryBot.create(:carol) }
+    let!(:alice_article) { FactoryBot.create(:alice_article, user: alice) }
+    let!(:bob_article) { FactoryBot.create(:bob_article, user: bob) }
+    let!(:carol_article) { FactoryBot.create(:carol_article, user: carol) }
+    before do
+      FactoryBot.create(:relationship, followed: bob, follower: alice)
+    end
+    it 'タイムラインが表示されること' do
+      expect(alice.feed).to include bob_article
+      expect(alice.feed).to include alice_article
+      expect(alice.feed).to_not include carol_article
     end
   end
 end

@@ -1,0 +1,5 @@
+<div id="unfollow-button">
+    <%= button_to current_user.active_relationships.find_by(followed_id: @user.id), method: :delete, remote: true, class: 'btn-unfollow' do %>
+        解除する
+    <% end %>
+</div>

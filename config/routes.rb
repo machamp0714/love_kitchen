@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   scope do
     resources :users, only: :show, path: '/' do
       resources :favorites, only: [:index, :create, :destroy]
+      member do
+        get :following, :followers
+      end
     end
   end
   
@@ -30,6 +33,8 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [:create, :update, :destroy]
+
+  resources :relationships, only: [:create, :destroy]
 
   root 'pages#home'
 end

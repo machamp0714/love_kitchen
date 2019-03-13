@@ -54,3 +54,32 @@
         color: #fff;
     }
 }
+.btn-follow {
+    width: 50%;
+    font-size: 13px;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    border-radius: 3px;
+    &:hover {
+        border-color: #adadad;
+        background-color: #e6e6e6;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+.btn-unfollow {
+    font-size: 13px;
+    background-color: #d9534f;
+    color: #fff;
+    border-color: #d9534f;
+    padding: 6px 12px;
+    border-radius: 3px;
+    &:hover {
+        color: #fff;
+    }
+    &:focus {
+        outline: none;
+    }
+}
