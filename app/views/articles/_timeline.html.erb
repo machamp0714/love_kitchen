@@ -1,4 +1,4 @@
-<% @user.feed.each do |article| %>
+<% current_user.feed.each do |article| %>
     <div class="tr-Item">
         <%= link_to article.user, class: 'tr-Item_userImage' do %>
             <%= image_tag article.user.avatar_url %>
