@@ -71,3 +71,8 @@
         height: 30px;
     }
 }
+@media(max-width: 465px) {
+    .profile-avatar {
+        text-align: center;
+    }
+}
