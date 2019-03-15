@@ -12,7 +12,9 @@
                     <li class="nav-item mr-sm-2">
                         <%= search_form_for @q, url: search_path, class: 'form-inline' do |f| %>
                             <%= f.search_field :title_or_content_cont, placeholder: 'キーワードを入力', class: 'form-control' %>
-                            <%= f.submit '検索', class: 'btn' %>
+                            <%= button_tag type: 'submit' do %>
+                                <i class="fas fa-search"></i>
+                            <% end %>
                         <% end %>
                     </li>
                     <li class="nav-item"> 
