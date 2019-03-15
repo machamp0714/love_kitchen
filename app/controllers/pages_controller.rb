@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 
   def search
     @q = Article.search(search_params)
-    @search_articles = @q.result(distinct: true)
+    @articles = @q.result(distinct: true)
   end
 
   private
