@@ -10,4 +10,14 @@ class PagesController < ApplicationController
       @articles = Kaminari.paginate_array(articles).page(params[:page]).per(10)
     end
   end
+
+  def search
+    @q = Article.search(search_params)
+    @search_articles = @q.result(distinct: true)
+  end
+
+  private
+    def search_params 
+      params.require(:q).permit!
+    end
 end
