@@ -5,7 +5,7 @@
             <div class="col-sm-4">
                 <%= search_form_for @q, url: search_path do |f| %>
                     <div class="form-group">
-                        <%= f.search_field :title_cont, placeholder: 'キーワードを入力してください', class: 'form-control' %>
+                        <%= f.search_field :title_or_content_cont, placeholder: 'キーワードを入力してください', class: 'form-control' %>
                     </div>
                     <%= f.submit '検索', class: 'btn btn-default' %>
                 <% end %>
