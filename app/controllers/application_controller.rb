@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
 
         def set_search
             @q = Article.ransack(params[:q])
-            @search_articles = @q.result(distinct: true)
+            @search_articles = @q.result.includes(:user)
         end
 end
