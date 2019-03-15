@@ -18,6 +18,6 @@ class PagesController < ApplicationController
 
   private
     def search_params 
-      params.require(:q).permit(:name_cont)
+      params.require(:q).permit(:title_or_content_cont)
     end
 end
