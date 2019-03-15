@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     put 'password_reset', to: 'users/passwords#update'
   end
 
+  get 'search', to: 'pages#search'
+
   get 'setting/password', to: 'users#edit'
   patch 'setting/password', to: 'users#update_password'
 
@@ -36,6 +38,5 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  get 'search', to: 'pages#search'
   root 'pages#home'
 end
