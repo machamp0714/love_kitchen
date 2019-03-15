@@ -24,6 +24,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'friendly_id'
 gem 'gon'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

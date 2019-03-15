@@ -2,32 +2,13 @@
 <div class="homeLayoutBody">
     <div class="container">
         <div class="row">
-            <div class="col-sm-2"></div>
+            <div class="col-sm-4"></div>
             <div class="col-sm-8">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a href="#timeline" class="nav-link active" id="order-posted-tab" data-toggle="tab" role="tab" aria-controls="timeline" aria-selected="true">タイムライン</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#order-posted" class="nav-link" id="order-posted-tab" data-toggle="tab" role="tab" aria-controls="order-posted" aria-selected="true">投稿順</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#order-liked" class="nav-link" id="order-liked-tab" data-toggle="tab" role="tab" aria-controls="order-liked" aria-selected="false">いいね順</a>
-                    </li>
-                </ul>
-                <div class="tab-content mt-3">
-                    <div class="tab-pane fade show active" id="timeline" role="tabpanel" aria-labelledby="timeline">
-                        <%= render 'articles/timeline' %>
-                    </div>
-                    <div class="tab-pane fade show" id="order-posted" role="tabpanel" aria-labelledby="order-posted-tab">
-                        <%= render 'articles/articles' %>
-                    </div>
-                    <div class="tab-pane fade" id="order-liked" role="tabpanel" aria-labelledby="order-liked-tab">
-                        いいね順
-                    </div>
+                <div class="itemList">
+                    <%= render 'articles/articles' %>
                 </div>
+                <%= paginate @articles %>
             </div>
-            <div class="col-sm-2"></div>
         </div>
     </div>
 </div>
