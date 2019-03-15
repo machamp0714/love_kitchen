@@ -27,7 +27,9 @@ RSpec.feature "Articles", type: :feature do
   scenario '記事を編集できること' do
     sign_in_as user
     click_link "プロフィール"
-    click_link article.title
+    within '#posted-articles' do
+      click_link article.title
+    end
     click_link "編集する"
     fill_in "article[title]", with: "編集テスト"
     fill_in "article[content]", with: "テスト投稿"
@@ -38,7 +40,9 @@ RSpec.feature "Articles", type: :feature do
   scenario '記事を削除できること' do
     sign_in_as user
     click_link "プロフィール"
-    click_link article.title
+    within '#posted-articles' do
+      click_link article.title
+    end
     expect {
       click_link "削除する"
     }.to change(Article, :count).by(-1)
