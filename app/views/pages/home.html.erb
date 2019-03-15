@@ -3,12 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <%= search_form_for @q, url: search_path do |f| %>
-                    <%= f.search_field :title_or_content_cont, placeholder: 'キーワードを入力してください', class: 'form-control' %>
-                    <%= button_tag type: 'submit' do %>
-                        <i class="fas fa-search"></i>
-                    <% end %>
-                <% end %>
+                <%= render 'shared/search_form' %>
             </div>
             <div class="col-sm-8">
                 <div class="itemList">

@@ -1,0 +1,6 @@
+<%= search_form_for @q, url: search_path do |f| %>
+    <%= f.search_field :title_or_content_cont, placeholder: 'キーワードを入力', class: 'form-control' %>
+    <%= button_tag type: 'submit' do %>
+        <i class="fas fa-search"></i>
+    <% end %>
+<% end %>
