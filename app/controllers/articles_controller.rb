@@ -25,6 +25,14 @@ class ArticlesController < ApplicationController
     end
 
     def edit
+        case @article.pictures.length
+        when 0
+            3.times { @article.pictures.build }
+        when 1
+            2.times { @article.pictures.build }
+        when 2
+            @article.pictures.build
+        end
         
     end
 
