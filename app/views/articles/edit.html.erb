@@ -41,6 +41,7 @@
                 <div class="editorPicture">
                     <%= f.fields_for :pictures do |picture| %>
                         <%= picture.file_field :image, class: 'form-control-file'%>
+                        <%= picture.hidden_field :id, value: picture.object.id %>
                     <% end %>
                 </div>
                 <div class="editorSubmit">
