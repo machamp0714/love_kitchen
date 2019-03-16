@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
     end
 
     def update
-        if @article.update(article_params)
+        if @article.update(update_article_params)
             redirect_to @article, notice: 'Updated!!'
         else
             render :edit
@@ -50,6 +50,14 @@ class ArticlesController < ApplicationController
             :data1, :data2, :data3, :data4, :data5,
             pictures_attributes: [:image]
             )
+    end
+
+    def update_article_params
+        params.require(:article).permit(:title,
+            :content,
+            :label1, :label2, :label3, :label4, :label5,
+            :data1, :data2, :data3, :data4, :data5,
+            pictures_attributes: [:image, :_destory, :id])
     end
 
     def correct_user
