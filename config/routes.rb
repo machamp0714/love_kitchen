@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     put 'password_reset', to: 'users/passwords#update'
   end
 
+  get 'search', to: 'pages#search'
+
   get 'setting/password', to: 'users#edit'
   patch 'setting/password', to: 'users#update_password'
 

@@ -4,6 +4,7 @@ RSpec.feature "Articles", type: :feature do
 
   given(:user) { FactoryBot.create(:alice) }
   given!(:article) { FactoryBot.create(:alice_article, user: user) }
+  given!(:other_article) { FactoryBot.create(:bob_article) }
 
   scenario '記事を投稿できること' do
     sign_in_as user
@@ -27,7 +28,9 @@ RSpec.feature "Articles", type: :feature do
   scenario '記事を編集できること' do
     sign_in_as user
     click_link "プロフィール"
-    click_link article.title
+    within '#posted-articles' do
+      click_link article.title
+    end
     click_link "編集する"
     fill_in "article[title]", with: "編集テスト"
     fill_in "article[content]", with: "テスト投稿"
@@ -38,10 +41,32 @@ RSpec.feature "Articles", type: :feature do
   scenario '記事を削除できること' do
     sign_in_as user
     click_link "プロフィール"
-    click_link article.title
+    within '#posted-articles' do
+      click_link article.title
+    end
     expect {
       click_link "削除する"
     }.to change(Article, :count).by(-1)
     expect(page).to have_content "Deleted!!"
+  end
+
+  scenario '記事を検索できること(title検索)' do
+    sign_in_as user
+    within '.search-form' do
+      fill_in "q[title_or_content_cont]", with: "中華鍋"
+      find('.search-box').click
+    end
+    expect(page).to have_content article.title
+    expect(page).to_not have_content other_article.title
+  end
+
+  scenario '記事を検索できること(content検索)' do
+    sign_in_as user
+    within '.search-form' do
+      fill_in "q[title_or_content_cont]", with: "熱伝導"
+      find('.search-box').click
+    end
+    expect(page).to have_content article.title
+    expect(page).to_not have_content other_article.title    
   end
 end

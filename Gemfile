@@ -25,11 +25,13 @@ gem 'rmagick'
 gem 'friendly_id'
 gem 'gon'
 gem 'kaminari'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'bullet'
 end
 
 group :development do
