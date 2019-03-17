@@ -57,6 +57,9 @@
 	border-left: none;
 	color: #999;
 	background-color: #fff;
+	&:focus {
+		outline: 0;
+	}
 }
 @media(max-width: 465px) {
 	.nav-search {
