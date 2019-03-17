@@ -78,11 +78,21 @@
     }
 }
 .editorChart_label {
+    display: flex;
+    flex-direction: column;
     width: 50%;
+    >:first-child {
+        margin-left: auto;
+    }
 }
 .editorChart_data {
+    display: flex;
+    flex-direction: column;
     width: 50%;
     padding-left: 10px;
+    >:first-child {
+        margin-left: auto;
+    }
 }
 .editorFooter {
     display: flex;
