@@ -1,4 +1,4 @@
-<div class="likes-action" id="likable">
+<div id="likable">
     <%= button_to article_likes_path(@article, current_user.likes.build), remote: true, class: 'like-button likable' do %>
         <span class="fas fa-thumbs-up"></span>
         <span class="likes-count"> <%= @article.likes.count %> </span>
