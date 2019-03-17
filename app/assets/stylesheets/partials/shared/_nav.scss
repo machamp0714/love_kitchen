@@ -1,4 +1,5 @@
 .navbar-custom {    
+    z-index: 9999;
     letter-spacing: 2px;
     .navbar-brand {
         color: #fff;
@@ -21,4 +22,9 @@
 }
 .dropdown-menu {
     background-color: #343a40
+}
+@media(max-width: 465px) {
+    .navbar-nav {
+        align-items: flex-start;
+    }
 }
