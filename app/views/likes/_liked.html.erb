@@ -1,5 +1,5 @@
-<div class="likes-action" id="liked">
-    <%= link_to article_like_path(@article, current_user.likes.find_by(article_id: @article.id)), method: :delete, remote: true, class: 'like-button liked' do %>
+<div id="liked">
+    <%= button_to article_like_path(@article, current_user.likes.find_by(article_id: @article.id)), method: :delete, remote: true, class: 'like-button liked' do %>
         <span class="fas fa-check"></span>
         <span class="likes-count"> <%= @article.likes.count %> </span>
     <% end %>

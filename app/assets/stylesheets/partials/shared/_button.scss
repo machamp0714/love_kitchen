@@ -29,30 +29,54 @@
     padding: 6px 10px;
 }
 .like-button {
-    width: 100%;
+    width: 200px;
     height: 44px;
     border-radius: 4px;
     margin: 0 8px;
     font-size: 20px;
+    &:focus {
+        outline: 0;
+    }
+
 }
 .likable {
     background-color: #fff;
-    color: #E75926;
-    border: 2px solid #E75926;
-    &:focus {
-        outline: none;
+    color: #657786;
+    border: 2px solid #657786;
+    &:hover {
+        border-color: #E75926;
+        color: #E75926;
     }
 }
 .liked {
-    text-align: center;
-    line-height: 44px;
-    display: block;
     background-color: #E75926;
     color: #fff;
     border: none;
     &:hover {
         color: #fff;
     }
+}
+.favorite-button {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    &:focus {
+        outline: 0;
+    }
+}
+.favorite {
+    border: 2px solid #657786;
+    color: #657786;
+    &:hover {
+        border-color: #e0245e;
+        color: #e0245e;
+    }
+}
+.unfavorite {
+    border: 2px solid #e0245e;
+    color: #e0245e;
 }
 .btn-follow {
     width: 50%;

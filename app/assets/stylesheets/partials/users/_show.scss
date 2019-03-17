@@ -72,6 +72,10 @@
         height: 30px;
     }
 }
+.articleActions {
+    display: flex;
+    margin-bottom: 20px;
+}
 @media(max-width: 465px) {
     .profile-avatar {
         text-align: center;

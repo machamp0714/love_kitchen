@@ -1,5 +1,5 @@
-<div class="unfavorite-action">
-    <%= button_to user_favorite_path(current_user, current_user.favorites.find_by(article_id: @article.id)), method: :delete, remote: true, class: 'unfavorites-button unfavorite' do %>
+<div id="unfavorite">
+    <%= button_to user_favorite_path(current_user, current_user.favorites.find_by(article_id: @article.id)), method: :delete, remote: true, class: 'favorite-button unfavorite' do %>
         <span class="fas fa-heart"></span>
     <% end %>
 </div>

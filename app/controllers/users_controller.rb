@@ -3,10 +3,10 @@ class UsersController < ApplicationController
 
     def show
         @user = User.friendly.find(params[:id])
-        @articles = @user.articles
+        @articles = @user.articles.order(created_at: :desc)
         @liked_articles = []
-        @user.likes.each do |like|
-            article = Article.find(like.article.id)
+        @user.likes.includes(:article).order(created_at: :desc).each do |like|
+            article = Article.find(like.article_id)
             @liked_articles << article
         end
     end
