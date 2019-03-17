@@ -17,8 +17,7 @@ window.draw_example_chart = ->
         },
         options: {
             scales: {
-                max: 10,
-                min: 0,
+                suggestedMax: 5,
                 beginAtZero: true,
                 stepSize: 1
             }
@@ -45,11 +44,9 @@ window.draw_chart = ->
         options: {
             scales: {
                 ticks: {
-                    max: 5,
-                    min: 0,
+                    suggestedMax: 5,
                     beginAtZero: true,
-                    stepSize: 10,
-                    maxTicksLimit: 6
+                    stepSize: 1
                 }
             }
         }
