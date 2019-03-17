@@ -19,7 +19,7 @@ window.draw_example_chart = ->
             scales: {
                 ticks: {
                     beginAtZero: true,
-                    suggestedMin: 0,
+                    min: 0,
                     suggestedMax: 5,
                     stepSize: 1
                 }
@@ -48,7 +48,7 @@ window.draw_chart = ->
             scales: {
                 ticks: {
                     beginAtZero: true,
-                    suggestedMin: 0,
+                    min: 0,
                     suggestedMax: 5,
                     stepSize: 1,
                 }
