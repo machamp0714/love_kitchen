@@ -69,12 +69,19 @@
 .editorChart {
     margin-top: 20px;
 }
-.editor-chart-label {
+.editorChart_box {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 15px;
     &:last-child {
         margin-bottom: 0;
     }
+}
+.editorChart_label {
+    width: 50%;
+}
+.editorChart_data {
+    width: 50%;
 }
 .editorFooter {
     display: flex;
