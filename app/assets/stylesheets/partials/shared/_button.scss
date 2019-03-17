@@ -52,14 +52,17 @@
     }
 }
 .favorite-button {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
     background-color: #fff;
+    border-radius: 50%;
     &:focus {
         outline: 0;
     }
 }
 .favorite {
     border: 1px solid #657786;
-    border-radius: 50%;
     color: #657786;
     &:hover {
         border-color: #e0245e;
@@ -68,7 +71,6 @@
 }
 .unfavorite {
     border: 1px solid #e0245e;
-    border-radius: 50%;
     color: #e0245e;
 }
 .btn-follow {
