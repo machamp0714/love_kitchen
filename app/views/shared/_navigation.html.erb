@@ -24,7 +24,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            マイページ
+                            <%= image_tag current_user.avatar.to_s, size: '35x35'%>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <%= link_to current_user, class: 'nav-link' do %>
