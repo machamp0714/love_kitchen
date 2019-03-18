@@ -2,13 +2,14 @@
 <div class="sessionsLayout_bg">
   <div class="container">
     <div class="row">
-      <div class="col-sm-2"></div>
-      <div class="col-sm-8">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
         <div class="sessionsLayoutBody">
           <h1 class="sessionsLayoutBody_title">Login</h1>
           <hr>
           <p class="lead">メールアドレスでログイン</p>
           <%= form_for(resource, as: resource_name, url: login_path) do |f| %>
+            <%= devise_error_messages! %>
             <div class="form-group">
               <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'メールアドレス' %>
             </div>
@@ -35,7 +36,7 @@
           <%= link_to 'アカウントをお持ちでない方はコチラ', signup_path, class: 'lead-path' %>
         </div>
       </div>
-      <div class="col-sm-2"></div>
+      <div class="col-sm-3"></div>
     </div>
   </div>
 </div>

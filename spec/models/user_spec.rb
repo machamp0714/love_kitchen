@@ -7,11 +7,20 @@ RSpec.describe User, type: :model do
     it '有効であること' do
       expect(user).to be_valid
     end
+
+    it '保存される前にname属性が小文字に変換されること' do
+      user.name = 'ALICE'
+      user.save
+      expect(user.name).to eq 'alice'
+    end
   end
 
   describe 'ユーザーが無効な場合' do
     let(:user) { FactoryBot.build(:alice) }
     context 'ユーザー名に対するvalidation' do
+      before do
+        FactoryBot.create(:bob)
+      end
       it 'ユーザー名が存在しない場合無効であること' do
         user.name = nil
         expect(user).to_not be_valid
@@ -36,6 +45,29 @@ RSpec.describe User, type: :model do
         user.name = '1234'
         expect(user).to_not be_valid
       end
+
+      it 'ユーザー名が既に存在している場合無効であること' do
+        user.name = 'bob'
+        expect(user).to_not be_valid
+      end
+
+      it '大文字と小文字を区別しないこと' do
+        user.name = 'BOB'
+        expect(user).to_not be_valid
+      end
+
+      it 'NGワードが含まれている場合無効であること' do
+        WORDS = %w{
+          index home new create edit update destroy session signin signout login logout
+          signup email mail password registration unlock confirmation omniauth article
+          comment favorite like page relationship user flash following follower helper
+          html http http rspec gem gemfile json query delete remove nil config mysql 
+        }
+        WORDS.each do |w|
+          user.name = w
+          expect(user).to_not be_valid
+        end
+      end
     end
 
     context 'パスワードに対するvalidation' do
@@ -51,11 +83,6 @@ RSpec.describe User, type: :model do
 
       it 'パスワードが存在しない場合無効であること' do
         user.password = nil
-        expect(user).to_not be_valid
-      end
-
-      it '確認用パスワードがパスワードと一致しない時無効であること' do
-        user.password_confirmation = 'hogehoge'
         expect(user).to_not be_valid
       end
     end
