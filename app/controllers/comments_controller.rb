@@ -1,9 +1,10 @@
 class CommentsController < ApplicationController
+    before_action :authenticate_user!
 
     def create
         @article = Article.find(params[:comment][:article_id])
-        @comment = current_user.comments.build(comment_params)
-        if @comment.save
+        comment = current_user.comments.build(comment_params)
+        if comment.save
             respond_to do |format|
                 format.html { redirect_to @article }
                 format.js
@@ -14,9 +15,9 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        @comment = Comment.find(params[:id])
-        @article = Article.find(@comment.article_id)
-        @comment.destroy
+        comment = Comment.find(params[:id])
+        @article = Article.find(comment.article_id)
+        comment.destroy
         respond_to do |format|
             format.html { redirect_to @article }
             format.js
