@@ -2,8 +2,8 @@
 <div class="sessionsLayout_bg">
   <div class="container">
     <div class="row">
-      <div class="col-sm-2"></div>
-      <div class="col-sm-8">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
         <div class="sessionsLayoutBody">
           <h1 class="sessionsLayoutBody_title">Sign Up!</h1>
           <hr>
@@ -15,12 +15,8 @@
             <div class="form-group">
               <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'メールアドレス' %>
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <%= f.password_field :password, autocomplete: 'new_password', class: 'form-control', placeholder: 'パスワード' %>
-                </div>
-              </div>
+            <div class="form-group">
+              <%= f.password_field :password, autocomplete: 'new_password', class: 'form-control', placeholder: 'パスワード' %>
             </div>
             <%= f.submit '登録する', class: 'btn btn-default' %>
           <% end %>
@@ -33,7 +29,7 @@
           <%= link_to 'アカウントをお持ちの方はコチラ', login_path, class: 'lead-path' %>
         </div>
       </div>
-      <div class="col-sm-2"></div>
+      <div class="col-sm-3"></div>
     </div>
   </div>
 </div>
