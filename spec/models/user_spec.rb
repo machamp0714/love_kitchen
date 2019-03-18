@@ -55,6 +55,19 @@ RSpec.describe User, type: :model do
         user.name = 'BOB'
         expect(user).to_not be_valid
       end
+
+      it 'NGワードが含まれている場合無効であること' do
+        WORDS = %w{
+          index home new create edit update destroy session signin signout login logout
+          signup email mail password registration unlock confirmation omniauth article
+          comment favorite like page relationship user flash following follower helper
+          html http http rspec gem gemfile json query delete remove nil config mysql 
+        }
+        WORDS.each do |w|
+          user.name = w
+          expect(user).to_not be_valid
+        end
+      end
     end
 
     context 'パスワードに対するvalidation' do
