@@ -41,6 +41,11 @@ RSpec.describe User, type: :model do
       end
 
       it 'ユーザー名が既に存在している場合無効であること' do
+        user.name = 'bob'
+        expect(user).to_not be_valid
+      end
+
+      it '大文字と小文字を区別しないこと' do
         user.name = 'BOB'
         expect(user).to_not be_valid
       end
