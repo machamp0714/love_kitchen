@@ -7,6 +7,12 @@ RSpec.describe User, type: :model do
     it '有効であること' do
       expect(user).to be_valid
     end
+
+    it '保存される前にname属性が小文字に変換されること' do
+      user.name = 'ALICE'
+      user.save
+      expect(user.name).to eq 'alice'
+    end
   end
 
   describe 'ユーザーが無効な場合' do
