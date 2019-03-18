@@ -21,11 +21,6 @@
                   <%= f.password_field :password, autocomplete: 'new_password', class: 'form-control', placeholder: 'パスワード' %>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <%= f.password_field :password_confirmation, autocomplete: 'new_password', class: 'form-control', placeholder: '確認用パスワード' %>
-                </div>
-              </div>
             </div>
             <%= f.submit '登録する', class: 'btn btn-default' %>
           <% end %>
