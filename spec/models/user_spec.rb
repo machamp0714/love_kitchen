@@ -12,6 +12,9 @@ RSpec.describe User, type: :model do
   describe 'ユーザーが無効な場合' do
     let(:user) { FactoryBot.build(:alice) }
     context 'ユーザー名に対するvalidation' do
+      before do
+        FactoryBot.create(:bob)
+      end
       it 'ユーザー名が存在しない場合無効であること' do
         user.name = nil
         expect(user).to_not be_valid
@@ -34,6 +37,11 @@ RSpec.describe User, type: :model do
 
       it 'ユーザー名が数字のみの場合無効であること' do
         user.name = '1234'
+        expect(user).to_not be_valid
+      end
+
+      it 'ユーザー名が既に存在している場合無効であること' do
+        user.name = 'BOB'
         expect(user).to_not be_valid
       end
     end
