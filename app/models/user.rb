@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_save { self.name = name.downcase }
   extend FriendlyId
   friendly_id :name, use: :slugged
 
