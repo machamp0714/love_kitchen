@@ -3,12 +3,13 @@
     width: 100%;
     height: auto;
     text-align: center;
-    padding: 100px 0;
+    padding: 150px 0;
     background-color: #000;
+    background: image-url("love-kitchen-bg.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
     color: #fff;
     .top-body {
         display: table-cell;
@@ -42,7 +43,7 @@
         font-size: 18px;
         letter-spacing: 1px;
         margin-bottom: 100px;
-        color: rgba(255,255,255,0.8);
+        color: #fff;
     }
 }
 // logged in
