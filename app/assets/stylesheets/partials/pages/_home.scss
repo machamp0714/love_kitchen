@@ -11,22 +11,22 @@
     background-size: cover;
     -o-background-size: cover;
     color: #fff;
-    .top-body {
-        display: table-cell;
-        vertical-align: middle;
-        H1 {
-            font-size: 76px;
-            font-weight: bold;
-            color: rgba(255,255,255,0.8);
-        }
-        .brand-heading {
-            color: #E75926;
-            text-shadow: 0 4px #a13e1a;
-        }
-        .top-text {
-            font-size: 18px;
-        }
+}
+.top-body {
+    display: table-cell;
+    vertical-align: middle;
+    H1 {
+        font-size: 76px;
+        font-weight: bold;
+        color: rgba(255,255,255,0.8);
     }
+}
+.brand-heading {
+    color: #E75926;
+    text-shadow: 0 4px #a13e1a;
+}
+.top-text {
+    font-size: 18px;
 }
 .result-text {
     margin-bottom: 20px;
