@@ -77,13 +77,13 @@
                 </ul>
                 <div class="tab-content mt-3" id="myTabContent">
                     <div class="tab-pane fade show active" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
-                        <%= render 'articles/timeline' %>
+                        <%= render 'articles/articles', object: @feed %>
                     </div>
                     <div class="tab-pane fade show" id="posted-articles" role="tabpanel" aria-labelledby="posted-articles-tab">
-                        <%= render 'articles/articles' %>
+                        <%= render 'articles/articles', object: @articles %>
                     </div>
                     <div class="tab-pane fade show" id="liked-articles" role="tabpanel" aria-labelledby="liked-articles-tab">
-                        <%= render 'articles/liked_articles' %>
+                        <%= render 'articles/articles', object: @liked_articles %>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-8">
                 <div class="itemList">
-                    <%= render 'articles/articles' %>
+                    <%= render 'articles/articles', object: @articles %>
                 </div>
                 <%= paginate @articles %>
             </div>

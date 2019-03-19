@@ -9,6 +9,7 @@ class UsersController < ApplicationController
             article = Article.find(like.article_id)
             @liked_articles << article
         end
+        @feed = @user.feed
     end
     
     def edit
