@@ -7,12 +7,11 @@ class PagesController < ApplicationController
       end
     end
     @articles = Kaminari.paginate_array(articles).page(params[:page]).per(10)
-    @top_articles = articles.first(20)
   end
 
   def search
     @q = Article.search(search_params)
-    @articles = @q.result.includes(:user)
+    @articles = @q.result.includes(:user).order("articles.created_at DESC").page(params[:page]).per(10)
   end
 
   private
