@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: heroku_67e7018f22e059d
-  username: <%= ENV["DATABASE_USER"] %>
-  password: <%= ENV["DATABASE_PASSWORD"] %>
+  database: love_kitchen_production
+  username: root
+  password:
