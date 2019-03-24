@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/projects/
+    destination: /var/www/projects/lovekitchen
 hooks:
   ApplicationStop:
     - location: scripts/stop_server.sh
