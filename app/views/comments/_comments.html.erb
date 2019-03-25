@@ -12,13 +12,15 @@
                 </div>
                 <div class="commentHeader_metadata"> 
                     <time> <%= comment.created_at.strftime('%Y年%m月%d日') %> </time>
-                    <% if comment_author?(comment) %>
-                    <div class="commentHeader_button">
-                        <span class="commentHeader_editButton">編集</span>
-                        <span class="commentHeader_deleteButton">
-                            <%= link_to '削除', comment, method: :delete, remote: true %>
-                        </span>
-                    </div>
+                    <% if user_signed_in? %>
+                        <% if comment_author?(comment) %>
+                            <div class="commentHeader_button">
+                                <span class="commentHeader_editButton">編集</span>
+                                <span class="commentHeader_deleteButton">
+                                    <%= link_to '削除', comment, method: :delete, remote: true %>
+                                </span>
+                            </div>
+                        <% end %>
                     <% end %>
                 </div>
             </div>

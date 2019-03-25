@@ -16,27 +16,31 @@
                             <div class="article-updated">
                                 <%= @article.updated_at.strftime('%Y年%m月%d日') %>
                             </div>
-                            <% if !correct_user? %>
-                                <div class="article-settings">
-                                    <%= link_to '編集する', edit_article_path %>
-                                    <%= link_to '削除する', article_path, method: :delete %>
-                                </div>
+                            <% if user_signed_in? %>
+                                <% if !correct_user? %>
+                                    <div class="article-settings">
+                                        <%= link_to '編集する', edit_article_path %>
+                                        <%= link_to '削除する', article_path, method: :delete %>
+                                    </div>
+                                <% end %>
                             <% end %>
                         </div>
                         <h1 class="header-title"> <%= @article.title %> </h1>
                     </div>
-                    <div class="articleActions">
-                        <% if likes?(@article.id) %>
-                            <%= render 'likes/liked' %>
-                        <% else %>
-                            <%= render 'likes/likable' %>
-                        <% end %>
-                        <% if favorite?(@article) %>
-                            <%= render 'favorites/unfavorite' %>
-                        <% else %>
-                            <%= render 'favorites/favorites' %>
-                        <% end %>        
-                    </div>
+                    <% if user_signed_in? %>
+                        <div class="articleActions">
+                            <% if likes?(@article.id) %>
+                                <%= render 'likes/liked' %>
+                            <% else %>
+                                <%= render 'likes/likable' %>
+                            <% end %>
+                            <% if favorite?(@article) %>
+                                <%= render 'favorites/unfavorite' %>
+                            <% else %>
+                                <%= render 'favorites/favorites' %>
+                            <% end %>        
+                        </div>
+                    <% end %>
                     <section class="articleContent">
                         <% unless @article.pictures.empty? %>
                             <div id="carouselControls" id="carouselIndicators" class="carousel slide" data-ride="carousel">
@@ -103,21 +107,23 @@
     <div class="commentsWrapper">
         <div class="comment-main">
             <%= render 'comments/comments' %>
-            <div class="commentForm">
-                <%= form_for(current_user.comments.build, remote: true) do |f| %>
-                    <div class="commentForm_header">
-                        <%= image_tag current_user.avatar.to_s, class: 'article-user-avatar' %>
-                        <div class="commentForm_headerLabel">コメントを投稿する</div>
-                    </div>
-                    <div class="commentForm_body" id="comment-post">
-                        <%= f.text_area :content, placeholder: 'コメントを入力してください', class: 'form-control form-comment' %>
-                        <%= hidden_field_tag 'comment[article_id]', @article.id %>
-                    </div>
-                    <div class="commentForm_submit">
-                        <%= f.submit '投稿', class: 'btn btn-default btn-comment' %>
-                    </div>
-                <% end %>
-            </div>
+            <% if user_signed_in? %>
+                <div class="commentForm">
+                    <%= form_for(current_user.comments.build, remote: true) do |f| %>
+                        <div class="commentForm_header">
+                            <%= image_tag current_user.avatar.to_s, class: 'article-user-avatar' %>
+                            <div class="commentForm_headerLabel">コメントを投稿する</div>
+                        </div>
+                        <div class="commentForm_body" id="comment-post">
+                            <%= f.text_area :content, placeholder: 'コメントを入力してください', class: 'form-control form-comment' %>
+                            <%= hidden_field_tag 'comment[article_id]', @article.id %>
+                        </div>
+                        <div class="commentForm_submit">
+                            <%= f.submit '投稿', class: 'btn btn-default btn-comment' %>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
         </div>
     </div>
 </div>
