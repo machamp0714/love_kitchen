@@ -32,4 +32,20 @@
         </div>
     </div>
 </div>
+<!-- Index -->
+<div id="index">
+    <div class="container">
+        <div class="section-title text-center center">
+            <h2>記事を見る</h2>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <%= render 'articles/articles', object: @articles %>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+</div>
 <% end %>
