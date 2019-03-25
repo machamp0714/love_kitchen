@@ -123,6 +123,17 @@
                         </div>
                     <% end %>
                 </div>
+            <% else %>
+                <div class="anonymousForm">
+                    <div class="anonymousForm_lead">
+                        あなたもコメントしてみませんか
+                    </div>
+                    <%= link_to '登録', signup_path, class: 'btn btn-default' %>
+                    <div class="anonymousForm_sub">
+                        すでにアカウントをお持ちの方は<%= link_to 'ログイン', login_path %>
+                    </div>
+
+                </div>
             <% end %>
         </div>
     </div>
