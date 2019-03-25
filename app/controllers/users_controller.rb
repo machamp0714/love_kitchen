@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authenticate_user!, only: [:edit, :update_password, :following]
+    before_action :authenticate_user!, only: [:edit, :update_password]
 
     def show
         @user = User.friendly.find(params[:id])
