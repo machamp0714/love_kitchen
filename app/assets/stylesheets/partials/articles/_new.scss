@@ -129,3 +129,10 @@
         overflow-y: scroll;
     }
 }
+.alert-title {
+    z-index: 9999;
+    position: absolute;
+    width: 220px;
+    top: -23px;
+    right: 30px;
+}

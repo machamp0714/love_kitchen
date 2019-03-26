@@ -5,6 +5,11 @@
             <div class="editorTitle">
                 <%= f.text_field :title, placeholder: 'タイトル', class: 'form-control' %>
             </div>
+            <% if @article.errors.include?(:title) %>
+                <div class="alert alert-warning alert-title">
+                    タイトルは必須です。
+                </div>
+            <% end %>
             <div class="editorBody">
                 <div class="editorStory">
                     <%= f.text_area :content, placeholder: '持ってるアイテムのいい所をみんなに教えてあげよう!', class: 'editorStory_textarea' %>
