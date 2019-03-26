@@ -13,6 +13,14 @@ class ArticlesController < ApplicationController
         if @article.save
             redirect_to @article, notice: 'Success!!'
         else
+            case @article.pictures.length
+            when 0
+                3.times { @article.pictures.build }
+            when 1
+                2.times { @article.pictures.build }
+            when 2
+                @article.pictures.build
+            end
             render :new
         end
     end
@@ -33,7 +41,6 @@ class ArticlesController < ApplicationController
         when 2
             @article.pictures.build
         end
-        
     end
 
     def update
