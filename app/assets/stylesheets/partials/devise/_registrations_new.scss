@@ -28,8 +28,10 @@
 	margin: 5px 0 20px;
 }
 .lead-path {
+	display: block;
 	color: #878787;
 	font-size: 14px;
+	margin-top: 20px;
 	&:hover {
 		color: #337ab7;
 		text-decoration: underline;
