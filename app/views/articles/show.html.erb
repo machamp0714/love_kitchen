@@ -20,7 +20,7 @@
                                 <% if !correct_user? %>
                                     <div class="article-settings">
                                         <%= link_to '編集する', edit_article_path %>
-                                        <%= link_to '削除する', article_path, method: :delete %>
+                                        <%= link_to '削除する', article_path, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %>
                                     </div>
                                 <% end %>
                             <% end %>
