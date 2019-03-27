@@ -13,6 +13,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def about
+    
+  end
+
   def search
     @q = Article.search(search_params)
     @articles = @q.result.includes(:user).order("articles.created_at DESC").page(params[:page]).per(10)
