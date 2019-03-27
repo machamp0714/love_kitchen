@@ -1,0 +1,28 @@
+.footer-inner {
+    width: 1140px;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+.footer-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #666666;
+}
+.footer-left {
+    float: left;
+}
+.footer-right {
+    float: right;
+}
+.footer-item {
+    display: inline-block;
+    margin-left: 10px;
+    a {
+        font-size: 14px;
+        color: #337ab7;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
