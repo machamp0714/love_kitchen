@@ -129,3 +129,17 @@
         overflow-y: scroll;
     }
 }
+.alert-title {
+    z-index: 9999;
+    position: absolute;
+    width: 220px;
+    top: -10px;
+    right: 30px;
+}
+.alert-content {
+    z-index: 9999;
+    position: absolute;
+    width: 170px;
+    top: 60px;
+    left: 540px;
+}

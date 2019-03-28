@@ -1,5 +1,15 @@
 <%= provide(:title, '新規投稿') %>
 <div class="articleEditor">
+    <% if @article.errors.include?(:title) %>
+        <div class="alert alert-warning alert-title">
+            タイトルは必須です。
+        </div>
+    <% end %>
+    <% if @article.errors.include?(:content) %>
+        <div class="alert alert-warning alert-content">
+            本文は必須です。
+        </div>
+    <% end %>
     <%= form_for @article do |f| %>
         <div class="editor-content">
             <div class="editorTitle">
@@ -76,3 +86,10 @@
     <% end %>
 </div>
 <script>draw_example_chart();</script>
+<% if @article.errors.any? %>
+<script type="text/javascript">
+$(document).ready(function() {
+    history.pushState('', '', location.href + '/new')
+});
+</script>
+<% end %>

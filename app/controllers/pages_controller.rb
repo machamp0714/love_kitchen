@@ -6,7 +6,15 @@ class PagesController < ApplicationController
         articles << article
       end
     end
-    @articles = Kaminari.paginate_array(articles).page(params[:page]).per(10)
+    if user_signed_in?
+      @articles = Kaminari.paginate_array(articles).page(params[:page]).per(10)
+    else
+      @articles = articles.first(20)
+    end
+  end
+
+  def about
+    
   end
 
   def search

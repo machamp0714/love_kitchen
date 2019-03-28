@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   get 'setting/password', to: 'users#edit'
   patch 'setting/password', to: 'users#update_password'
+  get 'about', to: 'pages#about'
 
   scope do
     resources :users, only: :show, path: '/' do

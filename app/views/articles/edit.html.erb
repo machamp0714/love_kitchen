@@ -11,30 +11,54 @@
                 <div class="editorChartBody">
                     <h4 class="chart-text">グラフを作成できます。</h4>
                     <canvas id="myChart"></canvas>
-                    
-                        <div class="editorChart">
-                            <div class="editor-chart-label">
+                    <div class="editorChart">
+                        <div class="editorChart_box">
+                            <div class="editorChart_label">
+                                <h6><span class="badge badge-danger">必須</span></h6>
                                 <%= f.text_field :label1, placeholder: 'ラベル１', class: 'form-control mr-3' %>
+                            </div>
+                            <div class="editorChart_data">
+                                <h6><span class="badge badge-danger">必須</span></h6>
                                 <%= f.select :data1, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
                             </div>
-                            <div class="editor-chart-label">
+                        </div>
+                        <div class="editorChart_box">
+                            <div class="editorChart_label">
+                                <h6><span class="badge badge-danger">必須</span></h6>
                                 <%= f.text_field :label2, placeholder: 'ラベル２', class: 'form-control mr-3' %>
+                            </div>
+                            <div class="editorChart_data">
+                                <h6><span class="badge badge-danger">必須</span></h6>
                                 <%= f.select :data2, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
                             </div>
-                            <div class="editor-chart-label">
+                        </div>
+                        <div class="editorChart_box">
+                            <div class="editorChart_label">
+                                <h6><span class="badge badge-danger">必須</span></h6>
                                 <%= f.text_field :label3, placeholder: 'ラベル３', class: 'form-control mr-3' %>
+                            </div>
+                            <div class="editorChart_data">
+                                <h6><span class="badge badge-danger">必須</span></h6>
                                 <%= f.select :data3, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
                             </div>
-                            <div class="editor-chart-label">
+                        </div>
+                        <div class="editorChart_box">
+                            <div class="editorChart_label">
                                 <%= f.text_field :label4, placeholder: 'ラベル４', class: 'form-control mr-3' %>
+                            </div>
+                            <div class="editorChart_data">
                                 <%= f.select :data4, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
                             </div>
-                            <div class="editor-chart-label">
+                        </div>
+                        <div class="editorChart_box">
+                            <div class="editorChart_label">
                                 <%= f.text_field :label5, placeholder: 'ラベル５', class: 'form-control mr-3' %>
+                            </div>
+                            <div class="editorChart_data">
                                 <%= f.select :data5, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
                             </div>
                         </div>
-                    
+                    </div>    
                 </div>              
             </div>
             <div class="editorFooter">

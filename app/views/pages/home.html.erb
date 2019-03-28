@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
 <div class="homeLayoutBody">
-    <div class="container">
+    <div class="container" id="wrapper">
         <div class="row">
             <div class="col-sm-4">
                 <h2 class="home-heading"> <i class="fas fa-utensils"></i> アイテム一覧</h2>
@@ -15,6 +15,7 @@
                 <%= paginate @articles %>
             </div>
         </div>
+        <%= render 'shared/footer' %>
     </div>
 </div>
 <% else %>
@@ -29,6 +30,22 @@
                     <%= link_to '今すぐ始める！', signup_path, class: 'btn btn-default' %>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<!-- Index -->
+<div id="index">
+    <div class="container">
+        <div class="section-title text-center center">
+            <h2>記事を見る</h2>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <%= render 'articles/articles', object: @articles %>
+            </div>
+            <div class="col-sm-2"></div>
         </div>
     </div>
 </div>

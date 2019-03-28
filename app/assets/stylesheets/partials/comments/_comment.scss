@@ -127,3 +127,23 @@
     word-wrap: break-word;
     word-break: break-all;
 }
+.anonymousForm {
+    margin-top: 40px;
+    text-align: center;
+}
+.anonymousForm_lead {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+}
+.anonymousForm_sub {
+    font-size: 14px;
+    color: #333;
+    margin-top: 20px;
+    a {
+        color: #337ab7;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

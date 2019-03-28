@@ -1,6 +1,6 @@
 <%= provide(:title, @user.name) %>
 <div id="main">
-    <div class="container userPage">
+    <div class="container userPage" id="wrapper">
         <div class="row">
             <div class="col-md-3">
                 <div class="profile-avatar">
@@ -9,11 +9,13 @@
                 <div class="profile-username">
                     <h3> <%= @user.name %> </h3>
                 </div>
-                <% unless current_user?(@user) %>
-                    <% if current_user.following?(@user) %>
-                        <%= render 'relationships/unfollow' %>
-                    <% else %>
-                        <%= render 'relationships/follow' %>
+                <% if user_signed_in? %>
+                    <% unless current_user?(@user) %>
+                        <% if current_user.following?(@user) %>
+                            <%= render 'relationships/unfollow' %>
+                        <% else %>
+                            <%= render 'relationships/follow' %>
+                        <% end %>
                     <% end %>
                 <% end %>
                 <div class="profile-info">
@@ -88,5 +90,6 @@
                 </div>
             </div>
         </div>
+        <%= render 'shared/footer' %>
     </div>
 </div>

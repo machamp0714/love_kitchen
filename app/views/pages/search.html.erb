@@ -1,5 +1,5 @@
 <div class="homeLayoutBody">
-    <div class="container">
+    <div class="container" id="wrapper">
         <div class="row">
             <div class="col-sm-4">
                 <div class="search-form">
@@ -14,5 +14,6 @@
                 <%= paginate @articles %>
             </div>
         </div>
+        <%= render 'shared/footer' %>
     </div>
 </div>
