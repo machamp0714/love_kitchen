@@ -1,0 +1,76 @@
+.overview {
+    text-align: center;
+}
+.overview-inner {
+    width: 748px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.overview-main {
+    background: #E75926;
+    color: #fff;
+    padding-top: 118px;
+    padding-bottom: 80px;
+}
+.overview-logo {
+    font-size: 100px;
+    margin-bottom: 20px;
+}
+.overview-description {
+    font-size: 20px;
+}
+.overview-features {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    margin-right: -10px;
+    margin-left: 10px;
+}
+.overview-feature {
+    float: left;
+    width: 33.33333%;
+    padding-right: 10px;
+    padding-left: 10px;
+    &:first-child {
+        .overview-feature-title {
+            padding-right: 15px;
+        }
+    }
+}
+.overview-feature-icon {
+    font-size: 80px;
+}
+.overview-feature-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+}
+.overview-feature-description {
+    margin-top: 10px;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.overview-count {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.overview-count-inner {
+    width: 740px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.overview_articlesCount_value {
+    font-size: 80px;
+    color: #4a4a4a;
+    font-weight: 700;
+}
+.overview_articlesCount_description {
+    font-size: 14px;
+    color: #444;
+}
