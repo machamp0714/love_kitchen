@@ -108,7 +108,7 @@
         <div class="comment-main">
             <%= render 'comments/comments' %>
             <% if user_signed_in? %>
-                <%= render 'comments/comment_form' %>
+                <%= render 'comments/comment_form', object: @new_comment %>
             <% else %>
                 <div class="anonymousForm">
                     <div class="anonymousForm_lead">

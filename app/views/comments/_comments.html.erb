@@ -1,6 +1,6 @@
 <div class="commentList">
     <% @article.comments.each do |comment| %>
-        <div class="comment">
+        <div class="comment" id="<%= 'comment' + "#{comment.id}" %>" >
             <div class="commentHeader">
                 <div class="commentHeader_creater">
                     <%= link_to comment.user do %>
@@ -15,7 +15,9 @@
                     <% if user_signed_in? %>
                         <% if comment_author?(comment) %>
                             <div class="commentHeader_button">
-                                <span class="commentHeader_editButton">編集</span>
+                                <span class="commentHeader_editButton">
+                                    <%= link_to '編集', edit_comment_path(comment), remote: true %>
+                                </span>
                                 <span class="commentHeader_deleteButton">
                                     <%= link_to '削除', comment, method: :delete, remote: true %>
                                 </span>
