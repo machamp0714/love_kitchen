@@ -37,6 +37,11 @@
                         </div>
                     </li>
                 <% else %>
+                    <li class="nav-item">
+                        <%= link_to about_path, class: 'nav-link' do %>
+                            <i class="fas fa-utensils"></i> LoveKitchenとは
+                        <% end %>
+                    </li>
                     <li class="nav-item"> 
                         <%= link_to signup_path, class: 'nav-link' do %>
                             <i class="fas fa-rocket"></i> 無料会員登録
