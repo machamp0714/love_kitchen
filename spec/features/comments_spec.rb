@@ -28,4 +28,15 @@ RSpec.feature "Comments", type: :feature do
       click_link '削除'
     }.to change(Comment, :count).by(-1)
   end
+
+  scenario 'コメントを更新できること', js: true do
+    sign_in_as user
+    within '#posted-order' do
+      click_link article.title
+    end
+    click_link "編集"
+    fill_in "comment[content]", with: "コメント" 
+    click_on "更新"
+    expect(page).to have_content "コメント"
+  end
 end
