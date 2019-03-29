@@ -1,25 +1,23 @@
-<div class="commentList">
-    <% @article.comments.each do |comment| %>
-        <div class="comment" id="<%= 'comment' + "#{comment.id}" %>" >
+<div class="comment" id="<%= 'comment' + "#{object.id}" %>" >
             <div class="commentHeader">
                 <div class="commentHeader_creater">
-                    <%= link_to comment.user do %>
-                        <%= image_tag comment.user.avatar_url, class: 'article-user-avatar' %>
+                    <%= link_to object.user do %>
+                        <%= image_tag object.user.avatar_url, class: 'article-user-avatar' %>
                     <% end %>
                     <div class="commentHeader_createrInfo">
-                        <%= link_to comment.user.name, comment.user %>
+                        <%= link_to object.user.name, object.user %>
                     </div>
                 </div>
                 <div class="commentHeader_metadata"> 
-                    <time> <%= comment.created_at.strftime('%Y年%m月%d日') %> </time>
+                    <time> <%= object.created_at.strftime('%Y年%m月%d日') %> </time>
                     <% if user_signed_in? %>
-                        <% if comment_author?(comment) %>
+                        <% if comment_author?(object) %>
                             <div class="commentHeader_button">
                                 <span class="commentHeader_editButton">
-                                    <%= link_to '編集', edit_comment_path(comment), remote: true %>
+                                    <%= link_to '編集', edit_comment_path(object), remote: true %>
                                 </span>
                                 <span class="commentHeader_deleteButton">
-                                    <%= link_to '削除', comment, method: :delete, remote: true %>
+                                    <%= link_to '削除', object, method: :delete, remote: true %>
                                 </span>
                             </div>
                         <% end %>
@@ -28,9 +26,7 @@
             </div>
             <div class="commentBody">
                 <div class="commentBody_content">
-                    <%= comment.content %>
+                    <%= object.content %>
                 </div>
             </div>
         </div>
-    <% end %>
-</div>

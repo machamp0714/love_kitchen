@@ -1,4 +1,4 @@
-<div class="commentForm">
+<div class="commentForm" id="comment-edit-<%= object.id %>">
     <%= form_for(object, remote: true) do |f| %>
         <div class="commentForm_header">
             <%= image_tag current_user.avatar.to_s, class: 'article-user-avatar' %>
