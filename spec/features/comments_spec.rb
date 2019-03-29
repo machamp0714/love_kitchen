@@ -39,4 +39,12 @@ RSpec.feature "Comments", type: :feature do
     click_on "更新"
     expect(page).to have_content "コメント"
   end
+
+  scenario 'コメント編集をキャンセルできること', js: true do
+    sign_in_as user
+    click_link article.title
+    click_link "編集"
+    click_link "キャンセル"
+    expect(page).to have_content "1ゲット"
+  end
 end
