@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
 
     def update
         @comment = Comment.find(params[:id])
-        @article = Article.find(@comment.article_id)
+        @article = Article.find(params[:comment][:article_id])
         @comment.update(comment_params)
         respond_to do |format|
             format.html { redirect_to @article }
