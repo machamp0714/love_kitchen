@@ -107,7 +107,7 @@
     <div class="commentsWrapper">
         <div class="comment-main">
             <div class="commentList">
-                <% @article.comments.each do |comemnt| %>
+                <% @article.comments.each do |comment| %>
                     <%= render 'comments/comment', object: comment %>
                 <% end %>
             </div>
