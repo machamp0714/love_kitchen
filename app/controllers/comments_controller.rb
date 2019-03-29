@@ -43,6 +43,15 @@ class CommentsController < ApplicationController
         end
     end
 
+    def cancel
+        @comment = Comment.find(params[:id])
+        @article = Article.find(@comment.article_id)
+        respond_to do |format|
+            format.html { redirect_to @article }
+            format.js
+        end
+    end
+
     private
         def comment_params
             params.require(:comment).permit(:content, :article_id)
