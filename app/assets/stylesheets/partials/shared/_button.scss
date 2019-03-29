@@ -27,6 +27,21 @@
     font-size: 14px;
     font-weight: 500;
     padding: 6px 10px;
+    border: 1px solid #e14b22;
+    margin-top: 0;
+    margin-left: 5px;
+}
+.btn-cancel {
+    padding: 6px 10px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    &:hover {
+        background-color: #e6e6e6;
+        border-color: #adadad;
+    }
 }
 .like-button {
     width: 200px;

@@ -1,0 +1,5 @@
+<div class="commentList">
+    <% @article.comments.each do |comment| %>
+        <%= render 'comments/comment', object: comment %>
+    <% end %>
+</div>

@@ -37,7 +37,7 @@
     }
 }
 .commentForm_submit {
-    float: right;
+    text-align: right;
 }
 .comment {
     font-size: 14px;
@@ -76,19 +76,13 @@
     justify-content: flex-end;
 }
 .commentHeader_editButton {
-    &:hover {
-        color: #337ab7;
-        text-decoration: underline;
-        cursor: pointer;
-    }
-}
-.commentHeader_deleteButton {
     margin-left: 5px;
     a {
         color: #7b7b7b;
         &:hover {
             color: #337ab7;
             text-decoration: underline;
+            cursor: pointer;
         }
     }
 }

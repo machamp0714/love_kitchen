@@ -14,10 +14,38 @@ class CommentsController < ApplicationController
         end
     end
 
+    def edit
+        @comment = Comment.find(params[:id])
+        @article = Article.find_by(id: @comment.article_id)
+        respond_to do |format|
+            format.html { redirect_to @article }
+            format.js
+        end
+    end
+
+    def update
+        @comment = Comment.find(params[:id])
+        @article = Article.find(params[:comment][:article_id])
+        @comment.update(comment_params)
+        respond_to do |format|
+            format.html { redirect_to @article }
+            format.js
+        end
+    end
+
     def destroy
         comment = Comment.find(params[:id])
         @article = Article.find(comment.article_id)
         comment.destroy
+        respond_to do |format|
+            format.html { redirect_to @article }
+            format.js
+        end
+    end
+
+    def cancel
+        @comment = Comment.find(params[:id])
+        @article = Article.find(@comment.article_id)
         respond_to do |format|
             format.html { redirect_to @article }
             format.js

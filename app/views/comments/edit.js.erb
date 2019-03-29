@@ -1,0 +1,1 @@
+$("#comment<%= @comment.id %>").html("<%= escape_javascript(render('comments/comment_edit', object: @comment)) %>");
