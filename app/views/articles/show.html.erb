@@ -106,11 +106,7 @@
     </div>
     <div class="commentsWrapper">
         <div class="comment-main">
-            <div class="commentList">
-                <% @article.comments.each do |comment| %>
-                    <%= render 'comments/comment', object: comment %>
-                <% end %>
-            </div>
+            <%= render 'comments/comment_list' %>
             <% if user_signed_in? %>
                 <%= render 'comments/comment_form', object: @new_comment %>
             <% else %>
