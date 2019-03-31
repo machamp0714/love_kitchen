@@ -26,6 +26,7 @@ gem 'friendly_id'
 gem 'gon'
 gem 'kaminari'
 gem 'ransack'
+gem 'ed25519'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
