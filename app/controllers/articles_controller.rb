@@ -53,7 +53,13 @@ class ArticlesController < ApplicationController
         if @article.update(update_article_params)
             redirect_to @article, notice: 'Updated!!'
         else
-            render :edit
+            if @article.errors.include?(:title)
+                flash[:title] = 'タイトルは必須です。'
+            end
+            if @article.errors.include?(:content)
+                flash[:content] = '本文は必須です。'
+            end
+            redirect_to request.referrer
         end
     end
 
