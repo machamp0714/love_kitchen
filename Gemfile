@@ -26,7 +26,9 @@ gem 'friendly_id'
 gem 'gon'
 gem 'kaminari'
 gem 'ransack'
+gem 'bcrypt', '~> 3.1.7'
 gem 'ed25519'
+gem 'bcrypt_pbkdf'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
