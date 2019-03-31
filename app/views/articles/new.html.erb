@@ -86,10 +86,3 @@
     <% end %>
 </div>
 <script>draw_example_chart();</script>
-<% if @article.errors.any? %>
-<script type="text/javascript">
-$(document).ready(function() {
-    history.pushState('', '', location.href + '/new')
-});
-</script>
-<% end %>

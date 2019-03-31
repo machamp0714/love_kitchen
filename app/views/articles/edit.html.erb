@@ -1,4 +1,14 @@
 <div class="articleEditor">
+    <% if @article.errors.include?(:title) %>
+        <div class="alert alert-warning alert-title">
+            タイトルは必須です。
+        </div>
+    <% end %>
+    <% if @article.errors.include?(:content) %>
+        <div class="alert alert-warning alert-content">
+            本文は必須です。
+        </div>
+    <% end %>
     <%= form_for @article do |f| %>
         <div class="editor-content">
             <div class="editorTitle">

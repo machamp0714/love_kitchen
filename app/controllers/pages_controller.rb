@@ -1,10 +1,8 @@
 class PagesController < ApplicationController
   def home
     articles = []
-    User.joins(:articles).includes(:articles).order("articles.created_at DESC").each do |user|
-      user.articles.each do |article|
-        articles << article
-      end
+    Article.joins(:user).includes(:user).order("articles.created_at DESC").each do |article|
+      articles << article
     end
     if user_signed_in?
       @articles = Kaminari.paginate_array(articles).page(params[:page]).per(10)

@@ -18,6 +18,8 @@ module LoveKitchen
 
     config.assets.initialize_on_precompile = false
 
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+
     config.generators do |g|
       g.test_framework :rspec,
       fixtures: false,
