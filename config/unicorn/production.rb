@@ -1,7 +1,7 @@
 # set lets
 $worker  = 2
 $timeout = 30
-$app_dir = "/var/www/projects/love_kitchen/current" 
+$app_dir = "/var/www/projects/current" 
 $listen  = "/var/socks/.unicorn.sock"
 $pid     = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
 $std_log = File.expand_path 'log/unicorn.log', $app_dir
