@@ -21,7 +21,13 @@ class ArticlesController < ApplicationController
             when 2
                 @article.pictures.build
             end
-            render :new
+            if @article.errors.include?(:title)
+                flash[:title] = 'タイトルは必須です。'
+            end
+            if @article.errors.include?(:content)
+                flash[:content] = '本文は必須です。'
+            end
+            redirect_to request.referrer
         end
     end
 
