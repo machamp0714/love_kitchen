@@ -35,4 +35,4 @@ require "capistrano/rails/migrations"
 # require "capistrano/passenger"
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
-Dir.glob("lib/capistrano/tasks/*.ruby").each { |r| import r }
+Dir.glob("lib/capistrano/tasks/*.rb").each { |r| import r }
