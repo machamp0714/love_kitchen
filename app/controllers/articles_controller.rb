@@ -13,14 +13,9 @@ class ArticlesController < ApplicationController
         if @article.save
             redirect_to @article, notice: 'Success!!'
         else
-            case @article.pictures.length
-            when 0
-                3.times { @article.pictures.build }
-            when 1
-                2.times { @article.pictures.build }
-            when 2
-                @article.pictures.build
-            end
+            3.times { @article.pictures.build } if @article.pictures.size == 0
+            2.times { @article.pictures.build } if @article.pictures.size == 1
+            @article.pictures.build if @article.pictures.size == 2
             if @article.errors.include?(:title)
                 flash[:title] = 'タイトルは必須です。'
             end
@@ -39,14 +34,9 @@ class ArticlesController < ApplicationController
     end
 
     def edit
-        case @article.pictures.length
-        when 0
-            3.times { @article.pictures.build }
-        when 1
-            2.times { @article.pictures.build }
-        when 2
-            @article.pictures.build
-        end
+        3.times { @article.pictures.build } if @article.pictures.size == 0
+        2.times { @article.pictures.build } if @article.pictures.size == 1
+        @article.pictures.build if @article.pictures.size == 2
     end
 
     def update
