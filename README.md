@@ -22,6 +22,8 @@ http://lovekitchen.cf/
 + 画像アップロード
     + carrierwave
     + rmagick
++ 検索
+    + ransack
 + ユーザー認証
     + Devise
 + グラフ作成
