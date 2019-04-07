@@ -60,6 +60,25 @@
 .actions {
 	margin-top: 40px;
 }
+.debug-account {
+	background-color: #fff;
+	padding: 30px 10px;
+	color: #4a4a4a;
+}
+.debug-accountEmail {
+	font-size: 14px;
+	letter-spacing: 1.1px;
+}
+.debug-accountPassword {
+	font-size: 14px;
+	margin-top: 5px;
+	letter-spacing: 1.1px;
+}
+.debug-accountDescription {
+	color: #878787;
+	font-size: 12px;
+	margin-top: 5px;
+}
 @media(max-width: 425px) {
 	.sessionsLayout_bg {
 		padding: 0;
