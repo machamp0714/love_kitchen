@@ -1,14 +1,10 @@
 <%= provide(:title, '新規投稿') %>
 <div class="articleEditor">
-    <% if flash[:title] %>
-        <div class="alert alert-warning alert-title">
-            <%= flash[:title] %>
-        </div>
+    <% if @article.errors.include?(:title) %>
+        <div class="alert alert-warning alert-title">タイトルは必須です。</div>
     <% end %>
-    <% if flash[:content] %>
-        <div class="alert alert-warning alert-content">
-            <%= flash[:content] %>
-        </div>
+    <% if @article.errors.include?(:content) %>
+        <div class="alert alert-warning alert-content">本文は必須です。</div>
     <% end %>
     <%= form_for @article do |f| %>
         <div class="editor-content">
