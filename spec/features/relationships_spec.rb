@@ -8,7 +8,7 @@ RSpec.feature "Relationships", type: :feature do
   feature '他のユーザーをフォローしていない場合' do
     scenario 'フォローできること' do
       sign_in_as user
-      visit "/bob"
+      visit "users/bob"
       expect {
         click_on "フォロー"
       }.to change(Relationship, :count).by(1)
@@ -22,7 +22,7 @@ RSpec.feature "Relationships", type: :feature do
     end
     scenario 'フォロー解除できること' do
       sign_in_as user
-      visit "/bob"
+      visit "users/bob"
       expect {
         click_on "解除する"
       }.to change(Relationship, :count).by(-1)
