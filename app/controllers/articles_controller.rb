@@ -16,13 +16,7 @@ class ArticlesController < ApplicationController
             3.times { @article.pictures.build } if @article.pictures.size == 0
             2.times { @article.pictures.build } if @article.pictures.size == 1
             @article.pictures.build if @article.pictures.size == 2
-            if @article.errors.include?(:title)
-                flash[:title] = 'タイトルは必須です。'
-            end
-            if @article.errors.include?(:content)
-                flash[:content] = '本文は必須です。'
-            end
-            redirect_to request.referrer
+            render :new
         end
     end
 
@@ -43,13 +37,7 @@ class ArticlesController < ApplicationController
         if @article.update(update_article_params)
             redirect_to @article, notice: 'Updated!!'
         else
-            if @article.errors.include?(:title)
-                flash[:title] = 'タイトルは必須です。'
-            end
-            if @article.errors.include?(:content)
-                flash[:content] = '本文は必須です。'
-            end
-            redirect_to request.referrer
+            render :edit
         end
     end
 
