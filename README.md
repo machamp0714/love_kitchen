@@ -14,6 +14,7 @@ http://lovekitchen.cf/
 + AWS
     + EC2
     + Route53
+    + S3
 + デプロイ  
     + capistrano
 + RSpec
