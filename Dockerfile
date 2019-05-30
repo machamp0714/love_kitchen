@@ -1,7 +1,8 @@
 FROM ruby:2.5.3
 ENV LANG C.UTF-8
 
-RUN apt-get update && \
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \ 
+    apt-get update && \
     apt-get install -y nodejs
 
 ENV APP_ROOT /app
