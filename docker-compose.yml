@@ -2,14 +2,15 @@ version: '3'
 services:
   db:
     image: mysql:5.7
-    environment:
-        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - ./mysql-data:/var/lib/mysql
   web:
     build: .
-    env_file:
-      - .env
+    environment:
+      - MYSQL_ROOT_PASSWORD
+      - CHIRORU_ACCESS_ID
+      - CHIRORU_SECRET_KEY
+      - CHIRORU_REGION
     tty: true
     ports:
       - '3000:3000'
