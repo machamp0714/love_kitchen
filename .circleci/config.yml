@@ -6,48 +6,48 @@ jobs:
     steps:
       - checkout
       - run:
-        name: docker-compose build
-        command: docker-compose build
+          name: docker-compose build
+          command: docker-compose build
       - run:
-        name: docker-compose up
-        command: docker-compose up -d
+          name: docker-compose up
+          command: docker-compose up -d
       - run:
-        name: sleep for waiting launch db
-        command: sleep 1
+          name: sleep for waiting launch db
+          command: sleep 1
       - run:
-        name: setup database
-        command: docker-compose run web rails db:create db:migrate
+          name: setup database
+          command: docker-compose run web rails db:create db:migrate
       - run:
-        name: test
-        command: docker-compose run web bin/rspec
+          name: test
+          command: docker-compose run web bin/rspec
       - run:
-        name: docker-compose down
-        command: docker-compose down
+          name: docker-compose down
+          command: docker-compose down
   deploy:
     machine:
       image: circleci/classic:edge
     steps:
       - checkout
       - run:
-        name: build docker image
-        command: docker build -rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web .
+          name: build docker image
+          command: docker build -rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web .
       - run:
-        name: setup heroku command
-        command: bash .circleci/setup_heroku.sh
+          name: setup heroku command
+          command: bash .circleci/setup_heroku.sh
       - run:
-        name: heroku maintenance on
-        command: heroku maintenance:on -app ${HEROKU_APP_NAME}
+          name: heroku maintenance on
+          command: heroku maintenance:on -app ${HEROKU_APP_NAME}
       - run:
-        name: push container to registry.heroku.com
-        command: |
-          docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
-          docker push registry.heroku.com/${HEROKU_APP_NAME}/web
+          name: push container to registry.heroku.com
+          command: |
+            docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
+            docker push registry.heroku.com/${HEROKU_APP_NAME}/web
       - run:
-        name: heroku db migrate
-        command: heroku run rails db:migrate --app ${HEROKU_APP_NAME}
+          name: heroku db migrate
+          command: heroku run rails db:migrate --app ${HEROKU_APP_NAME}
       - run:
-        name: heroku maintenance off
-        command: heroku maintenance:off --app ${HEROKU_APP_NAME}
+          name: heroku maintenance off
+          command: heroku maintenance:off --app ${HEROKU_APP_NAME}
 workflows:
   version: 2
   build_and_deploy:
