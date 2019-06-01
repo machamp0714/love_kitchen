@@ -14,7 +14,7 @@ jobs:
       - run:
         name: sleep for waiting launch db
         command: sleep 1
-      -run:
+      - run:
         name: setup database
         command: docker-compose run web rails db:create db:migrate
       - run:
