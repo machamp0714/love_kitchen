@@ -6,14 +6,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: yarn install
-          command: yarn install
-      - run:
           name: docker-compose build
           command: docker-compose build
       - run:
           name: docker-compose up
           command: docker-compose up -d
+      - run:
+          name: setup yarn
+          command: npm install -g yarn
       - run:
           name: sleep for waiting launch db
           command: sleep 1
