@@ -6,6 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: yarn install
+          command: yarn install
+      - run:
           name: docker-compose build
           command: docker-compose build
       - run:
