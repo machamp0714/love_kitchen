@@ -42,7 +42,7 @@ jobs:
           command: bash .circleci/setup_heroku.sh
       - run:
           name: heroku maintenance on
-          command: heroku maintenance:on -app ${HEROKU_APP_NAME}
+          command: heroku maintenance:on --app ${HEROKU_APP_NAME}
       - run:
           name: push container to registry.heroku.com
           command: |
