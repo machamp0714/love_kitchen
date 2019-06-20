@@ -15,11 +15,15 @@ RSpec.feature "Notifications", type: :feature do
 
     sign_in_as other_user
 
-    expect(page).to have_content 1
+    within('#notificationDropdown') do
+      expect(page).to have_content 1
+    end
     expect(page).to have_content "#{user.name}さんが、#{article.title}にいいねを付けました！"
 
     click_link '既読にする'
 
-    expect(page).to_not have_content 1
+    within('#notificationDropdown') do
+      expect(page).to_not have_content 1
+    end
   end
 end
