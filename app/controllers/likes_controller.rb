@@ -6,7 +6,7 @@ class LikesController < ApplicationController
     current_user.likes.create(article_id: params[:article_id])
     @article = Article.find(params[:article_id])
     @user = User.find(@article.user_id)
-    @user.notifications.create(article_id: @article.id, good_user_id: current_user.id)
+    @user.notifications.create(article_id: @article.id, like_user_id: current_user.id)
     respond_to do |format|
       format.html { redirect_to @article }
       format.js

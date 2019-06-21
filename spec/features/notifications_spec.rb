@@ -18,7 +18,7 @@ RSpec.feature "Notifications", type: :feature do
     within('#notificationDropdown') do
       expect(page).to have_content 1
     end
-    expect(page).to have_content "#{user.name}さんが、#{article.title}にいいねを付けました！"
+    expect(page).to have_content "#{user.name} があなたの記事 「#{article.title}」 を いいね しました。"
 
     click_link '既読にする'
 
