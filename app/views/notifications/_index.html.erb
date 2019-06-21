@@ -1,0 +1,10 @@
+<% current_user.notifications.each do |notification| %>
+  <%= link_to notification.article_link, class: 'nav-link' do %>
+    <span class="bold"><%= notification.user_name %></span>
+    があなたの記事
+    <span class="title">「<%= notification.article_title %>」</span>
+    を
+    <span class="bold">いいね</span>
+    しました。
+  <% end %>
+<% end %>

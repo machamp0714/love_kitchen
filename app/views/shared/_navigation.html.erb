@@ -32,6 +32,9 @@
                                 <%= Notification.count_unread %>
                             </a>
                         <% end %>
+                        <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+                            <%= render 'notifications/index' %>
+                        </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
