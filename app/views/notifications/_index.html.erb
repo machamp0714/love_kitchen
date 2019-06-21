@@ -1,4 +1,4 @@
-<% current_user.notifications.each do |notification| %>
+<% current_user.notifications.order(created_at: :desc).each do |notification| %>
   <%= link_to notification.article, class: 'nav-link' do %>
     <span class="bold"><%= notification.user_name %></span>
     があなたの記事

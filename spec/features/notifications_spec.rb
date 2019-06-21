@@ -23,7 +23,7 @@ RSpec.feature "Notifications", type: :feature do
     click_link '既読にする'
 
     within('#notificationDropdown') do
-      expect(page).to_not have_content 1
+      expect(page).to have_content 0
     end
   end
 end
