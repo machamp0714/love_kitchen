@@ -39,6 +39,10 @@ http://lovekitchen.cf/
     + font-awesome-sass
 + 非同期通信
 
+## AWS構成図
+
+![インフラ構成図](https://i.imgur.com/uixutwO.jpg)
+
 ## 概要
 
 料理好きな方の中には、他の方がどんなアイテム、調味料などを  
