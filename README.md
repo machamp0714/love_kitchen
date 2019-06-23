@@ -25,6 +25,7 @@ http://lovekitchen.cf/
     + rmagick
 + 検索
     + ransack
++ 通知機能
 + ユーザー認証
     + Devise
 + グラフ作成
