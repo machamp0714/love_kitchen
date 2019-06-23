@@ -1,12 +1,14 @@
-<% current_user.notifications.order(created_at: :desc).each do |notification| %>
-  <div class="notificationWrapper">
-    <%= link_to notification.article, class: 'nav-link' do %>
-      <span class="bold"><%= notification.user_name %></span>
-      があなたの記事
-      <span class="title">「<%= notification.article_title %>」</span>
-      を
-      <span class="bold">いいね</span>
-      しました。
-    <% end %>
-  </div>
-<% end %>
+<div class="notificationWrapper">
+  <% current_user.notifications.order(created_at: :desc).each do |notification| %>
+    <div class="notificationItem">
+      <%= link_to notification.article, class: 'nav-link' do %>
+        <span class="bold"><%= notification.user_name %></span>
+        があなたの記事
+        <span class="title">「<%= notification.article_title %>」</span>
+        を
+        <span class="bold">いいね</span>
+        しました。
+      <% end %>
+    </div>
+  <% end %>
+</div>
