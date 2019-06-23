@@ -1,0 +1,6 @@
+.notificationWrapper {
+  border-bottom: 1px dotted #fff;
+  &:nth-last-child(3) {
+    border-bottom: none;
+  }
+}
