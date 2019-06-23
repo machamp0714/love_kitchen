@@ -1,0 +1,11 @@
+.notificationWrapper {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.notificationItem {
+  border-bottom: 1px dotted #fff;
+  &:last-child {
+    border-bottom: none;
+  }
+}

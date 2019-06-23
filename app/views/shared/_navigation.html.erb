@@ -23,6 +23,22 @@
                         <% end %>
                     </li>
                     <li class="nav-item dropdown">
+                        <% if already_read? %>
+                            <a href="#" class="nav-link dropdown-toggle" id="notificationDropdown" rolw="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                                0
+                            </a>
+                        <% else %>
+                            <a href="#" class="nav-link dropdown-toggle" id="notificationDropdown" rolw="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                                <%= Notification.count_unread %>
+                            </a>
+                        <% end %>
+                        <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+                            <%= render 'notifications/index' %>
+                            <div class="dropdown-divider"></div>
+                            <%= link_to '既読にする', already_read_path, method: :patch, class: 'nav-link' %>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <%= image_tag current_user.avatar.to_s, size: '35x35'%>
                         </a>

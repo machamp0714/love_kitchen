@@ -19,7 +19,7 @@
 
 /node_modules
 /yarn-error.log
-
+/mysql-data
 /public/assets
 /public/uploads/
 .byebug_history
