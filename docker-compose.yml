@@ -4,6 +4,8 @@ services:
     image: mysql:5.7
     volumes:
       - ./mysql-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD
   web:
     build: .
     environment:
