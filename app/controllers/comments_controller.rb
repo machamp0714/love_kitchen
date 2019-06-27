@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
         comment = current_user.comments.build(comment_params)
         if comment.save
             user = User.find_by(id: @article.user_id)
-            user.notifications.create(comment_user_id: current_user.id)
+            user.notifications.create(article_id: @article.id, comment_user_id: current_user.id)
             respond_to do |format|
                 format.html { redirect_to @article }
                 format.js

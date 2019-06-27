@@ -13,7 +13,7 @@ class Notification < ApplicationRecord
     article.title
   end
 
-  def user_name
-    User.find_by(id: self.like_user_id).name
+  def user_name(user_id)
+    User.find_by(id: user_id).name
   end
 end
