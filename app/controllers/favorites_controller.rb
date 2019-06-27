@@ -13,6 +13,10 @@ class FavoritesController < ApplicationController
   def create
     current_user.favorites.create(article_id: params[:article_id])
     @article = Article.find(params[:article_id])
+
+    user = User.find_by(id: @article.user_id)
+    user.notifications.create(article_id: @article.id, favorite_user_id: current_user.id)
+    
     respond_to do |format|
       format.html { redirect_to @article }
       format.js
