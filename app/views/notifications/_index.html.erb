@@ -19,6 +19,15 @@
           <span class="bold">コメント</span>
           しました。
         <% end %>
+      <% else %>
+        <%= link_to notification.article, class: 'nav-link' do %>
+          <span class="bold"><%= notification.user_name(notification.favorite_user_id) %></span>
+          があなたの記事
+          <span class="title">「<%= notification.article_title %>」</span>
+          を
+          <span class="bold">お気に入り</span>
+          に追加しました。
+        <% end %>
       <% end %>
     </div>
   <% end %>
