@@ -15,17 +15,27 @@ RUN apt-get update && \
   curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
   apt-get update && apt-get install -y nodejs google-chrome-stable
 
+ENV ENTRYKIT_VERSION 0.4.0
+
+RUN wget https://github.com/progrium/entrykit/releases/download/v${ENTRYKIT_VERSION}/entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz \
+  && tar -xvzf entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz \
+  && rm entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz \
+  && mv entrykit /bin/entrykit \
+  && chmod +x /bin/entrykit \
+  && entrykit --symlink
+
 ENV APP_ROOT /app
 WORKDIR $APP_ROOT
 
 ADD Gemfile $APP_ROOT
 ADD Gemfile.lock $APP_ROOT
 
-RUN bundle install && \
-    rm -rf ~/.gem
-
 ADD . $APP_ROOT
 
 EXPOSE 3000
+
 RUN if [ "RAILS_ENV" = "production" ]; then bundle exec rails assets:precompile; fi
-CMD ["rails", "server", "-b", "0.0.0.0"]
+
+ENTRYPOINT [ \
+  "prehook", "ruby -v", "--", \
+  "prehook", "bundle install -j3 --quiet", "--"]
