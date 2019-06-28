@@ -12,3 +12,6 @@ ja:
       article:
         title: "タイトル"
         content: "ストーリー"
+    attributes:
+      room:
+        name: "タイトル"
