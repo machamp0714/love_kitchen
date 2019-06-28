@@ -5,7 +5,7 @@ RSpec.describe Room, type: :model do
   let(:room) { FactoryBot.build(:room, user: user) }
 
   it 'nameが空白の場合無効であること' do
-    room.name = ''
+    room.title = ''
     expect(room).to_not be_valid
   end
 end
