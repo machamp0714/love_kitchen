@@ -30,6 +30,8 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+
+  resources :rooms, only: [:index, :create, :edit, :update, :destroy]
   
   resources :articles, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :likes, only: [:create, :destroy]
