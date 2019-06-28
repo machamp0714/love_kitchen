@@ -4,7 +4,7 @@ services:
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD
-  web:
+  web: &app_base
     build: .
     command: rails s -p 3000 -b 0.0.0.0
     environment:
@@ -25,6 +25,12 @@ services:
     volumes:
       - ./mysql-data:/var/lib/mysql
       - ./bundle:/usr/local/bundle
+  spring:
+    <<: *app_base
+    command: bundle exec spring server
+    ports: []
+    tty: false
+    stdin_open: false
 volumes:
   mysql-data:
     driver: local
