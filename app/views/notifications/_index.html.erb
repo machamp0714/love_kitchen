@@ -1,13 +1,33 @@
 <div class="notificationWrapper">
   <% current_user.notifications.order(created_at: :desc).each do |notification| %>
     <div class="notificationItem">
-      <%= link_to notification.article, class: 'nav-link' do %>
-        <span class="bold"><%= notification.user_name %></span>
-        があなたの記事
-        <span class="title">「<%= notification.article_title %>」</span>
-        を
-        <span class="bold">いいね</span>
-        しました。
+      <% if notification.like_user_id? %>
+        <%= link_to notification.article, class: 'nav-link' do %>
+          <span class="bold"><%= notification.user_name(notification.like_user_id) %></span>
+          があなたの記事
+          <span class="title">「<%= notification.article_title %>」</span>
+          を
+          <span class="bold">いいね</span>
+          しました。
+        <% end %>
+      <% elsif notification.comment_user_id? %>
+        <%= link_to notification.article, class: 'nav-link' do %>
+          <span class="bold"><%= notification.user_name(notification.comment_user_id) %></span>
+          があなたの記事
+          <span class="title">「<%= notification.article_title %>」</span>
+          に
+          <span class="bold">コメント</span>
+          しました。
+        <% end %>
+      <% else %>
+        <%= link_to notification.article, class: 'nav-link' do %>
+          <span class="bold"><%= notification.user_name(notification.favorite_user_id) %></span>
+          があなたの記事
+          <span class="title">「<%= notification.article_title %>」</span>
+          を
+          <span class="bold">お気に入り</span>
+          に追加しました。
+        <% end %>
       <% end %>
     </div>
   <% end %>
