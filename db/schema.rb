@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_27_140418) do
+ActiveRecord::Schema.define(version: 2019_06_28_144648) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -102,6 +102,14 @@ ActiveRecord::Schema.define(version: 2019_06_27_140418) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email", default: "", null: false
@@ -127,4 +135,5 @@ ActiveRecord::Schema.define(version: 2019_06_27_140418) do
   add_foreign_key "favorites", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "pictures", "articles"
+  add_foreign_key "rooms", "users"
 end
