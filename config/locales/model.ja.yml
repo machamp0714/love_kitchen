@@ -14,4 +14,4 @@ ja:
         content: "ストーリー"
     attributes:
       room:
-        name: "タイトル"
+        title: "タイトル"

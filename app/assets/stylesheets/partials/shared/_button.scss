@@ -122,3 +122,12 @@
         outline: none;
     }
 }
+.btn-room {
+    width: 100%;
+    &:focus {
+        box-shadow: none;
+    }
+}
+.modal {
+    top: auto;
+}
