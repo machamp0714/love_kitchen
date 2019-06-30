@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :rooms, only: [:index, :create, :edit, :update, :destroy]
+  resources :rooms, only: [:index, :create, :update, :destroy]
   
   resources :articles, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :likes, only: [:create, :destroy]
