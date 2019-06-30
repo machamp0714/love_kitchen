@@ -26,4 +26,13 @@ RSpec.feature "Rooms", type: :feature do
     expect(page).to have_content 'edit title'
     expect(page).to have_content 'スレッドを更新しました。'
   end
+
+  scenario 'スレッドを削除できること' do
+    sign_in_as user
+    visit rooms_path
+    expect {
+      click_link '削除'
+    }.to change(Room, :count).by(-1)
+    expect(page).to have_content 'スレッドを削除しました。'
+  end
 end
