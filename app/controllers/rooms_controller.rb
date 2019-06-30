@@ -22,6 +22,11 @@ class RoomsController < ApplicationController
     end
   end
 
+  def destroy
+    current_user.rooms.find(params[:id]).destroy
+    redirect_back(fallback_location: request.referer, notice: 'スレッドを削除しました。')
+  end
+
   private
     def room_params
       params.require(:room).permit(:title)
