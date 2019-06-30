@@ -1,32 +1,38 @@
-<div class="row">
-  <div class="col-sm-3">
-  </div>
-  <div class="col-sm-6">
-    <button class="btn btn-default btn-room" type="button" data-toggle="modal" data-target="#roomsModal">スレッドを作成する</button>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+      <button class="btn btn-default btn-room" type="button" data-toggle="modal" data-target="#roomsModal">スレッドを作成する</button>
 
-    <div class="modal" id="roomsModal" tabindex="-1" role="dialog" aria-labelledby="roomsModal" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="roomsModal">スレッドを作成する</h5>
+      <div class="modal" id="roomsModal" tabindex="-1" role="dialog" aria-labelledby="roomsModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="roomsModal">スレッドを作成する</h5>
 
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
 
-          <div class="modal-body">
-            <%= form_with model: @room, local: true do |form| %>
-              <div class="form-group">
-                <%= form.label :title, class: 'form-label' %>
-                <%= form.text_field :title, placeholder: 'タイトルを入力してください...', class: 'form-control' %>
-              </div>
-              <%= form.submit '作成', class: 'btn btn-secondary' %>
-            <% end %>
+            <div class="modal-body">
+              <%= form_with model: @room, local: true do |form| %>
+                <div class="form-group">
+                  <%= form.label :title, class: 'form-label' %>
+                  <%= form.text_field :title, placeholder: 'タイトルを入力してください...', class: 'form-control' %>
+                </div>
+                <%= form.submit '作成', class: 'btn btn-secondary' %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="roomsList">
+        <%= render 'rooms_list' %>
+      </div>
     </div>
+    <div class="col-sm-2"></div>
   </div>
-  <div class="col-sm-3"></div>
 </div>
