@@ -4,6 +4,10 @@ class RoomsController < ApplicationController
     @rooms = Room.includes(:user).order(created_at: :desc).all
   end
 
+  def show
+    @room = Room.find(params[:id])
+  end
+
   def create
     room = current_user.rooms.create(room_params)
     if room.save
