@@ -24,6 +24,6 @@ RSpec.feature "Rooms", type: :feature do
     fill_in 'room[title]', with: 'edit title'
     click_on '更新'
     expect(page).to have_content 'edit title'
-    expect(page).to have_content 'タイトルを更新しました。'
+    expect(page).to have_content 'スレッドを更新しました。'
   end
 end

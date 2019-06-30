@@ -13,6 +13,15 @@ class RoomsController < ApplicationController
     end
   end
 
+  def update
+    room = current_user.rooms.find(params[:id])
+    if room.update(room_params)
+      redirect_back(fallback_location: request.referer, notice: 'スレッドを更新しました。')
+    else
+      render :index
+    end
+  end
+
   private
     def room_params
       params.require(:room).permit(:title)
