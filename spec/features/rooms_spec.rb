@@ -9,7 +9,7 @@ RSpec.feature "Rooms", type: :feature do
     visit rooms_path
     click_button 'スレッドを作成する'
     expect {
-        fill_in 'rooms[title]', with: room.title
+        fill_in 'room[title]', with: room.title
         click_on '作成'
     }.to change(Room, :count).by(1)
 
