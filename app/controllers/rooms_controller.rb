@@ -1,12 +1,12 @@
 class RoomsController < ApplicationController
   def index
     @room = current_user.rooms.build
-    @rooms = Room.includes(:user).order(created_at: :desc).all
+    @rooms = Room.includes(:user).order(created_at: :desc)
   end
 
   def show
-    room = Room.find(params[:id])
-    @messages = room.messages.all
+    @room = Room.find(params[:id])
+    @messages = @room.messages
   end
 
   def create
