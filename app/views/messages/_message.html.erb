@@ -1,3 +1,20 @@
 <div class="message">
-  <p> <%= message.content %> </p>
+  <div class="commentHeader">
+    <div class="commentHeader_creater">
+      <%= link_to message.user do %>
+        <%= image_tag message.user.avatar_url, class: 'article-user-avatar' %>
+      <% end %>
+      <div class="commentHeader_createrInfo">
+        <%= link_to message.user.name, message.user %>
+      </div>
+    </div>
+    <div class="commentHeader_metadata">
+      <time> <%= message.created_at.strftime('%m月%d日 %H:%M:%S') %> </time>
+    </div>
+  </div>
+  <div class="commentBody <%= "hostUser_bg" if host_user?(message) %>">
+    <div class="commentBody_content">
+      <%= message.content %>
+    </div>
+  </div>
 </div>
