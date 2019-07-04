@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, skip: :all
+
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+  
   devise_scope :user do
     get 'signup', to: 'users/registrations#new'
     post 'signup', to: 'users/registrations#create'
@@ -30,6 +32,8 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+
+  resources :rooms, only: [:index, :show, :create, :update, :destroy]
   
   resources :articles, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :likes, only: [:create, :destroy]
@@ -44,4 +48,6 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   root 'pages#home'
+
+  mount ActionCable.server => '/cable'
 end

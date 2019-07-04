@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="roomContainer">
+        <h2 class="roomTitle"> <%= @room.title %> </h2>
+        <div class="messageList" id="messages" data-room_id="<%= @room.id %>">
+          <%= render @messages %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="messageForm_content">
+  <div class="messageForm_body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <form id="messageForm"> 
+            <textarea type="text" class="form-control form-comment" id="messageInput" placeholder='メッセージを入力してください'></textarea>
+            <input type="submit" class="btn btn-default btn-message" value="送信">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

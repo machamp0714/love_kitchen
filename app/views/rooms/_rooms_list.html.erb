@@ -1,0 +1,39 @@
+<% @rooms.each do |room| %>
+  <div class="tr-Item">
+    <%= link_to room.user, class: 'tr-Item_userImage' do %>
+      <%= image_tag room.user.avatar_url %>
+    <% end %>
+    <div class="tr-Item_body" id="posted-order">
+      <%= link_to room.title, room, class: 'tr-Item_title' %>
+      <div class="tr-Item_meta">
+        <span>by <%= link_to room.user.name, room.user, class: 'tr-Item_author' %> </span>
+        <time> <%= room.created_at.strftime('%Y年%m月%d日') %> </time>
+        <span class="roomsCount"><i class="far fa-comment-alt"></i></span>
+      </div>
+    </div>
+    <div class="tr-Item_info">
+      <% if your_room?(room) %>
+        <a href="#" data-toggle="modal" data-target="#roomsEditModal-<%= room.id %>" class="roomsInfo-link">編集</a>
+        <div class="modal" id="roomsEditModal-<%= room.id %>" tabindex="-1" role="dialog" aria-labelledby="roomsEditModal-<%= room.id %>" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">スレッドを編集</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">&times;</button>
+              </div>
+              <div class="modal-body">
+                <%= form_with model: room, local: true do |form| %>
+                  <div class="form-group">
+                    <%= form.text_field :title, class: 'form-control' %>
+                  </div>
+                  <%= form.submit '更新', class: 'btn btn-secondary' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= link_to '削除', room_path(room), method: :delete, data: { confirm: '本当に削除しますか?' }, class: 'roomsInfo-link' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

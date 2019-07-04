@@ -1,0 +1,17 @@
+.roomsList {
+  padding-top: 16px;
+}
+.tr-Item_info {
+  display: flex;
+  flex-flow: column;
+}
+.roomsInfo-link {
+  color: #7b7b7b;
+  font-size: 12px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.roomsCount {
+  margin-left: 5px;
+}
