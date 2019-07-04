@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @room = current_user.rooms.build
     @rooms = Room.includes(:user).order(created_at: :desc)
