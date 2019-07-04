@@ -22,10 +22,10 @@ jobs:
           command: sleep 1
       - run:
           name: setup database
-          command: docker-compose exec spring rails db:create db:migrate
+          command: docker-compose run web rails db:create db:migrate
       - run:
           name: test
-          command: docker-compose exec spring rspec
+          command: docker-compose run web bin/rspec
       - run:
           name: docker-compose down
           command: docker-compose down
