@@ -23,6 +23,36 @@
 .hostUser_bg {
   background-color: #1dcd00;
 }
+.messageBody {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  border-color: #1dcb00;
+  padding: 18px 32px;
+  margin-top: 11px;
+  &::before {
+    position: absolute;
+    top: -20px;
+    left: 7px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent transparent #1dcb00 transparent;
+  }
+  &::after {
+    position: absolute;
+    top: -19px;
+    left: 7px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent transparent #1dcb00 transparent;
+  }
+}
 #wrapper {
   display: flex;
   flex-direction: column;
