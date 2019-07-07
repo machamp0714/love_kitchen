@@ -15,6 +15,9 @@
                 background-color: transparent;
             }
         }
+        .icon-link {
+            font-size: 20px;
+        }
     }
 }
 .navbar-nav {
@@ -22,6 +25,9 @@
 }
 .dropdown-menu {
     background-color: #343a40
+}
+.chat-link {
+    font-size: 20px;
 }
 @media(max-width: 465px) {
     .navbar-nav {

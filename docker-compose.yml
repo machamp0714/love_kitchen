@@ -12,12 +12,14 @@ services:
       - CHIRORU_ACCESS_ID
       - CHIRORU_SECRET_KEY
       - CHIRORU_REGION
+      - REDIS_URL
     ports:
       - '3000:3000'
     volumes:
       - .:/app
     depends_on:
       - db
+      - redis
     tty: true
     stdin_open: true
   data:
@@ -31,8 +33,16 @@ services:
     ports: []
     tty: false
     stdin_open: false
+  redis:
+    image: redis:latest
+    ports: 
+      - '6379:6379'
+    volumes:
+      - redis-data:/data
 volumes:
   mysql-data:
     driver: local
   bundle: 
+    driver: local
+  redis-data:
     driver: local

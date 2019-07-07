@@ -12,7 +12,7 @@
       <time> <%= message.created_at.strftime('%m月%d日 %H:%M:%S') %> </time>
     </div>
   </div>
-  <div class="commentBody <%= "hostUser_bg" if host_user?(message) %>">
+  <div class="<%= host_user?(message) ? "messageBody hostUser_bg" : "commentBody" %>">
     <div class="commentBody_content">
       <%= message.content %>
     </div>

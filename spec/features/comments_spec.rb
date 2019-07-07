@@ -36,7 +36,7 @@ RSpec.feature "Comments", type: :feature do
       click_link article.title
     end
     click_link "編集"
-    fill_in "comment[content]", with: "コメント" 
+    find('#edit-comment-form').set('コメント更新')
     click_on "更新"
     expect(page).to have_content "コメント"
   end

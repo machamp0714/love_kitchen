@@ -1,10 +1,12 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="roomContainer">
-        <h2 class="roomTitle"> <%= @room.title %> </h2>
-        <div class="messageList" id="messages" data-room_id="<%= @room.id %>">
-          <%= render @messages %>
+<div class="roomWrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="roomContainer">
+          <h2 class="roomTitle"> <%= @room.title %> </h2>
+          <div class="messageList" id="messages" data-room_id="<%= @room.id %>">
+            <%= render @messages %>
+          </div>
         </div>
       </div>
     </div>
