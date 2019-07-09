@@ -11,7 +11,8 @@ jQuery(document).on('turbolinks:load', function() {
       }
     });
 
-    $(document).on('submit', '#messageForm', function () {
+    $(document).on('submit', '#messageForm', function (event) {
+      event.preventDefault();
       const input = document.getElementById('messageInput');
       App.room.speak(input.value);
       $('messageInput').value = '';
