@@ -8,7 +8,7 @@
       <div class="tr-Item_meta">
         <span>by <%= link_to room.user.name, room.user, class: 'tr-Item_author' %> </span>
         <time> <%= room.created_at.strftime('%Y年%m月%d日') %> </time>
-        <span class="roomsCount"><i class="far fa-comment-alt"></i></span>
+        <span class="roomsCount"><i class="far fa-comment-alt"></i> <%= room.messages.count %> </span>
       </div>
     </div>
     <div class="tr-Item_info">
