@@ -13,12 +13,12 @@
                         <%= render 'shared/search_form'%>
                     </li>
                     <li class="nav-item">
-                        <%= link_to rooms_path, class: 'nav-link icon-link' do %>
+                        <%= link_to rooms_path, data: { tip: 'チャット' }, class: 'tips nav-link icon-link' do %>
                             <i class="fas fa-comments"></i>
                         <% end %>
                     </li>
                     <li class="nav-item"> 
-                        <%= link_to user_favorites_path(current_user), class: 'nav-link icon-link' do %>
+                        <%= link_to user_favorites_path(current_user), data: { tip: 'お気に入り' }, class: 'tips nav-link icon-link' do %>
                             <i class="fas fa-heart"></i>
                         <% end %>
                     </li>

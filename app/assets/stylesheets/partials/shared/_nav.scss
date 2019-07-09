@@ -15,9 +15,6 @@
                 background-color: transparent;
             }
         }
-        .icon-link {
-            font-size: 20px;
-        }
     }
 }
 .navbar-nav {
@@ -26,8 +23,40 @@
 .dropdown-menu {
     background-color: #343a40
 }
-.chat-link {
-    font-size: 20px;
+.tips {
+    position: relative;
+}
+.tips::before,
+.tips::after {
+    position: absolute;
+    transition: all 0.3s ease 0s;
+    opacity: 0;
+}
+.tips::before {
+    content: "";
+    border: 10px solid transparent;
+    border-bottom-color: #000;
+    top: 10px;
+    left: 10px;
+}
+.tips::after {
+    content: attr(data-tip);
+    width: 110px;
+    display: block;
+    padding: 10px;
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+    top: 30px;
+    left: 0;
+}
+.tips:hover::before{
+    top: 16px;
+    opacity: 1;
+}
+.tips:hover::after{
+    top: 36px;
+    opacity: 1;
 }
 @media(max-width: 465px) {
     .navbar-nav {
