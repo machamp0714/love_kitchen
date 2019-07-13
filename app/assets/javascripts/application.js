@@ -18,3 +18,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(function () {
+  setTimeout("$('.fadeout').fadeOut('slow')", 1500)
+})
