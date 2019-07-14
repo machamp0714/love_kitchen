@@ -4,9 +4,15 @@
         <div class="row">
             <div class="col-md-8 articleList">
                 <%= render 'articles/list' %>
+                <%= paginate @articles %>
             </div>
-            <div class="col-md-4">
-            
+            <div class="col-md-4 ranking-list">
+                <div class="side-header">
+                    <i class="fas fa-crown"></i><span class="sidebar-title">いいねランキング</span>
+                </div>
+                <div class="liked-article-ranking">
+                    <%= render 'articles/articles', object: @ranking %>
+                </div>
             </div>
         </div>
     </div>

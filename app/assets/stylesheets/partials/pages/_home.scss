@@ -76,3 +76,21 @@
     margin-bottom: 20px;
     font-size: 28px;
 }
+.ranking-list {
+    background-color: #fff;
+}
+.side-header {
+    background-color: #E75926;
+    color: #fff;
+    padding: 8px;
+}
+.sidebar-title {
+    margin-left: 5px;
+    letter-spacing: 1.1;
+}
+.liked-article-ranking {
+    margin-top: 10px;
+    .tr-Item {
+        padding: 16px 0;
+    }
+}
