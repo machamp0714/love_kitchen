@@ -20,7 +20,11 @@ class Article < ApplicationRecord
 
   def cover_picture
     if self.pictures.size > 0
-      self.pictures[0].image.to_s
+      if !self.pictures[0].image.blank?
+        self.pictures[0].image.to_s
+      else
+        'blank.jpg'
+      end
     else
       'blank.jpg'
     end
