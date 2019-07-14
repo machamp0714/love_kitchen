@@ -1,21 +1,14 @@
 <% if user_signed_in? %>
 <div class="homeLayoutBody">
-    <div class="container" id="wrapper">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <h2 class="home-heading"> <i class="fas fa-utensils"></i> アイテム一覧</h2>
-                <div class="search-form">
-                    <%= render 'shared/search_form' %>
-                </div>
+            <div class="col-md-8 articleList">
+                <%= render 'articles/list' %>
             </div>
-            <div class="col-sm-8">
-                <div class="itemList">
-                    <%= render 'articles/articles', object: @articles %>
-                </div>
-                <%= paginate @articles %>
+            <div class="col-md-4">
+            
             </div>
         </div>
-        <%= render 'shared/footer' %>
     </div>
 </div>
 <% else %>
