@@ -80,7 +80,7 @@
                             </div>
                         <% end %>
                         <div class="articleContent_story">
-                            <%= @article.content %>
+                            <%= simple_format(@article.content) %>
                         </div>
                         <div class="articleContent_chart">
                             <canvas id="myRadarChart"></canvas>
