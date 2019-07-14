@@ -4,7 +4,9 @@
         <div class="row">
             <div class="col-md-8 articleList">
                 <%= render 'articles/list' %>
-                <%= paginate @articles %>
+                <div class="pagenation">
+                    <%= paginate @articles %>
+                </div>
             </div>
             <div class="col-md-4 ranking-list">
                 <div class="side-header">
