@@ -1,21 +1,26 @@
 <% @articles.each do |article| %>
   <div class="articleItemWrapper">
     <div class="articleItem_image">
-      <%= image_tag article.cover_picture, size: '340x220' %>
+      <%= link_to article do %>
+        <%= image_tag article.cover_picture, size: '340x220' %>
+      <% end %>
     </div>
     <div class="articleItemBody">
-      <%= link_to article.title, article %>
+      <%= link_to article.title, article, class: 'tr-Item_title' %>
       <div class="articleItem_content">
         <div class="articleItem_content_main">
           <%= article.content %>
         </div>
-        <%= link_to '続きを読む', article %>
+        <div class="articleItem_read">
+          <%= link_to '続きを読む', article, class: 'rede-more' %>
+        </div>
       </div>
+      <hr>
       <div class="articleItem_meta">
         <div class="article_userInfo">
           <span>
             by
-            <%= link_to article.user.name, article.user %>
+            <%= link_to article.user.name, article.user, class: 'tr-Item_author' %>
           </span>
         </div>
         <div class="article_statusInfo">
