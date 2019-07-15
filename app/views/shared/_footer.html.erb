@@ -1,14 +1,16 @@
-<footer class="footer">
-    <div class="footer-inner">
-        <div class="footer-left">
-            <div class="footer-logo">LoveKitchen</div>
-        </div>
-        <div class="footer-right">
-            <ul class="footer-menu">
-                <li class="footer-item"> <%= link_to 'TOP', root_path %> </li>
-                <li class="footer-item"> <%= link_to 'LoveKitchenとは', about_path %> </li>
-                <li class="footer-item"> <%= link_to '投稿', new_article_path %> </li>
-            </ul>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="footer-logo">LoveKitchen</div>
+            </div>
+            <div class="col-md-8 text-right">
+                <ul>
+                    <li class="footer-item"> <%= link_to 'TOP', root_path %> </li>
+                    <li class="footer-item"> <%= link_to 'LoveKitchenとは', about_path %> </li>
+                    <li class="footer-item"> <%= link_to '投稿', new_article_path %> </li>
+                </ul>
+            </div>
         </div>
     </div>
-</footer>
+</div>
