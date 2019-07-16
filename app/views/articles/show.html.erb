@@ -2,30 +2,13 @@
 <div class="articleWrapper">
     <div class="container">
         <div class="row">
-            <div class="col-sm-2"></div>
             <div class="col-sm-8">
                 <div class="article-main">
                     <div class="article-header">
-                        <div class="articleAuthor">
-                            <div class="articleAuthor-profile">
-                                <%= link_to @article.user do %>
-                                    <%= image_tag @article.user.avatar_url, class: 'article-user-avatar' %>
-                                <% end %>
-                                <%= link_to @article.user.name, @article.user, class: 'article-user-name' %>
-                            </div>
-                            <div class="article-updated">
-                                <%= @article.updated_at.strftime('%Y年%m月%d日') %>
-                            </div>
-                            <% if user_signed_in? %>
-                                <% if !correct_user? %>
-                                    <div class="article-settings">
-                                        <%= link_to '編集する', edit_article_path %>
-                                        <%= link_to '削除する', article_path, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %>
-                                    </div>
-                                <% end %>
-                            <% end %>
-                        </div>
                         <h1 class="header-title"> <%= @article.title %> </h1>
+                        <div class="article-updated">
+                                <%= @article.updated_at.strftime('%Y年%m月%d日') %>
+                        </div>
                     </div>
                     <% if user_signed_in? %>
                         <div class="articleActions">
@@ -86,22 +69,27 @@
                             <canvas id="myRadarChart"></canvas>
                         </div>
                     </section>
-                    <div class="author-info">
-                        <div class="author-content">
-                            <%= link_to @article.user do %>
-                                <%= image_tag @article.user.avatar_url, class: 'author-image' %>
-                            <% end %>
-                            <div class="author-body">
-                                <div class="author-header">
-                                    <%= link_to @article.user.name, @article.user %>
-                                </div>
-                                <div class="author-introduce"> <%= @article.user.introduce %> </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <div class="article-sideMenu">
+                    <div class="sideMenu_header">
+                        <%= image_tag @article.user.avatar.to_s, class: 'author-image' %>
+                        <div class="sideMenu_header_label">
+                            <%= link_to @article.user.name, @article.user %>
+                        </div>
+                    </div>
+                    <div class="author-introduce">
+                        <%= @article.user.introduce %>
+                    </div>
+                    <% if correct_user? %>
+                        <div class="article-settings">
+                            <%= link_to '編集する', edit_article_path(@article) %>
+                            <%= link_to '削除する', article_path(@article), method: :delete, data: { confirm: '本当に削除しますか?' } %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
         </div>
     </div>
     <div class="commentsWrapper">
