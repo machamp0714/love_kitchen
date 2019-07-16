@@ -6,7 +6,7 @@ class PagesController < ApplicationController
       sql = "SELECT A.id, A.title, A.created_at, A.user_id, U.name, U.avatar, COUNT(L.article_id) AS 'likes' FROM articles AS A INNER JOIN users AS U ON A.user_id = U.id INNER JOIN likes AS L ON A.id = L.article_id GROUP BY L.article_id ORDER BY likes DESC LIMIT 10;"
       @ranking = Article.find_by_sql(sql)
     else
-      @articles = Article.includes(:user).first(20)
+      @articles = Article.includes(:user).includes(:pictures).order("created_at DESC").limit(15)
     end
   end
 

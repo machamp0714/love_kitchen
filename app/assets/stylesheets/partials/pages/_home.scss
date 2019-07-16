@@ -44,7 +44,7 @@
 @media(min-width:768px) {
     #top {
         height: 100%;
-        padding: 350px 0 800px;
+        padding: 350px 0 700px;
     }
     .margin-left {
         margin-left: 97.5px;
@@ -62,6 +62,9 @@
 // Index
 #index {
     padding-bottom: 30px;
+    .articleItemWrapper {
+        margin-right: 20px;
+    }
 }
 
 // logged in
