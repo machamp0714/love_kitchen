@@ -1,5 +1,5 @@
 <% @articles.each do |article| %>
-  <div class="articleItemWrapper">
+  <div class="articleItemWrapper" id="posted-order">
     <div class="articleItem_image">
       <%= link_to article do %>
         <%= image_tag article.cover_picture, size: '340x220' %>

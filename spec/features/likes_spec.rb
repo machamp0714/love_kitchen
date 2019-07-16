@@ -23,7 +23,9 @@ RSpec.feature "Likes", type: :feature do
     end
     scenario '「いいね」解除できること' do
       sign_in_as user
-      click_link article.title
+      within '#posted-order' do
+        click_link article.title
+      end
       expect {
         find('.liked').click
       }.to change(Like, :count).by(-1)

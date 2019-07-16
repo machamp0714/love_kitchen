@@ -3,7 +3,7 @@
         <%= link_to article.user, class: 'tr-Item_userImage' do %>
             <%= image_tag article.user.avatar_url %>
         <% end %>
-        <div class="tr-Item_body" id="posted-order">
+        <div class="tr-Item_body">
             <%= link_to article.title, article, class: 'tr-Item_title' %>
             <div class="tr-Item_meta">
                 <span>by <%= link_to article.user.name, article.user, class: 'tr-Item_author' %> </span>

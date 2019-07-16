@@ -52,20 +52,16 @@ RSpec.feature "Articles", type: :feature do
 
   scenario '記事を検索できること(title検索)' do
     sign_in_as user
-    within '.search-form' do
-      fill_in "q[title_or_content_cont]", with: "中華鍋"
-      find('.search-box').click
-    end
+    fill_in "q[title_or_content_cont]", with: "中華鍋"
+    find('.search-box').click
     expect(page).to have_content article.title
     expect(page).to_not have_content other_article.title
   end
 
   scenario '記事を検索できること(content検索)' do
     sign_in_as user
-    within '.search-form' do
-      fill_in "q[title_or_content_cont]", with: "熱伝導"
-      find('.search-box').click
-    end
+    fill_in "q[title_or_content_cont]", with: "熱伝導"
+    find('.search-box').click
     expect(page).to have_content article.title
     expect(page).to_not have_content other_article.title    
   end
