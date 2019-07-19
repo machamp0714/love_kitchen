@@ -19,7 +19,7 @@
 //= require turbolinks
 //= require cable.js
 //= require channels/room.js 
-//= require articles
+//= require articles.js
 
 $(function () {
   setTimeout("$('.fadeout').fadeOut('slow')", 1500)
