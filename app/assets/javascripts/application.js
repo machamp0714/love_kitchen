@@ -17,7 +17,9 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+//= require cable.js
+//= require channels/room.js 
+//= require articles
 
 $(function () {
   setTimeout("$('.fadeout').fadeOut('slow')", 1500)
