@@ -25,23 +25,17 @@
                         </div>
                     <% end %>
                     <section class="articleContent">
-                        <% if @article.pictures.size > 0 %>
+                        <% if @pictures.size > 0 %>
                             <div class="articlePicture">
                                 <div class="article-thumbnails">
                                     <ul id="thumbnails">
-                                        <% if !@article.pictures[0].image.blank? %>
-                                            <li class="thumbnail-list current"> <%= image_tag @article.pictures[0].image_url, class: 'thumbnail' %> </li>
-                                        <% end %>
-                                        <% if !@article.pictures[1].image.blank? %>
-                                            <li class="thumbnail-list"> <%= image_tag @article.pictures[1].image_url, class: 'thumbnail' %> </li>
-                                        <% end %>
-                                        <% if !@article.pictures[2].image.blank? %>
-                                            <li class="thumbnail-list"> <%= image_tag @article.pictures[2].image_url, class: 'thumbnail' %> </li>
+                                        <% @pictures.each do |picture| %>
+                                            <li class="thumbnail-list"> <%= image_tag picture.image_url, class: 'thumbnail' %> </li>
                                         <% end %>
                                     </ul>
                                 </div>
                                 <main> 
-                                    <%= image_tag @article.pictures[0].image.to_s, class: 'main-picture' %>
+                                    <%= image_tag @pictures[0].image_url, class: 'main-picture' %>
                                 </main>
                             </div>
                         <% end %>
