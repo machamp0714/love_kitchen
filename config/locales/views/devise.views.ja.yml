@@ -8,7 +8,7 @@ ja:
               blank: "が入力されていません"
               too_short: "は%{count}文字以上に設定してください"
               too_long: "は%{count}文字以下に設定してください"
-              invalid: "は半角英数字のみ入力出来ます"
+              invalid: "は半角英数字-_@のみ入力出来ます"
             email:
               blank: "が入力されていません"
               taken: "は既に使用されています"

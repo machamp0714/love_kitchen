@@ -30,7 +30,7 @@ class User < ApplicationRecord
   validates :name,
     presence: true,
     length: { in: 3..20 },
-    # format: { with: /\A(?!\d*\z)[a-z0-9]+\z/i }, # 半角英数字のみ ただし数字のみは不可
+    format: { with: /\A[\w@-]*[A-Za-z][\w@-]*\z/ }, # 半角英数字のみ ただし数字のみは不可
     uniqueness: { case_sensitive: false },
     ban_reserved: true
 
