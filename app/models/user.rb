@@ -63,7 +63,7 @@ class User < ApplicationRecord
         provider: auth.provider,
         email: User.dummy_email(auth),
         password: Devise.friendly_token[0, 20],
-        name: auth.info.name,
+        name: auth.info.nickname,
         avatar: auth.info.image
       )
     end
