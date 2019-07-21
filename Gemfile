@@ -55,6 +55,7 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'letter_opener'
   gem 'letter_opener_web'
+  gem 'pry-byebug'
 end
 
 group :production, :staging do
