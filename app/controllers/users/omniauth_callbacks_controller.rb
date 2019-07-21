@@ -11,9 +11,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       if @user.persisted?
         flash[:notice] = 'ログインしました。'
-        redirect_to root_path
+        sign_in_and_redirect @user, event: :authentication
       else
-        redirect_to signup_path
+        redirect_to signup_path, alert: 'ユーザー認証に失敗しました。'
       end
     end
 end
