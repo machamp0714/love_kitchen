@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
 
   mount_uploader :avatar, AvatarUploader
 
@@ -30,7 +30,7 @@ class User < ApplicationRecord
   validates :name,
     presence: true,
     length: { in: 3..20 },
-    format: { with: /\A(?!\d*\z)[a-z0-9]+\z/i }, # 半角英数字のみ ただし数字のみは不可
+    format: { with: /\A[\w@-]*[A-Za-z][\w@-]*\z/ }, # 半角英数字のみ ただし数字のみは不可
     uniqueness: { case_sensitive: false },
     ban_reserved: true
 
@@ -52,5 +52,26 @@ class User < ApplicationRecord
   def feed
     following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
     Article.includes(:user).where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id).order(created_at: :desc)
+  end
+
+  def self.find_for_oauth(auth)
+    user = User.find_by(uid: auth.uid, provider: auth.provider)
+
+    unless user
+      user = User.create(
+        uid: auth.uid,
+        provider: auth.provider,
+        email: User.dummy_email(auth),
+        password: Devise.friendly_token[0, 20],
+        name: auth.info.nickname,
+        remote_avatar_url: auth.info.image
+      )
+    end
+
+    return user
+  end
+
+  def self.dummy_email(auth)
+    "#{auth.uid}-#{auth.provider}@example.com"
   end
 end

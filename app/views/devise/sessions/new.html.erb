@@ -33,6 +33,12 @@
             <% end %>
             <%= f.submit 'ログイン', class: 'btn btn-default' %>
           <% end %>
+          <div class="social-login">
+            <div class="lead"> メールアドレス以外でログインする </div>
+              <%= link_to user_twitter_omniauth_authorize_path, class: 'twitter-link' do %>
+                <i class="fab fa-twitter"></i>
+              <% end %>
+          </div>
           <%= link_to 'アカウントをお持ちでない方はコチラ', signup_path, class: 'lead-path' %>
         </div>
       </div>

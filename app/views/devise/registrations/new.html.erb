@@ -13,7 +13,7 @@
             <div class="form-group">
               <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control', placeholder: 'ユーザー名' %>
               <p class="lead validation">
-                半角英数字のみ入力出来ます
+                半角英数字-_@のみ入力出来ます
               </p>
             </div>
             <div class="form-group">
@@ -24,6 +24,12 @@
             </div>
             <%= f.submit '登録する', class: 'btn btn-default' %>
           <% end %>
+          <div class="social-login">
+            <div class="lead"> メールアドレス以外で登録する </div>
+            <%= link_to user_twitter_omniauth_authorize_path, class: 'twitter-link' do %>
+              <i class="fab fa-twitter"></i>
+            <% end %>
+          </div>
           <%= link_to 'アカウントをお持ちの方はコチラ', login_path, class: 'lead-path' %>
         </div>
       </div>

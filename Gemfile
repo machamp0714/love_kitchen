@@ -18,6 +18,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails' 
 gem 'jquery-ui-rails'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rails-i18n', '~> 5.1'
@@ -53,6 +55,7 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'letter_opener'
   gem 'letter_opener_web'
+  gem 'pry-byebug'
 end
 
 group :production, :staging do

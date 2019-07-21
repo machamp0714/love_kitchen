@@ -79,6 +79,21 @@
 	font-size: 12px;
 	margin-top: 5px;
 }
+.twitter-link {
+	background-color: rgb(29, 161, 242);
+	color: #fff;
+	font-size: 32px;
+	padding: 8px;
+	border-radius: 50%;
+	&:hover {
+		color: #fff;
+	}
+}
+.social-login {
+	.lead {
+		margin-bottom: 8px;
+	}
+}
 @media(max-width: 425px) {
 	.sessionsLayout_bg {
 		padding: 0;
