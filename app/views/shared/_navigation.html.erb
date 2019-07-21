@@ -39,7 +39,9 @@
                         <% end %>
                         <div class="dropdown-menu" aria-labelledby="notificationDropdown">
                             <%= render 'notifications/index' %>
-                            <div class="dropdown-divider"></div>
+                            <% if current_user.notifications.size > 0 %>
+                                <div class="dropdown-divider"></div>
+                            <% end %>
                             <%= link_to '既読にする', already_read_path, method: :patch, class: 'nav-link' %>
                         </div>
                     </li>
