@@ -53,4 +53,25 @@ class User < ApplicationRecord
     following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
     Article.includes(:user).where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id).order(created_at: :desc)
   end
+
+  def self.find_for_oauth(auth)
+    user = User.find_by(uid: auth.uid, provider: auth.provider)
+
+    unless user
+      user = User.create(
+        uid: auth.uid,
+        provider: auth.provider,
+        email: User.dummy_email(auth),
+        password: Devise.friendly_token[0, 20],
+        name: auth.info.name,
+        avatar: auth.info.image
+      )
+    end
+
+    return user
+  end
+
+  def self.dummy_email(auth)
+    "#{auth.uid}-#{auth.provider}@example.com"
+  end
 end
