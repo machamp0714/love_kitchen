@@ -20,9 +20,12 @@ class ArticlesController < ApplicationController
         end
     end
 
-    def show 
+    def show
         labels = [@article.label1, @article.label2, @article.label3, @article.label4, @article.label5]
         data = [@article.data1, @article.data2, @article.data3, @article.data4, @article.data5]
+        # もっといい書き方があるはず
+        @article.update(view_count: increment_view_count(@article.view_count)) if current_user.id != @article.user_id
+        @pictures = @article.pictures.reject { |picture| picture.image.blank? }
         gon.labels = labels.reject { |label| label.blank? }
         gon.data = data.reject { |data| data.blank? }
     end
@@ -43,6 +46,9 @@ class ArticlesController < ApplicationController
 
     def destroy
         @article.destroy
+        if notification = Notification.where(article_id: @article.id)
+            notification.destroy_all
+        end
         redirect_to current_user, notice: 'Deleted!!'
     end
 
@@ -72,6 +78,11 @@ class ArticlesController < ApplicationController
 
     def set_article
         @article = Article.find(params[:id])
+    end
+
+    def increment_view_count(count)
+        view_count = count + 1
+        return view_count
     end
 
 end

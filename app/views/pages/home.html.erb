@@ -1,23 +1,25 @@
 <% if user_signed_in? %>
 <div class="homeLayoutBody">
-    <div class="container" id="wrapper">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <h2 class="home-heading"> <i class="fas fa-utensils"></i> アイテム一覧</h2>
-                <div class="search-form">
-                    <%= render 'shared/search_form' %>
-                </div>
+            <div class="col-md-8 articleList">
+                <%= render 'articles/list' %>
             </div>
-            <div class="col-sm-8">
-                <div class="itemList">
-                    <%= render 'articles/articles', object: @articles %>
+            <div class="col-md-4 ranking-list">
+                <div class="side-header">
+                    <i class="fas fa-crown"></i><span class="sidebar-title">いいねランキング</span>
                 </div>
-                <%= paginate @articles %>
+                <div class="liked-article-ranking">
+                    <%= render 'articles/articles', object: @ranking %>
+                </div>
             </div>
         </div>
-        <%= render 'shared/footer' %>
+    </div>
+    <div class="pagenation">
+        <%= paginate @articles %>
     </div>
 </div>
+<%= render 'shared/footer' %>
 <% else %>
 <!-- Header -->
 <div id="top">
@@ -41,12 +43,9 @@
             <hr>
         </div>
         <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
-                <%= render 'articles/articles', object: @articles %>
-            </div>
-            <div class="col-sm-2"></div>
+            <%= render 'articles/list' %>
         </div>
     </div>
 </div>
+<%= render 'shared/footer' %>
 <% end %>

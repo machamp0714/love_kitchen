@@ -79,5 +79,11 @@ hr {
 	border: 0;
 }
 img {
-	border-radius: 10px;
+	border-radius: 2px;
+}
+#content {
+	min-height: 100vh;
+	position: relative;
+	padding-bottom: 100px;
+	box-sizing: border-box;
 }

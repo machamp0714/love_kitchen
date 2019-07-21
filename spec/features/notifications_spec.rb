@@ -59,4 +59,14 @@ RSpec.feature "Notifications", type: :feature do
     end
     expect(page).to have_content "#{user.name} があなたの記事 「#{article.title}」 を お気に入り に追加しました。"
   end
+
+  scenario '記事が削除された時、通知も削除されること' do
+    sign_in_as other_user
+    click_link article.title
+    fill_in 'comment[content]', with: 'コメント'
+    click_on '投稿'
+    expect {
+      click_link '削除する'
+    }.to change(Notification, :count).by(-1)
+  end
 end

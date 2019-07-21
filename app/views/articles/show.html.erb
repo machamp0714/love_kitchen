@@ -2,30 +2,13 @@
 <div class="articleWrapper">
     <div class="container">
         <div class="row">
-            <div class="col-sm-2"></div>
             <div class="col-sm-8">
                 <div class="article-main">
                     <div class="article-header">
-                        <div class="articleAuthor">
-                            <div class="articleAuthor-profile">
-                                <%= link_to @article.user do %>
-                                    <%= image_tag @article.user.avatar_url, class: 'article-user-avatar' %>
-                                <% end %>
-                                <%= link_to @article.user.name, @article.user, class: 'article-user-name' %>
-                            </div>
-                            <div class="article-updated">
-                                <%= @article.updated_at.strftime('%Y年%m月%d日') %>
-                            </div>
-                            <% if user_signed_in? %>
-                                <% if !correct_user? %>
-                                    <div class="article-settings">
-                                        <%= link_to '編集する', edit_article_path %>
-                                        <%= link_to '削除する', article_path, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %>
-                                    </div>
-                                <% end %>
-                            <% end %>
-                        </div>
                         <h1 class="header-title"> <%= @article.title %> </h1>
+                        <div class="article-updated">
+                                <%= @article.updated_at.strftime('%Y年%m月%d日') %>
+                        </div>
                     </div>
                     <% if user_signed_in? %>
                         <div class="articleActions">
@@ -42,66 +25,53 @@
                         </div>
                     <% end %>
                     <section class="articleContent">
-                        <% unless @article.pictures.empty? %>
-                            <div id="carouselControls" id="carouselIndicators" class="carousel slide" data-ride="carousel">
-                                <!-- インジケータ部分 -->
-                                <ol class="carousel-indicators">
-                                    <li class="active" data-target="#carouselIndicators" data-slide-to="0"></li>
-                                    <li data-target="#carouselIndicators" data-slide-to="1"></li>
-                                    <li data-target="#carouselIndicators" data-slide-to="2"></li>
-                                </ol>
-                                <!-- カルーセル部分 -->
-                                <div class="carousel-inner">
-                                    <% unless @article.pictures[0].nil? %>
-                                        <div class="carousel-item active">
-                                            <%= image_tag @article.pictures[0].image.to_s, class: 'd-block, w-100' %>
-                                        </div>
-                                    <% end %>
-                                    <% unless @article.pictures[1].nil? %>
-                                        <div class="carousel-item">
-                                            <%= image_tag @article.pictures[1].image.to_s, class: 'd-block, w-100' %>
-                                        </div>
-                                    <% end %>
-                                    <% unless @article.pictures[2].nil? %>
-                                        <div class="carousel-item">
-                                            <%= image_tag @article.pictures[2].image.to_s, class: 'd-block, w-100' %>
-                                        </div>
-                                    <% end %>
+                        <% if @pictures.size > 0 %>
+                            <div class="articlePicture">
+                                <div class="article-thumbnails">
+                                    <ul id="thumbnails">
+                                        <% @pictures.each do |picture| %>
+                                            <li class="thumbnail-list"> <%= image_tag picture.image_url, class: 'thumbnail' %> </li>
+                                        <% end %>
+                                    </ul>
                                 </div>
-                                <!-- コントローラ部分 -->
-                                <a href="#carouselControls" class="carousel-control-prev" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">前へ戻る</span>
-                                </a>
-                                <a href="#carouselControls" class="carousel-control-next" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">次へ送る</span>
-                                </a>
+                                <main> 
+                                    <%= image_tag @pictures[0].image_url, class: 'main-picture' %>
+                                </main>
                             </div>
                         <% end %>
                         <div class="articleContent_story">
-                            <%= @article.content %>
+                            <%= simple_format(@article.content) %>
                         </div>
                         <div class="articleContent_chart">
                             <canvas id="myRadarChart"></canvas>
                         </div>
                     </section>
-                    <div class="author-info">
-                        <div class="author-content">
-                            <%= link_to @article.user do %>
-                                <%= image_tag @article.user.avatar_url, class: 'author-image' %>
-                            <% end %>
-                            <div class="author-body">
-                                <div class="author-header">
-                                    <%= link_to @article.user.name, @article.user %>
-                                </div>
-                                <div class="author-introduce"> <%= @article.user.introduce %> </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <div class="article-sideMenu">
+                    <div class="sideMenu_header">
+                        <%= image_tag @article.user.avatar.to_s, class: 'author-image' %>
+                        <div class="sideMenu_header_label">
+                            <%= link_to @article.user.name, @article.user %>
+                        </div>
+                    </div>
+                    <div class="author-introduce">
+                        <%= @article.user.introduce %>
+                    </div>
+                    <% if correct_user? %>
+                        <div class="sideMenu_meta">
+                            <div class="article-view-count">
+                                <%= @article.view_count %><span style="margin-left: 3px;">views</span>
+                            </div>
+                            <div class="article-settings">
+                                <%= link_to '編集する', edit_article_path(@article) %>
+                                <%= link_to '削除する', article_path(@article), method: :delete, data: { confirm: '本当に削除しますか?' } %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
         </div>
     </div>
     <div class="commentsWrapper">
@@ -124,4 +94,4 @@
         </div>
     </div>
 </div>
-<script>draw_chart();</script>
+<%= javascript_include_tag "chart.js" %>

@@ -11,8 +11,10 @@
 
   <body>
     <%= Gon::Base.render_data() %>
-    <%= render 'shared/navigation' %>
-    <%= render 'layouts/flash' %>
-    <%= yield %>
+    <div id="content">
+      <%= render 'shared/navigation' %>
+      <%= render 'layouts/flash' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

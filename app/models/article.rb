@@ -17,4 +17,16 @@ class Article < ApplicationRecord
   validates :data1, presence: true
   validates :data2, presence: true
   validates :data3, presence: true
+
+  def cover_picture
+    if self.pictures.size > 0
+      if !self.pictures[0].image.blank?
+        self.pictures[0].image.to_s
+      else
+        'blank.jpg'
+      end
+    else
+      'blank.jpg'
+    end
+  end
 end

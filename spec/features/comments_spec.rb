@@ -31,7 +31,6 @@ RSpec.feature "Comments", type: :feature do
 
   scenario 'コメントを更新できること', js: true do
     sign_in_as user
-    find('.close').click
     within '#posted-order' do
       click_link article.title
     end
@@ -43,7 +42,6 @@ RSpec.feature "Comments", type: :feature do
 
   scenario 'コメント編集をキャンセルできること', js: true do
     sign_in_as user
-    find('.close').click
     click_link article.title
     click_link "編集"
     click_link "キャンセル"

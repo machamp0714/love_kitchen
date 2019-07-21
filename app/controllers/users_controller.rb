@@ -4,11 +4,7 @@ class UsersController < ApplicationController
     def show
         @user = User.friendly.find(params[:id])
         @articles = @user.articles.order(created_at: :desc)
-        @liked_articles = []
-        @user.likes.includes(:article).order(created_at: :desc).each do |like|
-            article = Article.find(like.article_id)
-            @liked_articles << article
-        end
+        @liked_articles = Article.includes(:user).joins(:likes).where(likes: { user: @user })
         @feed = @user.feed
     end
     

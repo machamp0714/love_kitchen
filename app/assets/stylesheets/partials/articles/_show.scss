@@ -7,7 +7,7 @@
 }
 .article-main {
     background-color: #fff;
-    padding: 32px;
+    padding: 30px;
 }
 .article-header {
     color: #333;
@@ -44,8 +44,10 @@
     color: #999;
 }
 .article-settings {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: bold;
     a {
-        font-size: 14px;
         color: #999;
         &:hover {
             color: #337ab7;
@@ -54,7 +56,7 @@
     }
 }
 .header-title {
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 700;
     line-height: 1.4;
     font-feature-settings: "palt";
@@ -65,13 +67,37 @@
     word-wrap: break-word;
     word-break: break-all;
 }
+.articlePicture {
+    display: flex;
+}
+.main-picture {
+    width: 550px;
+    height: 400px;
+}
+.thumbnail-list {
+    margin-bottom: 10px;
+    opacity: 0.4;
+    &:hover {
+        opacity: 1;
+    }
+}
+.current {
+    opacity: 1;
+}
+.thumbnail {
+    width: 100px;
+    height: 80px;
+}
+.article-thumbnails {
+    margin-right: 20px;
+}
 .articleContent_story {
     margin-top: 20px;
     padding-top: 10px;
 }
 .articleContent_chart {
-    margin-top: 40px;
-    padding-top: 20px;
+    margin-top: 10px;
+    padding-top: 10px;
     border-top: 1px solid #ddd;
 }
 @media(max-width: 480px) {
@@ -99,8 +125,8 @@
     display: flex;
 }
 .author-image {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
 }
 .author-body {
     margin-left: 20px;
@@ -122,9 +148,39 @@
 }
 .author-introduce {
     font-size: 14px;
-    color: #777;
+    color: #333333;
+    margin-top: 8px;
 }
 .likes-count {
     font-weight: 600;
     margin-left: 2px;
+}
+.article-sideMenu {
+    background: #fff;
+    padding: 28px;
+}
+.sideMenu_header {
+    display: flex;
+    align-items: center;
+}
+.sideMenu_header_label {
+    margin-left: 5px;
+    a {
+        color: #333;
+        font-size: 16px;
+        font-weight: 700;
+        &:hover {
+            color: #337ab7;
+            text-decoration: underline;
+        }
+    }
+}
+.sideMenu_meta {
+    margin-top: 8px;
+    display: flex;
+}
+.article-view-count {
+    font-size: 12px;
+    font-weight: bold;
+    color: #999;
 }
