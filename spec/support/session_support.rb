@@ -7,7 +7,3 @@ module SessionSupport
         click_button "ログイン"
     end
 end
-
-RSpec.configure do |config|
-    config.include SessionSupport
-end
