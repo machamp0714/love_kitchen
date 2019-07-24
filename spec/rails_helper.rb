@@ -26,8 +26,6 @@ Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 
-OmniAuth.config.test_mode = true
-
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
@@ -44,6 +42,8 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.filter_rails_from_backtrace!
+
+  OmniAuth.config.test_mode = true
 
   config.include SessionSupport
   config.include OmniauthMocks

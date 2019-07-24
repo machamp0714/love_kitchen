@@ -7,7 +7,7 @@ module OmniauthMocks
         :nickname => "johnqpublic",
         :name => "John Q Public",
         :location => "Anytown, USA",
-        :image => "http://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png",
+        :image => "hogehoge.png",
         :description => "a very normal guy.",
         :urls => {
           :Website => nil,
