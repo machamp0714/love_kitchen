@@ -5,15 +5,12 @@ class ArticlesController < ApplicationController
 
     def new
         @article = current_user.articles.build
-        @article.pictures.build
+        3.times { @article.pictures.build }
     end
 
     def create
         @article = current_user.articles.build(article_params)
         if @article.save
-            params[:pictures][:image].each do |image|
-                @article.pictures.create(image: image);
-            end
             redirect_to @article, notice: 'Success!!'
         else
             render :new

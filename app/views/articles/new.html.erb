@@ -15,6 +15,7 @@
                 <div class="editorStory">
                     <%= f.text_area :content, placeholder: '持ってるアイテムのいい所をみんなに教えてあげよう!', class: 'editorStory_textarea' %>
                 </div>
+                <div id="preview"></div>
                 <div class="editorChartBody">
                     <h4 class="chart-text">グラフを作成できます。</h4>
                     <canvas id="myChart"></canvas>
@@ -71,7 +72,7 @@
             <div class="editorFooter">
                 <div class="editorPicture">
                     <%= f.fields_for :pictures do |picture|  %>
-                        <%= picture.file_field :image, type: 'file', multiple: true, name: 'pictures[image][]', class: 'form-control-file', id: 'pictures_input' %>
+                        <%= picture.file_field :image  %>
                     <% end %>
                 </div>
                 <div class="editorSubmit">
