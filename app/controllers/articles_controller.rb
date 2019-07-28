@@ -5,17 +5,17 @@ class ArticlesController < ApplicationController
 
     def new
         @article = current_user.articles.build
-        3.times { @article.pictures.build }
+        @article.pictures.build
     end
 
     def create
         @article = current_user.articles.build(article_params)
         if @article.save
+            params[:pictures][:image].each do |image|
+                @article.pictures.create(image: image);
+            end
             redirect_to @article, notice: 'Success!!'
         else
-            3.times { @article.pictures.build } if @article.pictures.size == 0
-            2.times { @article.pictures.build } if @article.pictures.size == 1
-            @article.pictures.build if @article.pictures.size == 2
             render :new
         end
     end
@@ -55,12 +55,13 @@ class ArticlesController < ApplicationController
     private
 
     def article_params
-        params.require(:article).permit(:title,
+        params.require(:article).permit(
+            :title,
             :content,
             :label1, :label2, :label3, :label4, :label5,
             :data1, :data2, :data3, :data4, :data5,
             pictures_attributes: [:image]
-            )
+        )
     end
 
     def update_article_params
