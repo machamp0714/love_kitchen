@@ -6,6 +6,9 @@
     margin: 20px 0;
     padding: 20px 40px;
 }
+.editorPicture {
+    padding-bottom: 10px;
+}
 .editorFrom_border {
     border-bottom: 1px solid #eee;
     margin-bottom: 20px;
@@ -55,4 +58,46 @@
     padding: 12px;
     font-size: 14px;
     font-weight: bold;
+}
+#preview-thumbnails {
+    margin: 10px 0;
+}
+.picture-input0 {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    font-size: 30px;
+    color: #AAB7B8;
+    background-color: #FAFAFA;
+    border: 2px solid #AAB7B8;
+    border-style: dashed;
+    text-align: center;
+    margin-right: 10px;
+}
+.picture-input1 {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    font-size: 30px;
+    color: #AAB7B8;
+    background-color: #FAFAFA;
+    border: 2px solid #AAB7B8;
+    border-style: dashed;
+    text-align: center;
+    margin-right: 10px;
+}
+.picture-input2 {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    font-size: 30px;
+    color: #AAB7B8;
+    background-color: #FAFAFA;
+    border: 2px solid #AAB7B8;
+    border-style: dashed;
+    text-align: center;
+    margin-right: 10px;
+}
+.fas-height {
+    line-height: 100px;
 }

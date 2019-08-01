@@ -26,6 +26,11 @@
                         </div>
                         <div class="editorPicture editorFrom_border">
                             <label class="form-label">写真を追加する</label>
+                            <div id="preview-thumbnails">
+                                <div class="picture-input0"><i class="fas fa-plus fas-height"></i></div>
+                                <div class="picture-input1"><i class="fas fa-plus fas-height"></i></div>
+                                <div class="picture-input2"><i class="fas fa-plus fas-height"></i></div>
+                            </div>
                             <%= f.fields_for :pictures do |picture| %>
                                 <%= picture.file_field :image, class: 'form-hidden' %>
                             <% end %>
