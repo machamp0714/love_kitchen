@@ -28,7 +28,7 @@
                             <label class="form-label">写真を追加する</label>
                             <div id="preview-thumbnails"></div>
                             <%= f.fields_for :pictures do |picture| %>
-                                <%= picture.file_field :image, class: 'form-hidden' %>
+                                <%= picture.file_field :image, class: 'hidden' %>
                             <% end %>
                         </div>
                         <div class="editorChart editorFrom_border">

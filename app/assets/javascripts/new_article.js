@@ -12,41 +12,58 @@ const input = [
 let currentNum;
 
 class uploadForm {
-  
-  createForm = id => {
-    const form = document.createElement('div');
-    form.classList.add('picture-form');
+  constructor() {
+    this.formList = [];
 
-    const icon = document.createElement('i');
-    icon.classList.add('fas', 'fa-plus', 'fas-height');
-    form.appendChild(icon);
+    for(let i = 0; i < 3; i++) {
+      const form = document.createElement('div');
+      form.classList.add('picture-form', 'hidden');
 
-    output.appendChild(form);
+      const icon = document.createElement('i');
+      icon.classList.add('fas', 'fa-plus', 'fas-height');
+      form.appendChild(icon);
 
-    form.addEventListener('click', () => {
-      input[id].click();
+      output.appendChild(form);
+
+      this.formList.push(form);
+    }
+
+    input.forEach((e, index) => {
+      this.formList[index].addEventListener('click', () => {
+        e.click();
+      })
+      e.addEventListener('change', event => {
+        const file = event.target.files[0];
+
+        if (file.type !== 'image/jpg' && file.type !== 'image/jpeg' && file.type !== 'image/png') {
+          return;
+        }
+
+        this.deleteForm(index);
+        this.addPreview(file, index);
+        // this.createForm(index);
+      });
     });
 
-    input[id].addEventListener('change', event => {
-      const file = event.target.files[0];
+    this.formList[0].classList.remove('hidden');
+  }
 
-      if (file.type !== 'image/jpg' && file.type !== 'image/jpeg' && file.type !== 'image/png') {
-        return;
-      }
-      output.removeChild(form);
+  deleteForm = index => {
+    this.formList[index].classList.add('hidden');
+  }
 
-      const url = URL.createObjectURL(file);
-      new Picture(url, id);
+  createForm = index => {
+    this.formList[index].classList.remove('hidden');
+  }
 
-      currentNum = id + 1;
-      const upload = new uploadForm();
-      upload.createForm(currentNum);
-    });
+  addPreview = (file, index) => {
+    const url = URL.createObjectURL(file);
+    new Picture(url, index);
   }
 }
 
 class Picture {
-  constructor(src, id) {
+  constructor(src, index) {
     this.image = new Image();
     this.image.src = src;
     this.image.width = 100;
@@ -57,28 +74,15 @@ class Picture {
     this.thumbnail.classList.add('preview-container');
     this.thumbnail.appendChild(this.image);
 
-    this.div = document.createElement('div');
-    this.div.classList.add('delete-btn');
+    this.btn = document.createElement('div');
+    this.btn.classList.add('delete-btn');
     const icon = document.createElement('i');
     icon.classList.add('fas', 'fa-times', 'fa-height');
-    this.div.appendChild(icon);
-    this.thumbnail.appendChild(this.div);
+    this.btn.appendChild(icon);
+    this.thumbnail.appendChild(this.btn);
 
     output.appendChild(this.thumbnail);
-
-    this.div.addEventListener('click', () => {
-      output.removeChild(this.thumbnail);
-      input[id].value = "";
-
-      const upload = new uploadForm();
-      upload.createForm(id);
-    });
   }
 }
 
-const initialize = () => {
-  const upload = new uploadForm();
-  upload.createForm(0);
-}
-
-initialize();
+new uploadForm();
