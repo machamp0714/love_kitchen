@@ -9,80 +9,76 @@ const input = [
   input2
 ];
 
-let currentNum;
+let uploadCount = 0;
 
-class uploadForm {
-  constructor() {
-    this.formList = [];
+class Form {
+  constructor(index) {
+    const form = document.createElement('div');
+    form.classList.add('picture-form');
+    const icon = document.createElement('i');
+    icon.classList.add('fas', 'fa-plus', 'fas-height');
+    form.appendChild(icon);
 
-    for(let i = 0; i < 3; i++) {
-      const form = document.createElement('div');
-      form.classList.add('picture-form', 'hidden');
+    output.appendChild(form);
 
-      const icon = document.createElement('i');
-      icon.classList.add('fas', 'fa-plus', 'fas-height');
-      form.appendChild(icon);
-
-      output.appendChild(form);
-
-      this.formList.push(form);
-    }
-
-    input.forEach((e, index) => {
-      this.formList[index].addEventListener('click', () => {
-        e.click();
-      })
-      e.addEventListener('change', event => {
-        const file = event.target.files[0];
-
-        if (file.type !== 'image/jpg' && file.type !== 'image/jpeg' && file.type !== 'image/png') {
-          return;
-        }
-
-        this.deleteForm(index);
-        this.addPreview(file, index);
-        // this.createForm(index);
-      });
+    form.addEventListener('click', () => {
+      input[index].click();
     });
-
-    this.formList[0].classList.remove('hidden');
-  }
-
-  deleteForm = index => {
-    this.formList[index].classList.add('hidden');
-  }
-
-  createForm = index => {
-    this.formList[index].classList.remove('hidden');
-  }
-
-  addPreview = (file, index) => {
-    const url = URL.createObjectURL(file);
-    new Picture(url, index);
   }
 }
 
 class Picture {
-  constructor(src, index) {
-    this.image = new Image();
-    this.image.src = src;
-    this.image.width = 100;
-    this.image.height = 100;
-    this.image.classList.add('preview-image');
+  constructor(file, index) {
+    const url = URL.createObjectURL(file);
+    const image = new Image();
+    image.src = url;
+    image.width = 100;
+    image.height = 100;
 
-    this.thumbnail = document.createElement('div');
-    this.thumbnail.classList.add('preview-container');
-    this.thumbnail.appendChild(this.image);
-
-    this.btn = document.createElement('div');
-    this.btn.classList.add('delete-btn');
+    const thumbnail = document.createElement('div');
+    thumbnail.classList.add('preview-container');
+    const btn = document.createElement('div');
     const icon = document.createElement('i');
     icon.classList.add('fas', 'fa-times', 'fa-height');
-    this.btn.appendChild(icon);
-    this.thumbnail.appendChild(this.btn);
+    btn.classList.add('delete-btn');
+    btn.appendChild(icon);
+    thumbnail.appendChild(image);
+    thumbnail.appendChild(btn);
 
-    output.appendChild(this.thumbnail);
-  }
+    output.appendChild(thumbnail);
+
+    btn.addEventListener('click', () => {
+      if (uploadCount !== input.length) {
+        const form = document.querySelector('.picture-form');
+        output.removeChild(form);
+      }
+      
+      uploadCount--;
+      input[index].value = "";
+      output.removeChild(thumbnail);
+      new Form(index);
+    });
+  } 
 }
 
-new uploadForm();
+input.forEach((el, index) => {
+  el.addEventListener('change', event => {
+    const file = event.target.files[0];
+    if (file.type !== 'image/jpg' && file.type !== 'image/jpeg' && file.type !== 'image/png') {
+      return;
+    }
+
+    const form = document.querySelector('.picture-form');
+    output.removeChild(form);
+
+    new Picture(file, index);
+
+    uploadCount++;
+
+    if (uploadCount < input.length) {
+      new Form(index + 1);
+    }
+  });
+});
+
+new Form(0);
