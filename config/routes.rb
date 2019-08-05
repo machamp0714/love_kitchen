@@ -38,6 +38,9 @@ Rails.application.routes.draw do
   
   resources :articles, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :likes, only: [:create, :destroy]
+    member do
+      get :title, :content, :pictures, :chart
+    end
   end
 
   resources :comments, only: [:create, :edit, :update, :destroy] do
