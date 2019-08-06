@@ -10,9 +10,11 @@ class ArticlesController < ApplicationController
 
     def create
         @article = current_user.articles.build(article_params)
+        pictures = @article.pictures
         if @article.save
             redirect_to @article, notice: 'Success!!'
         else
+            create_form(pictures)
             render :new
         end
     end
@@ -77,5 +79,16 @@ class ArticlesController < ApplicationController
 
     def set_article
         @article = Article.find(params[:id])
+    end
+
+    def create_form(pictures)
+        case pictures.size
+        when 0
+            3.times { pictures.build }
+        when 1
+            2.times { pictures.build }
+        when 2
+            pictures.build
+        end
     end
 end
