@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-    before_action :correct_user, only: [:edit, :update, :destroy]
+    before_action :authenticate_user!, except: [:show]
+    before_action :correct_user, only: [:title, :content, :pictures, :chart, :update, :destroy]
     before_action :set_article, only: [:show, :edit, :update, :destroy]
 
     def new
@@ -30,10 +30,20 @@ class ArticlesController < ApplicationController
         gon.data = data.reject { |data| data.blank? }
     end
 
-    def edit
-        3.times { @article.pictures.build } if @article.pictures.size == 0
-        2.times { @article.pictures.build } if @article.pictures.size == 1
-        @article.pictures.build if @article.pictures.size == 2
+    def title
+
+    end
+
+    def content
+
+    end
+
+    def pictures
+
+    end
+
+    def chart
+
     end
 
     def update
