@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
     before_action :authenticate_user!, except: [:show]
     before_action :correct_user, only: [:title, :content, :pictures, :chart, :update, :destroy]
-    before_action :set_article, only: [:show, :edit, :update, :destroy]
 
     def new
         @article = current_user.articles.build
@@ -20,6 +19,7 @@ class ArticlesController < ApplicationController
     end
 
     def show
+        @article = Article.find(params[:id])
         if user_signed_in?
             @article.update(view_count: @article.view_count + 1) if current_user.id != @article.user_id
         end
@@ -31,22 +31,23 @@ class ArticlesController < ApplicationController
     end
 
     def title
-
+        @article = Article.find(params[:id])
     end
 
     def content
-
+        @article = Article.find(params[:id])
     end
 
     def pictures
-
+        @article = Article.find(params[:id])
     end
 
     def chart
-
+        @article = Article.find(params[:id])
     end
 
     def update
+        @article = Article.find(params[:id])
         if @article.update(update_article_params)
             redirect_to @article, notice: 'Updated!!'
         else
@@ -55,6 +56,7 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
+        @article = Article.find(params[:id])
         @article.destroy
         if notification = Notification.where(article_id: @article.id)
             notification.destroy_all
@@ -85,10 +87,6 @@ class ArticlesController < ApplicationController
     def correct_user
         @article = current_user.articles.find_by(id: params[:id])
         redirect_to root_url if @article.nil?
-    end
-
-    def set_article
-        @article = Article.find(params[:id])
     end
 
     def create_form(pictures)
