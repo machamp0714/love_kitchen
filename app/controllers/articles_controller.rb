@@ -49,10 +49,11 @@ class ArticlesController < ApplicationController
     def update
         @article = Article.find(params[:id])
         if @article.update(update_article_params)
-            redirect_to @article, notice: 'Updated!!'
+            flash[:notice] = '更新しました。'
         else
-            render :edit
+            flash[:alert] = '入力に誤りがあります。'
         end
+        redirect_back(fallback_location: request.referer)
     end
 
     def destroy
