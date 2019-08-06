@@ -1,0 +1,23 @@
+.article-edit-body {
+  padding-top: 20px;
+}
+.edit-header {
+  margin-bottom: 20px;
+}
+.edit-path {
+  color: #555;
+  font-size: 20px;
+  font-weight: bold;
+  &:hover {
+    color: #555;
+    text-decoration: underline;
+  }
+}
+.current-page {
+  a {
+    color: #e75926;
+    &:hover {
+      color: #e75926;
+    }
+  }
+}
