@@ -4,6 +4,9 @@
 .edit-header {
   margin-bottom: 20px;
 }
+.edit-title {
+  font-size: 24px;
+}
 .edit-path {
   color: #555;
   font-size: 20px;
@@ -20,4 +23,11 @@
       color: #e75926;
     }
   }
+}
+.edit-main {
+  padding-top: 20px;
+}
+.edit-form {
+  width: 50%;
+  margin-bottom: 20px;
 }
