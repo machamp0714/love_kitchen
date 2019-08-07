@@ -5,7 +5,15 @@
         <%= render 'edit' %>
       </div>
       <div class="col-md-8">
-
+        <h2 class="edit-title">投稿内容を編集する </h2>
+        <div class="edit-main">
+          <%= form_for @article do |f| %>
+            <div class="form-group">
+              <%= f.text_area :content, rows: 6, cols: 60, placeholder: '投稿内容', class: 'form-control' %>
+            </div>
+            <%= f.submit '更新する', class: 'btn btn-default btn-submit' %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

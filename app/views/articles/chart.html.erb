@@ -5,8 +5,63 @@
         <%= render 'edit' %>
       </div>
       <div class="col-md-8">
-
+        <h2 class="edit-title">グラフを編集する </h2>
+        <div class="edit-chart">
+          <canvas id="myRadarChart"></canvas>
+        </div>
+        <div class="editorChart_form">
+          <%= form_for @article do |f| %>
+            <div class="editorChart_box">
+              <div class="editorChart_label form-layout">
+                <h6><span class="badge badge-danger">必須</span></h6>
+                <%= f.text_field :label1, placeholder: 'ラベル１', class: 'form-control mr-3' %>
+              </div>
+              <div class="editorChart_data form-layout">
+                <h6><span class="badge badge-danger">必須</span></h6>
+                <%= f.select :data1, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+              </div>
+            </div>
+            <div class="editorChart_box">
+              <div class="editorChart_label form-layout">
+                <h6><span class="badge badge-danger">必須</span></h6>
+                <%= f.text_field :label2, placeholder: 'ラベル2', class: 'form-control mr-3' %>
+              </div>
+              <div class="editorChart_data form-layout">
+                <h6><span class="badge badge-danger">必須</span></h6>
+                <%= f.select :data2, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+              </div>
+            </div>
+            <div class="editorChart_box">
+              <div class="editorChart_label form-layout">
+                <h6><span class="badge badge-danger">必須</span></h6>
+                <%= f.text_field :label3, placeholder: 'ラベル3', class: 'form-control mr-3' %>
+              </div>
+              <div class="editorChart_data form-layout">
+                <h6><span class="badge badge-danger">必須</span></h6>
+                <%= f.select :data3, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+              </div>
+            </div>
+            <div class="editorChart_box">
+              <div class="editorChart_label form-layout">
+              <%= f.text_field :label4, placeholder: 'ラベル4', class: 'form-control mr-3' %>
+            </div>
+              <div class="editorChart_data form-layout">
+                <%= f.select :data4, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+              </div>
+            </div>
+            <div class="editorChart_box">
+              <div class="editorChart_label form-layout">
+                <%= f.text_field :label5, placeholder: 'ラベル5', class: 'form-control mr-3' %>
+              </div>
+              <div class="editorChart_data form-layout">
+                <%= f.select :data5, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+              </div>
+            </div>
+          </div>
+          <%= f.submit '更新する', class: 'btn btn-default btn-submit' %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+<%= javascript_include_tag "chart.js" %>
