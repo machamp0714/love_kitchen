@@ -43,6 +43,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :pictures, only: [:create, :destroy]
+
   resources :comments, only: [:create, :edit, :update, :destroy] do
     member do
       get :cancel
