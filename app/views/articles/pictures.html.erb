@@ -12,6 +12,7 @@
               <%= form_for @picture do |f| %>
                 <div id="selectPhoto" class="select-photo">写真を追加する</div>
                 <%= f.file_field :image, class: 'hidden', id: 'add-picture' %>
+                <%= f.hidden_field :article_id, value: @article.id %>
                 <%= f.submit '更新する', class: 'btn btn-default btn-submit btn-picture' %>
               <% end %>
             </div>
