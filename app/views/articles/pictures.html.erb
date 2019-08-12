@@ -7,23 +7,26 @@
       <div class="col-md-8">
         <div class="edit-form-container">
           <h2 class="edit-title">写真</h2>
-          <div class="picture-upload">
-            <%= form_for @picture do |f| %>
-              <%= f.file_field :image %>
-              <%= f.submit '更新する', class: 'btn btn-default btn-submit' %>
-            <% end %>
-          </div>
-          <div class="pictures-list">
-            <ul>
-              <% @pictures.each do |picture| %>
-                <li>
-                  <%= image_tag picture.image_url %>
-                  <%= link_to picture_path(picture), method: :delete do %>
-                    <i class="fas fa-times"></i>
-                  <% end %>
-                </li>
+          <div class="pictures-body">
+            <div class="picture-upload">
+              <%= form_for @picture do |f| %>
+                <div id="selectPhoto" class="select-photo">写真を追加する</div>
+                <%= f.file_field :image, class: 'hidden' %>
+                <%= f.submit '更新する', class: 'btn btn-default btn-submit btn-picture' %>
               <% end %>
+            </div>
+            <div class="pictures-container">
+              <ul>
+                <% @pictures.each do |picture| %>
+                  <li class="picture-item">
+                    <%= image_tag picture.image_url, class: 'picture-image' %>
+                    <%= link_to picture_path(picture), class: 'picture-delete-button', html: { confirm: "本当に削除してもよろしいですか？" }, method: :delete do %>
+                      <i class="fas fa-times"></i>
+                    <% end %>
+                  </li>
+                <% end %>
             </ul>
+          </div>
           </div>
         </div>
       </div>

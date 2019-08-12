@@ -1,140 +1,143 @@
 .btn-default {
-    color: #f6f6f6;
-    letter-spacing: 1px;
-    background: #cf5022;
-    border: 0;
-    padding: 12px 24px;
-    font-size: 18px;
-    font-weight: 500;
-    transition: all 0.5s;
-    &:hover {
-        background: #E75926;
-        color: #fff;
-    }
+  color: #f6f6f6;
+  letter-spacing: 1px;
+  background: #cf5022;
+  border: 0;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.5s;
+  &:hover {
+    background: #e75926;
+    color: #fff;
+  }
 }
 .btn-twitter {
+  color: #fff;
+  background: #55acee;
+  border-radius: 50%;
+  font-size: 26px;
+  &:hover {
     color: #fff;
-    background: #55acee;
-    border-radius: 50%;
-    font-size: 26px;
-    &:hover {
-        color: #fff;
-        opacity: 0.9;
-    }
+    opacity: 0.9;
+  }
 }
 .btn-comment {
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 6px 10px;
-    border: 1px solid #e14b22;
-    margin-top: 0;
-    margin-left: 5px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border: 1px solid #e14b22;
+  margin-top: 0;
+  margin-left: 5px;
 }
 .btn-message {
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 6px 10px;
-    border: 1px solid #e14b22;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border: 1px solid #e14b22;
 }
 .btn-cancel {
-    padding: 6px 10px;
-    font-size: 14px;
-    color: #333;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    &:hover {
-        background-color: #e6e6e6;
-        border-color: #adadad;
-    }
+  padding: 6px 10px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  &:hover {
+    background-color: #e6e6e6;
+    border-color: #adadad;
+  }
 }
 .like-button {
-    width: 200px;
-    height: 44px;
-    border-radius: 4px;
-    margin: 0 8px;
-    font-size: 20px;
-    &:focus {
-        outline: 0;
-    }
-
+  width: 200px;
+  height: 44px;
+  border-radius: 4px;
+  margin: 0 8px;
+  font-size: 20px;
+  &:focus {
+    outline: 0;
+  }
 }
 .likable {
-    background-color: #fff;
-    color: #657786;
-    border: 2px solid #657786;
-    &:hover {
-        border-color: #E75926;
-        color: #E75926;
-    }
+  background-color: #fff;
+  color: #657786;
+  border: 2px solid #657786;
+  &:hover {
+    border-color: #e75926;
+    color: #e75926;
+  }
 }
 .liked {
-    background-color: #E75926;
+  background-color: #e75926;
+  color: #fff;
+  border: none;
+  &:hover {
     color: #fff;
-    border: none;
-    &:hover {
-        color: #fff;
-    }
+  }
 }
 .favorite-button {
-    width: 44px;
-    height: 44px;
-    font-size: 20px;
-    background-color: #fff;
-    border-radius: 50%;
-    &:focus {
-        outline: 0;
-    }
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  &:focus {
+    outline: 0;
+  }
 }
 .favorite {
-    border: 2px solid #657786;
-    color: #657786;
-    &:hover {
-        border-color: #e0245e;
-        color: #e0245e;
-    }
+  border: 2px solid #657786;
+  color: #657786;
+  &:hover {
+    border-color: #e0245e;
+    color: #e0245e;
+  }
 }
 .unfavorite {
-    border: 2px solid #e0245e;
-    color: #e0245e;
+  border: 2px solid #e0245e;
+  color: #e0245e;
 }
 .btn-follow {
-    width: 50%;
-    font-size: 13px;
-    color: #333;
-    border: 1px solid #ccc;
-    padding: 6px 12px;
-    border-radius: 3px;
-    &:hover {
-        border-color: #adadad;
-        background-color: #e6e6e6;
-    }
-    &:focus {
-        outline: none;
-    }
+  width: 50%;
+  font-size: 13px;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 3px;
+  &:hover {
+    border-color: #adadad;
+    background-color: #e6e6e6;
+  }
+  &:focus {
+    outline: none;
+  }
 }
 .btn-unfollow {
-    font-size: 13px;
-    background-color: #d9534f;
+  font-size: 13px;
+  background-color: #d9534f;
+  color: #fff;
+  border-color: #d9534f;
+  padding: 6px 12px;
+  border-radius: 3px;
+  &:hover {
     color: #fff;
-    border-color: #d9534f;
-    padding: 6px 12px;
-    border-radius: 3px;
-    &:hover {
-        color: #fff;
-    }
-    &:focus {
-        outline: none;
-    }
+  }
+  &:focus {
+    outline: none;
+  }
 }
 .btn-room {
-    width: 100%;
-    &:focus {
-        box-shadow: none;
-    }
+  width: 100%;
+  &:focus {
+    box-shadow: none;
+  }
 }
 .modal {
-    top: auto;
+  top: auto;
+}
+.btn-picture {
+  display: block;
+  margin: 0 auto;
 }
