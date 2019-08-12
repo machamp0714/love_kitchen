@@ -1,89 +1,93 @@
 /* Base */
-body, html {
-	font-family: 'Open Sans', sans-serif;
-	text-rendering: optimizeLegibility !important;
-	-webkit-font-smoothing: antialiased !important;
-	color: #777;
-	width: 100% !important;
-	height: 100% !important;
+body,
+html {
+  font-family: "Open Sans", sans-serif;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  color: #777;
+  width: 100% !important;
+  height: 100% !important;
 }
 h1 {
-	font-weight: 700;
+  font-weight: 700;
 }
 h1 strong {
-	font-weight: 900;
+  font-weight: 900;
 }
 h2 {
-	font-weight: 600;
-	margin: 0;
-	color: #555;
+  font-weight: 600;
+  margin: 0;
+  color: #555;
 }
 h3 {
-	font-size: 16px;
-	font-weight: 700;
-	color: #555;
+  font-size: 16px;
+  font-weight: 700;
+  color: #555;
 }
 h4 {
-	font-weight: 500;
-	color: #555;
+  font-weight: 500;
+  color: #555;
 }
 h5 {
-	text-transform: uppercase;
-	font-weight: 700;
-	line-height: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 20px;
 }
 h6 {
-	margin-bottom: 3px;
+  margin-bottom: 3px;
 }
 p {
-	font-size: 14px;
+  font-size: 14px;
 }
 a {
-	color: #754747;
+  color: #754747;
 }
-a:hover, a:focus {
-	text-decoration: none;
+a:hover,
+a:focus {
+  text-decoration: none;
 }
-ul, ol {
-	list-style: none;
+ul,
+ol {
+  list-style: none;
 }
 .clearfix:after {
-	visibility: hidden;
-	display: block;
-	font-size: 0;
-	content: " ";
-	clear: both;
-	height: 0;
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }
 .clearfix {
-	display: inline-block;
+  display: inline-block;
 }
 * html .clearfix {
-	height: 1%;
+  height: 1%;
 }
 .clearfix {
-	display: block;
+  display: block;
 }
-ul, ol {
-	padding: 0;
-	-webkit-appearance: 0;
-	-moz-appearance: 0;
+ul,
+ol {
+  padding: 0;
+  -webkit-appearance: 0;
+  -moz-appearance: 0;
 }
 hr {
-	height: 4px;
-	width: 70px;
-	text-align: center;
-	position: relative;
-	background: #E75926;
-	margin: 0 auto;
-	border: 0;
+  height: 4px;
+  width: 70px;
+  text-align: center;
+  position: relative;
+  background: #e75926;
+  margin: 0 auto;
+  border: 0;
 }
 img {
-	border-radius: 2px;
+  border-radius: 2px;
 }
 #content {
-	min-height: 100vh;
-	position: relative;
-	padding-bottom: 100px;
-	box-sizing: border-box;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 100px;
+  box-sizing: border-box;
 }

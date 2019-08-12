@@ -1,6 +1,9 @@
 .article-edit-body {
   padding-top: 20px;
 }
+.edit-form-container {
+  border: 1px solid #eee;
+}
 .edit-header {
   margin-bottom: 20px;
 }
@@ -13,7 +16,6 @@
   font-weight: bold;
   &:hover {
     color: #555;
-    text-decoration: underline;
   }
 }
 .current-page {
@@ -26,8 +28,4 @@
 }
 .edit-main {
   padding-top: 20px;
-}
-.edit-form {
-  width: 50%;
-  margin-bottom: 20px;
 }

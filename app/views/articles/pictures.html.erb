@@ -5,7 +5,27 @@
         <%= render 'edit' %>
       </div>
       <div class="col-md-8">
-
+        <div class="edit-form-container">
+          <h2 class="edit-title">写真</h2>
+          <div class="picture-upload">
+            <%= form_for @picture do |f| %>
+              <%= f.file_field :image %>
+              <%= f.submit '更新する', class: 'btn btn-default btn-submit' %>
+            <% end %>
+          </div>
+          <div class="pictures-list">
+            <ul>
+              <% @pictures.each do |picture| %>
+                <li>
+                  <%= image_tag picture.image_url %>
+                  <%= link_to picture_path(picture), method: :delete do %>
+                    <i class="fas fa-times"></i>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
