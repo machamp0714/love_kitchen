@@ -9,7 +9,7 @@
           <h2 class="edit-title">写真</h2>
           <div class="pictures-body">
             <div class="picture-upload">
-              <%= form_for @picture do |f| %>
+              <%= form_for @picture, remote: true do |f| %>
                 <div id="selectPhoto" class="select-photo">写真を追加する</div>
                 <%= f.file_field :image, class: 'hidden', id: 'add-picture' %>
                 <%= f.hidden_field :article_id, value: @article.id %>
