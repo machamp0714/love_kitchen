@@ -1,0 +1,8 @@
+<% @pictures.each do |picture| %>
+  <li class="picture-item">
+    <%= image_tag picture.image_url, class: 'picture-image' %>
+    <%= link_to picture_path(picture), class: 'picture-delete-button', html: { confirm: "本当に削除してもよろしいですか？" }, method: :delete, remote: true do %>
+      <i class="fas fa-times"></i>
+    <% end %>
+  </li>
+<% end %>

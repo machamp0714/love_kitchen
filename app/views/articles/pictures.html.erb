@@ -16,15 +16,8 @@
               <% end %>
             </div>
             <div class="pictures-container">
-              <ul>
-                <% @pictures.each do |picture| %>
-                  <li class="picture-item">
-                    <%= image_tag picture.image_url, class: 'picture-image' %>
-                    <%= link_to picture_path(picture), class: 'picture-delete-button', html: { confirm: "本当に削除してもよろしいですか？" }, method: :delete do %>
-                      <i class="fas fa-times"></i>
-                    <% end %>
-                  </li>
-                <% end %>
+              <ul id="picturesList">
+                <%= render 'pictures/pictures_list' %>
             </ul>
           </div>
           </div>
@@ -33,3 +26,4 @@
     </div>
   </div>
 </div>
+<%= javascript_include_tag "pictures.js" %>
