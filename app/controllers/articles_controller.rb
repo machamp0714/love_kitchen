@@ -40,13 +40,14 @@ class ArticlesController < ApplicationController
 
     def pictures
         @article = Article.find(params[:id])
+        @pictures = @article.pictures
     end
 
     def chart
         @article = Article.find(params[:id])
         labels = [@article.label1, @article.label2, @article.label3, @article.label4, @article.label5]
         data = [@article.data1, @article.data2, @article.data3, @article.data4, @article.data5]
-        
+
         gon.labels = labels.reject { |label| label.blank? }
         gon.data = data.reject { |data| data.blank? }
     end
