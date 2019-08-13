@@ -1,10 +1,9 @@
 class PicturesController < ApplicationController
   def create
-    max_upload_size = 3
     article = Article.find(params[:picture][:article_id])
     @pictures = article.pictures
 
-    if @pictures.size == max_upload_size
+    if @pictures.size == MAX_UPLOAD_SIZE
       redirect_to pictures_article_url(article), alert: '写真はこれ以上追加出来ません。'
     else
       @pictures.create(picture_param)

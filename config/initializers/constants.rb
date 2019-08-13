@@ -1,0 +1,1 @@
+MAX_UPLOAD_SIZE = 3
