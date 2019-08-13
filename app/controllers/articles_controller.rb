@@ -92,11 +92,6 @@ class ArticlesController < ApplicationController
             pictures_attributes: [:image, :_destory, :id])
     end
 
-    def correct_user
-        @article = current_user.articles.find_by(id: params[:id])
-        redirect_to root_url if @article.nil?
-    end
-
     def create_form(pictures)
         case pictures.size
         when 0
