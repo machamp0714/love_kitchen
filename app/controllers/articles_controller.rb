@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
     before_action :authenticate_user!, except: [:show]
     before_action :correct_user, only: [:title, :content, :pictures, :chart, :update, :destroy]
@@ -11,10 +13,10 @@ class ArticlesController < ApplicationController
         @article = current_user.articles.build(article_params)
         pictures = @article.pictures
         if @article.save
-            redirect_to @article, notice: 'Success!!'
+            redirect_to @article, notice: "Success!!"
         else
             create_form(pictures)
-            render :new
+            render "new"
         end
     end
 
@@ -56,9 +58,9 @@ class ArticlesController < ApplicationController
     def update
         @article = Article.find(params[:id])
         if @article.update(update_article_params)
-            flash[:notice] = '更新しました。'
+            flash[:notice] = "更新しました。"
         else
-            flash[:alert] = '入力に誤りがあります。'
+            flash[:alert] = "入力に誤りがあります。"
         end
         redirect_back(fallback_location: request.referer)
     end
@@ -69,7 +71,7 @@ class ArticlesController < ApplicationController
         if notification = Notification.where(article_id: @article.id)
             notification.destroy_all
         end
-        redirect_to current_user, notice: 'Deleted!!'
+        redirect_to current_user, notice: "Deleted!!"
     end
 
     private

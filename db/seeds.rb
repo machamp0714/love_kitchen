@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # user
 User.create!(
     name: "alice",

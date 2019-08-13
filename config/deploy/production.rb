@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
@@ -41,11 +43,11 @@
 #
 # Global options
 # --------------
-set :ssh_options, keys: '~/.ssh/lovekitchen_key_rsa'
+set :ssh_options, keys: "~/.ssh/lovekitchen_key_rsa"
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-server 'lovekitchen.cf', user: 'tatsuya', roles: %w{app web db}
+server "lovekitchen.cf", user: "tatsuya", roles: %w{app web db}
 #   ssh_options: {
 #     user: "user_name", # overrides user setting above
 #     keys: %w(/home/user_name/.ssh/id_rsa),

@@ -1,8 +1,10 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe "Favorites", type: :request do
 
-  describe 'POST #create' do
+  describe "POST #create" do
     before do
       @user = FactoryBot.create(:alice)
       @article = FactoryBot.create(:bob_article, user: FactoryBot.create(:bob))

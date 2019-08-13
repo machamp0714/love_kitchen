@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SessionSupport
     def sign_in_as(user)
         visit root_path

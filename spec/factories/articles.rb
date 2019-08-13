@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :alice_article, class: Article do
     title { "中華鍋を買って良かった3つのこと" }

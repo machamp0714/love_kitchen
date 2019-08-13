@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RoomsHelper
   def your_room?(room)
     current_user.id == room.user_id

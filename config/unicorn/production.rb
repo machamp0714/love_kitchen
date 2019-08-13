@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # set lets
 $worker  = 2
 $timeout = 30
-$app_dir = "/var/www/projects/current" 
+$app_dir = "/var/www/projects/current"
 $listen  = "/var/socks/.unicorn.sock"
-$pid     = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
-$std_log = File.expand_path 'log/unicorn.log', $app_dir
+$pid     = File.expand_path "tmp/pids/unicorn.pid", $app_dir
+$std_log = File.expand_path "log/unicorn.log", $app_dir
 # set config
 worker_processes  $worker
 working_directory $app_dir

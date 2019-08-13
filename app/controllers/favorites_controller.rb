@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
   before_action :own_article?, only: [:create]
@@ -16,7 +18,7 @@ class FavoritesController < ApplicationController
 
     user = User.find_by(id: @article.user_id)
     user.notifications.create(article_id: @article.id, favorite_user_id: current_user.id)
-    
+
     respond_to do |format|
       format.html { redirect_to @article }
       format.js

@@ -12,9 +12,9 @@ class Users::PasswordsController < Devise::PasswordsController
     yield resource if block_given?
 
     if successfully_sent?(resource)
-      redirect_to root_url, notice: 'メールを送信しました'
+      redirect_to root_url, notice: "メールを送信しました"
     else
-      render :new
+      render "new"
     end
   end
 
@@ -30,10 +30,10 @@ class Users::PasswordsController < Devise::PasswordsController
 
     if resource.errors.empty?
       resource.unlock_access! if unlockable?(resource)
-      redirect_to login_url, notice: '新しいパスワードでログインしてください。'
+      redirect_to login_url, notice: "新しいパスワードでログインしてください。"
     else
       set_minimum_password_length
-      render :edit
+      render "edit"
     end
   end
 

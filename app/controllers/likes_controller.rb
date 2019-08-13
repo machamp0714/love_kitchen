@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LikesController < ApplicationController
   before_action :authenticate_user!
   before_action :own_article?, only: [:create]
