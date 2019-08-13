@@ -1,11 +1,17 @@
 class PicturesController < ApplicationController
   def create
+    max_upload_size = 3
     article = Article.find(params[:picture][:article_id])
-    article.pictures.create(picture_param)
     @pictures = article.pictures
-    respond_to do |format|
-      format.html { redirect_to pictures_article_url(article), notice: '写真が追加されました。' }
-      format.js
+
+    if @pictures.size == max_upload_size
+      redirect_to pictures_article_url(article), alert: '写真はこれ以上追加出来ません。'
+    else
+      @pictures.create(picture_param)
+      respond_to do |format|
+        format.html { redirect_to pictures_article_url(article), notice: '写真が追加されました。' }
+        format.js
+      end
     end
   end
 
