@@ -4,11 +4,11 @@ class PicturesController < ApplicationController
     @pictures = article.pictures
 
     if @pictures.size == MAX_UPLOAD_SIZE
-      redirect_to pictures_article_url(article), alert: '写真はこれ以上追加出来ません。'
+      redirect_back fallback_location: request.referer, alert: '写真はこれ以上追加出来ません。'
     else
       @pictures.create(picture_param)
       respond_to do |format|
-        format.html { redirect_to pictures_article_url(article), notice: '写真が追加されました。' }
+        format.html { redirect_back fallback_location: request.referer, notice: '写真が追加されました。' }
         format.js
       end
     end
@@ -21,7 +21,7 @@ class PicturesController < ApplicationController
     @picture.destroy
 
     respond_to do |format|
-      format.html { redirect_to pictures_article_url(article), notice: '写真は削除されました。' }
+      format.html { redirect_back fallback_location: request.referer, notice: '写真は削除されました。' }
       format.js
     end
   end

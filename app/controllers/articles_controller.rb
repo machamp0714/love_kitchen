@@ -42,7 +42,6 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
         @picture = @article.pictures.build
         @pictures = @article.pictures.reject { |picture| picture.image.blank? }
-        gon.pictures_length = @pictures.length
     end
 
     def chart
