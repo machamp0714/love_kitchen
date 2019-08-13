@@ -1,4 +1,7 @@
 class PicturesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :correct_user
+
   def create
     article = Article.find(params[:picture][:article_id])
     @pictures = article.pictures
