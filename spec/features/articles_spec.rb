@@ -5,6 +5,7 @@ require "rails_helper"
 RSpec.feature "Articles", type: :feature do
 
   given(:user) { FactoryBot.create(:alice) }
+  given(:image_path) { Rails.root.join("spec", "fixtures", "love_kitchen.png") }
   given!(:article) { FactoryBot.create(:alice_article, user: user) }
   given!(:other_article) { FactoryBot.create(:bob_article) }
 
@@ -17,13 +18,33 @@ RSpec.feature "Articles", type: :feature do
       fill_in "article[label1]", with: "label1"
       fill_in "article[label2]", with: "label2"
       fill_in "article[label3]", with: "label3"
-      select 1, from: "article[data1]"
-      select 2, from: "article[data2]"
-      select 3, from: "article[data3]"
+      select "1", from: "article[data1]"
+      select "2", from: "article[data2]"
+      select "3", from: "article[data3]"
       within ".editorSubmit" do
         click_on "投稿する"
       end
     }.to change(Article, :count).by(1)
+    expect(page).to have_content "Success!!"
+  end
+
+  scenario "写真も同時に投稿できること" do
+    sign_in_as user
+    click_link "投稿する"
+    expect {
+      fill_in "article[title]", with: "アルミパン"
+      fill_in "article[content]", with: "アルミパンはコスパがいい"
+      fill_in "article[label1]", with: "label1"
+      fill_in "article[label2]", with: "label2"
+      fill_in "article[label3]", with: "label3"
+      select "1", from: "article[data1]"
+      select "2", from: "article[data2]"
+      select "3", from: "article[data3]"
+      attach_file "article[pictures_attributes][0][image]", image_path
+      within ".editorSubmit" do
+        click_on "投稿する"
+      end
+    }.to change(Picture, :count).by(1)
     expect(page).to have_content "Success!!"
   end
 
