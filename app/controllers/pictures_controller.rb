@@ -2,7 +2,7 @@
 
 class PicturesController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user
+  before_action :have_a_permission_to_delete, only: [:destroy]
 
   def create
     article = Article.find(params[:picture][:article_id])
@@ -35,5 +35,11 @@ class PicturesController < ApplicationController
 
     def picture_param
       params.require(:picture).permit(:image)
+    end
+
+    def have_a_permission_to_delete
+      picture = Picture.find(params[:id])
+      article = current_user.articles.find_by(id: picture.article_id)
+      redirect_to root_url, alert: "あなたに権限はありません。" if article.nil?
     end
 end
