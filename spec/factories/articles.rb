@@ -11,6 +11,12 @@ FactoryBot.define do
     data1 { 1 }
     data2 { 2 }
     data3 { 3 }
+
+    after :create do |article|
+      image = Rails.root.join("spec", "fixtures", "love_kitchen.png")
+      article.pictures << FactoryBot.create(:picture, image: Rack::Test::UploadedFile.new(image), article_id: article.id)
+    end
+
     created_at { Time.now.zone }
   end
 
