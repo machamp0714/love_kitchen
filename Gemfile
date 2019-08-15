@@ -55,8 +55,8 @@ group :development do
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "pry-byebug"
   gem "rubocop", require: false
-  gem "rubocop-rails"
   gem "rubocop-github"
+  gem "rubocop-rails"
   gem "spring"
   gem "spring-commands-rspec"
   gem "spring-watcher-listen", "~> 2.0.0"

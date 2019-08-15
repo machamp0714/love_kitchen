@@ -62,7 +62,7 @@ class ArticlesController < ApplicationController
         else
             flash[:alert] = "入力に誤りがあります。"
         end
-        redirect_back(fallback_location: request.referer)
+        redirect_back(fallback_location: request.referrer)
     end
 
     def destroy

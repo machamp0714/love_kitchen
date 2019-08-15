@@ -37,6 +37,6 @@ FactoryBot.define do
     data1 { 1 }
     data2 { 2 }
     data3 { 3 }
-    created_at { 1.years.ago }
+    created_at { 1.year.ago }
   end
 end
