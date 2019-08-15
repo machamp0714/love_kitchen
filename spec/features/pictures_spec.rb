@@ -5,8 +5,8 @@ require "rails_helper"
 RSpec.feature "Pictures", type: :feature do
   given(:user) { FactoryBot.create(:alice) }
   given(:image_path) { Rails.root.join("spec", "fixtures", "love_kitchen.png") }
-  given!(:article) { FactoryBot.create(:alice_article) }
-  given!(:max_uploaded_article) { FactoryBot.create(:max_uploaded_article) }
+  given!(:article) { FactoryBot.create(:alice_article, user: user) }
+  given!(:max_uploaded_article) { FactoryBot.create(:max_uploaded_article, user: user) }
 
   scenario "写真を追加できること" do
     sign_in_as user
