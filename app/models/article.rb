@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Article < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
@@ -23,10 +25,10 @@ class Article < ApplicationRecord
       if !self.pictures[0].image.blank?
         self.pictures[0].image.to_s
       else
-        'blank.jpg'
+        "blank.jpg"
       end
     else
-      'blank.jpg'
+      "blank.jpg"
     end
   end
 end

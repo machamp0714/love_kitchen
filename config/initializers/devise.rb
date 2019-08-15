@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '01b8972bacc22915d0209e13f756bf6ee0de372ab855b4d1d1b63fb1d616830816fbeeebdb1d3ea186c53582329b4de2b0d332105b3d0d9fd54c65ab5e5f183f'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -18,7 +18,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -30,7 +30,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -258,11 +258,11 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   if Rails.env.development?
-    config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET_KEY'], callback_url: "http://localhost:3000/users/auth/twitter/callback"
+    config.omniauth :twitter, ENV["TWITTER_API_KEY"], ENV["TWITTER_API_SECRET_KEY"], callback_url: "http://localhost:3000/users/auth/twitter/callback"
   elsif Rails.env.production?
-    config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET_KEY'], callback_url: "http://lovekitchen.cf/users/auth/twitter/callback"
+    config.omniauth :twitter, ENV["TWITTER_API_KEY"], ENV["TWITTER_API_SECRET_KEY"], callback_url: "http://lovekitchen.cf/users/auth/twitter/callback"
   else
-    config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET_KEY'], callback_url: "http://localhost:3000/users/auth/twitter/callback"
+    config.omniauth :twitter, ENV["TWITTER_API_KEY"], ENV["TWITTER_API_SECRET_KEY"], callback_url: "http://localhost:3000/users/auth/twitter/callback"
   end
 
   # ==> Warden configuration

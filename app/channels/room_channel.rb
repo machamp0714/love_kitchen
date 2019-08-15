@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RoomChannel < ApplicationCable::Channel
   def subscribed
     stream_from "room_channel_#{params['room_id']}"
@@ -8,6 +10,6 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Message.create(content: data['message'], user: current_user, room: Room.find(params['room_id']))
+    Message.create(content: data["message"], user: current_user, room: Room.find(params["room_id"]))
   end
 end

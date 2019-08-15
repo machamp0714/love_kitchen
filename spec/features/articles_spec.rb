@@ -1,4 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.feature "Articles", type: :feature do
 
@@ -6,7 +8,7 @@ RSpec.feature "Articles", type: :feature do
   given!(:article) { FactoryBot.create(:alice_article, user: user) }
   given!(:other_article) { FactoryBot.create(:bob_article) }
 
-  scenario '記事を投稿できること' do
+  scenario "記事を投稿できること" do
     sign_in_as user
     click_link "投稿する"
     expect {
@@ -18,30 +20,17 @@ RSpec.feature "Articles", type: :feature do
       select 1, from: "article[data1]"
       select 2, from: "article[data2]"
       select 3, from: "article[data3]"
-      within '.editorSubmit' do
+      within ".editorSubmit" do
         click_on "投稿する"
       end
     }.to change(Article, :count).by(1)
     expect(page).to have_content "Success!!"
   end
 
-  scenario '記事を編集できること' do
+  scenario "記事を削除できること" do
     sign_in_as user
     click_link "プロフィール"
-    within '#posted-articles' do
-      click_link article.title
-    end
-    click_link "編集する"
-    fill_in "article[title]", with: "編集テスト"
-    fill_in "article[content]", with: "テスト投稿"
-    click_on "更新する"
-    expect(page).to have_content "Updated!!"
-  end
-
-  scenario '記事を削除できること' do
-    sign_in_as user
-    click_link "プロフィール"
-    within '#posted-articles' do
+    within "#posted-articles" do
       click_link article.title
     end
     expect {
@@ -50,19 +39,19 @@ RSpec.feature "Articles", type: :feature do
     expect(page).to have_content "Deleted!!"
   end
 
-  scenario '記事を検索できること(title検索)' do
+  scenario "記事を検索できること(title検索)" do
     sign_in_as user
     fill_in "q[title_or_content_cont]", with: "中華鍋"
-    find('.search-box').click
+    find(".search-box").click
     expect(page).to have_content article.title
     expect(page).to_not have_content other_article.title
   end
 
-  scenario '記事を検索できること(content検索)' do
+  scenario "記事を検索できること(content検索)" do
     sign_in_as user
     fill_in "q[title_or_content_cont]", with: "熱伝導"
-    find('.search-box').click
+    find(".search-box").click
     expect(page).to have_content article.title
-    expect(page).to_not have_content other_article.title    
+    expect(page).to_not have_content other_article.title
   end
 end

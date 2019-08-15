@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :unicorn do
     task :environment do
         set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
@@ -46,7 +48,7 @@ namespace :unicorn do
             end
         end
     end
-    
+
     desc "Stop unicorn server immediately"
     task force_stop: :environment do
         on roles(:app) do

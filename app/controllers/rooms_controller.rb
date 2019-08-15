@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RoomsController < ApplicationController
   before_action :authenticate_user!
 
@@ -14,24 +16,24 @@ class RoomsController < ApplicationController
   def create
     room = current_user.rooms.create(room_params)
     if room.save
-      redirect_back(fallback_location: request.referer, notice: 'スレッドを作成しました。')
+      redirect_back(fallback_location: request.referer, notice: "スレッドを作成しました。")
     else
-      render :index
+      redirect_back(fallback_location: request.referer, alert: "スレッドの作成に失敗しました。")
     end
   end
 
   def update
     room = current_user.rooms.find(params[:id])
     if room.update(room_params)
-      redirect_back(fallback_location: request.referer, notice: 'スレッドを更新しました。')
+      redirect_back(fallback_location: request.referer, notice: "スレッドを更新しました。")
     else
-      render :index
+      redirect_back(fallback_location: request.referer, alert: "スレッドの更新に失敗しました。")
     end
   end
 
   def destroy
     current_user.rooms.find(params[:id]).destroy
-    redirect_back(fallback_location: request.referer, notice: 'スレッドを削除しました。')
+    redirect_back(fallback_location: request.referer, notice: "スレッドを削除しました。")
   end
 
   private

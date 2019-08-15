@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # set lets
 $worker  = 2
 $timeout = 30
-$app_dir = "/var/www/rails/love_kitchen" 
-$listen  = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
-$pid     = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
-$std_log = File.expand_path 'log/unicorn.log', $app_dir
+$app_dir = "/var/www/rails/love_kitchen"
+$listen  = File.expand_path "tmp/sockets/.unicorn.sock", $app_dir
+$pid     = File.expand_path "tmp/pids/unicorn.pid", $app_dir
+$std_log = File.expand_path "log/unicorn.log", $app_dir
 # set config
 worker_processes  $worker
 working_directory $app_dir

@@ -59,16 +59,18 @@
                     <div class="author-introduce">
                         <%= @article.user.introduce %>
                     </div>
-                    <% if correct_user? %>
-                        <div class="sideMenu_meta">
-                            <div class="article-view-count">
-                                <%= @article.view_count %><span style="margin-left: 3px;">views</span>
+                    <% if user_signed_in? %>
+                        <% if correct_user? %>
+                            <div class="sideMenu_meta">
+                                <div class="article-view-count">
+                                    <%= @article.view_count %><span style="margin-left: 3px;">views</span>
+                                </div>
+                                <div class="article-settings">
+                                    <%= link_to '編集する', title_article_path(@article) %>
+                                    <%= link_to '削除する', article_path(@article), method: :delete, data: { confirm: '本当に削除しますか?' } %>
+                                </div>
                             </div>
-                            <div class="article-settings">
-                                <%= link_to '編集する', edit_article_path(@article) %>
-                                <%= link_to '削除する', article_path(@article), method: :delete, data: { confirm: '本当に削除しますか?' } %>
-                            </div>
-                        </div>
+                        <% end %>
                     <% end %>
                 </div>
             </div>

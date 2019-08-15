@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
     identified_by :current_user
@@ -8,7 +10,7 @@ module ApplicationCable
 
     private
       def find_verified_user
-        User.find(session['warden.user.user.key'][0][0])
+        User.find(session["warden.user.user.key"][0][0])
       rescue
         reject_unauthorized_connection
       end

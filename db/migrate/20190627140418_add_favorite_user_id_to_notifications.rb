@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddFavoriteUserIdToNotifications < ActiveRecord::Migration[5.2]
   def change
     add_column :notifications, :favorite_user_id, :integer

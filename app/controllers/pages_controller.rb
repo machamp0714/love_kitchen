@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PagesController < ApplicationController
   def home
     articles = Article.includes(:pictures).includes(:user).order("articles.created_at DESC")
@@ -11,7 +13,7 @@ class PagesController < ApplicationController
   end
 
   def about
-    
+
   end
 
   def search
@@ -20,7 +22,7 @@ class PagesController < ApplicationController
   end
 
   private
-    def search_params 
+    def search_params
       params.require(:q).permit(:title_or_content_cont)
     end
 end

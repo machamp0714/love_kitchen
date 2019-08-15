@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
     before_action :authenticate_user!, only: [:edit, :update_password]
 
@@ -7,7 +9,7 @@ class UsersController < ApplicationController
         @liked_articles = Article.includes(:user).joins(:likes).where(likes: { user: @user })
         @feed = @user.feed
     end
-    
+
     def edit
         @user = current_user
     end
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
             redirect_to root_url, notice: "パスワードが変更されました。"
         else
             flash.now[:alert] = "入力に誤りがあります。"
-            render :edit
+            render "edit"
         end
     end
 

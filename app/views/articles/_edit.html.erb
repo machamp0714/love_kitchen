@@ -1,0 +1,6 @@
+<ul>
+  <li class="edit-header <%= current_page?(title_article_path) ? "current-page" : "different-page" %>"><%= link_to 'タイトル', title_article_path(@article), class: 'edit-path' %></li>
+  <li class="edit-header <%= current_page?(content_article_path) ? "current-page" : "different-page" %>"><%= link_to '投稿内容', content_article_path(@article), class: 'edit-path' %></li>
+  <li class="edit-header <%= current_page?(pictures_article_path) ? "current-page" : "different-page" %>"><%= link_to '写真', pictures_article_path(@article), class: 'edit-path' %></li>
+  <li class="edit-header <%= current_page?(chart_article_path) ? "current-page" : "different-page" %>"><%= link_to 'グラフ', chart_article_path(@article), class: 'edit-path' %></li>
+</ul>

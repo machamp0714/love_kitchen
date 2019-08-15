@@ -1,84 +1,96 @@
 <%= provide(:title, '新規投稿') %>
 <div class="articleEditor">
-    <% if @article.errors.include?(:title) %>
-        <div class="alert alert-warning alert-title">タイトルは必須です。</div>
-    <% end %>
-    <% if @article.errors.include?(:content) %>
-        <div class="alert alert-warning alert-content">本文は必須です。</div>
-    <% end %>
     <%= form_for @article do |f| %>
-        <div class="editor-content">
-            <div class="editorTitle">
-                <%= f.text_field :title, placeholder: 'タイトル', class: 'form-control' %>
-            </div>
-            <div class="editorBody">
-                <div class="editorStory">
-                    <%= f.text_area :content, placeholder: '持ってるアイテムのいい所をみんなに教えてあげよう!', class: 'editorStory_textarea' %>
-                </div>
-                <div class="editorChartBody">
-                    <h4 class="chart-text">グラフを作成できます。</h4>
-                    <canvas id="myChart"></canvas>
-                    <div class="editorChart">
-                        <div class="editorChart_box">
-                            <div class="editorChart_label">
-                                <h6><span class="badge badge-danger">必須</span></h6>
-                                <%= f.text_field :label1, placeholder: 'ラベル１', class: 'form-control mr-3' %>
-                            </div>
-                            <div class="editorChart_data">
-                                <h6><span class="badge badge-danger">必須</span></h6>
-                                <%= f.select :data1, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="articleEditor_form">
+                        <div class="editorTitle">
+                            <div class="form-group">
+                                <%= f.label :title, 'タイトル', class: 'form-label' %>
+                                <div class="form-layout">
+                                    <h6><span class="badge badge-danger">必須</span></h6>
+                                    <%= f.text_field :title, placeholder: 'タイトルを入力してください', class: 'form-control' %>
+                                </div>
                             </div>
                         </div>
-                        <div class="editorChart_box">
-                            <div class="editorChart_label">
-                                <h6><span class="badge badge-danger">必須</span></h6>
-                                <%= f.text_field :label2, placeholder: 'ラベル２', class: 'form-control mr-3' %>
-                            </div>
-                            <div class="editorChart_data">
-                                <h6><span class="badge badge-danger">必須</span></h6>
-                                <%= f.select :data2, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
-                            </div>
-                        </div>
-                        <div class="editorChart_box">
-                            <div class="editorChart_label">
-                                <h6><span class="badge badge-danger">必須</span></h6>
-                                <%= f.text_field :label3, placeholder: 'ラベル３', class: 'form-control mr-3' %>
-                            </div>
-                            <div class="editorChart_data">
-                                <h6><span class="badge badge-danger">必須</span></h6>
-                                <%= f.select :data3, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+                        <div class="editorContent editorFrom_border">
+                            <div class="form-group">
+                                <%= f.label :content, '投稿内容', class: 'form-label' %>
+                                <div class="form-layout">
+                                    <h6><span class="badge badge-danger">必須</span></h6>
+                                    <%= f.text_area :content, rows: 6, cols: 60, placeholder: '内容を入力してください', class: 'form-control' %>
+                                </div>
                             </div>
                         </div>
-                        <div class="editorChart_box">
-                            <div class="editorChart_label">
-                                <%= f.text_field :label4, placeholder: 'ラベル４', class: 'form-control mr-3' %>
-                            </div>
-                            <div class="editorChart_data">
-                                <%= f.select :data4, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+                        <div class="editorPicture editorFrom_border">
+                            <label class="form-label">写真を追加する</label>
+                            <div id="preview-thumbnails"></div>
+                            <%= f.fields_for :pictures do |picture| %>
+                                <%= picture.file_field :image, class: 'hidden' %>
+                            <% end %>
+                        </div>
+                        <div class="editorChart editorFrom_border">
+                            <label class="form-label">グラフを作成する</label>
+                            <canvas id="myChart"></canvas>
+                            <div class="editorChart_form">
+                                <div class="editorChart_box">
+                                    <div class="editorChart_label form-layout">
+                                        <h6><span class="badge badge-danger">必須</span></h6>
+                                        <%= f.text_field :label1, placeholder: 'ラベル１', class: 'form-control mr-3' %>
+                                    </div>
+                                    <div class="editorChart_data form-layout">
+                                        <h6><span class="badge badge-danger">必須</span></h6>
+                                        <%= f.select :data1, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+                                    </div>
+                                </div>
+                                <div class="editorChart_box">
+                                    <div class="editorChart_label form-layout">
+                                        <h6><span class="badge badge-danger">必須</span></h6>
+                                        <%= f.text_field :label2, placeholder: 'ラベル2', class: 'form-control mr-3' %>
+                                    </div>
+                                    <div class="editorChart_data form-layout">
+                                        <h6><span class="badge badge-danger">必須</span></h6>
+                                        <%= f.select :data2, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+                                    </div>
+                                </div>
+                                <div class="editorChart_box">
+                                    <div class="editorChart_label form-layout">
+                                        <h6><span class="badge badge-danger">必須</span></h6>
+                                        <%= f.text_field :label3, placeholder: 'ラベル3', class: 'form-control mr-3' %>
+                                    </div>
+                                    <div class="editorChart_data form-layout">
+                                        <h6><span class="badge badge-danger">必須</span></h6>
+                                        <%= f.select :data3, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+                                    </div>
+                                </div>
+                                <div class="editorChart_box">
+                                    <div class="editorChart_label form-layout">
+                                        <%= f.text_field :label4, placeholder: 'ラベル4', class: 'form-control mr-3' %>
+                                    </div>
+                                    <div class="editorChart_data form-layout">
+                                        <%= f.select :data4, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+                                    </div>
+                                </div>
+                                <div class="editorChart_box">
+                                    <div class="editorChart_label form-layout">
+                                        <%= f.text_field :label5, placeholder: 'ラベル5', class: 'form-control mr-3' %>
+                                    </div>
+                                    <div class="editorChart_data form-layout">
+                                        <%= f.select :data5, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="editorChart_box">
-                            <div class="editorChart_label">
-                                <%= f.text_field :label5, placeholder: 'ラベル５', class: 'form-control mr-3' %>
-                            </div>
-                            <div class="editorChart_data">
-                                <%= f.select :data5, [1, 2, 3, 4, 5], { include_blank: '選択して下さい' }, class: 'custom-select' %>
-                            </div>
+                        <div class="editorSubmit">
+                            <%= f.submit '投稿する', class: 'btn btn-default btn-submit' %>
                         </div>
                     </div>
-                </div>              
-            </div>
-            <div class="editorFooter">
-                <div class="editorPicture">
-                    <%= f.fields_for :pictures do |picture| %>
-                        <%= picture.file_field :image, class: 'form-control-file'%>
-                    <% end %>
-                </div>
-                <div class="editorSubmit">
-                    <%= f.submit '投稿する', class: 'btn btn-default'%>
-                </div>
+                </div>  
+            <div class="col-md-2"></div>
             </div>
         </div>
     <% end %>
 </div>
-<%= javascript_include_tag "sample_chart.js" %>
+<%= javascript_include_tag "sample_chart.js", "new_article.js" %>

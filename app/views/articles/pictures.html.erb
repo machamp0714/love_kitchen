@@ -1,0 +1,30 @@
+<div class="article-edit-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <%= render 'edit' %>
+      </div>
+      <div class="col-md-8">
+        <div class="edit-form-container">
+          <h2 class="edit-title">写真</h2>
+          <div class="pictures-body">
+            <div class="picture-upload">
+              <%= form_with model: @picture do |f| %>
+                <div id="selectPhoto" class="select-photo">写真を追加する</div>
+                <%= f.file_field :image, class: 'hidden', id: 'add-picture' %>
+                <%= f.hidden_field :article_id, value: @article.id %>
+                <%= f.submit '更新する', class: 'btn btn-default btn-submit btn-picture' %>
+              <% end %>
+            </div>
+            <div class="pictures-container">
+              <ul id="picturesList">
+                <%= render 'pictures/pictures_list' %>
+            </ul>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag "pictures.js" %>

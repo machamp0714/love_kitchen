@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SessionSupport
     def sign_in_as(user)
         visit root_path
@@ -6,8 +8,4 @@ module SessionSupport
         fill_in "パスワード", with: user.password
         click_button "ログイン"
     end
-end
-
-RSpec.configure do |config|
-    config.include SessionSupport
 end

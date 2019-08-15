@@ -1,0 +1,77 @@
+.article-edit-body {
+  padding-top: 20px;
+}
+.edit-form-container {
+  border: 1px solid #eee;
+}
+.edit-header {
+  margin-bottom: 20px;
+}
+.edit-title {
+  font-size: 24px;
+  font-weight: 500;
+  padding: 16px;
+  background-color: #e75926;
+  color: #fff;
+}
+.edit-path {
+  color: #555;
+  font-size: 20px;
+  font-weight: bold;
+  &:hover {
+    color: #555;
+  }
+}
+.current-page {
+  a {
+    color: #e75926;
+    &:hover {
+      color: #e75926;
+    }
+  }
+}
+.edit-main {
+  padding-top: 20px;
+}
+.pictures-body {
+  text-align: center;
+}
+.picture-upload {
+  margin: 20px 0;
+}
+.select-photo {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #555;
+  font-weight: 700;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 15px 50px;
+  user-select: none;
+  cursor: pointer;
+}
+.picture-image {
+  width: 150px;
+  height: 100px;
+}
+.picture-item {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+.picture-delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 20px;
+  background-color: red;
+  color: #fff;
+  border-radius: 50%;
+  &:hover {
+    color: #fff;
+  }
+}
