@@ -48,6 +48,15 @@ RSpec.feature "Articles", type: :feature do
     expect(page).to have_content "Success!!"
   end
 
+  scenario "タイトルを更新できること" do
+    sign_in_as user
+    click_link article.title
+    click_link "編集する"
+    fill_in "article[title]", with: "タイトル更新"
+    click_on "更新する"
+    expect(page).to have_content "更新しました。"
+  end
+
   scenario "記事を削除できること" do
     sign_in_as user
     click_link "プロフィール"
