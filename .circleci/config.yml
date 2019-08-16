@@ -11,13 +11,13 @@ jobs:
     steps:
       - checkout
       - run:
-        name: install dependencies
-        command: bundle install
+          name: install dependencies
+          command: bundle install
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
       - run:
-        name: run tests
-        command: bundle exec rspec
+          name: run tests
+          command: bundle exec rspec
 
 workflows:
   version: 2
