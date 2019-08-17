@@ -20,6 +20,9 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
       - run:
+          name: install javascript package
+          command: yarn add package.json
+      - run:
           name: run tests
           command: bundle exec rspec
 
