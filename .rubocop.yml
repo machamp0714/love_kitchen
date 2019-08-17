@@ -19,3 +19,7 @@ Rails/InverseOf:
   Enabled: false
 Rails/BulkChangeTable:
   Enabled: false
+
+AllCops:
+  Exclude:
+    - "db/schema.rb"
