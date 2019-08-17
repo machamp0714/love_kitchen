@@ -1,22 +1,15 @@
-version: '3'
+version: "3"
 services:
   db:
     image: mysql:5.7
     environment:
-      - MYSQL_ROOT_PASSWORD
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
   web: &app_base
     build: .
+    env_file: .docker-env
     command: rails s -p 3000 -b 0.0.0.0
-    environment:
-      - MYSQL_ROOT_PASSWORD
-      - CHIRORU_ACCESS_ID
-      - CHIRORU_SECRET_KEY
-      - CHIRORU_REGION
-      - REDIS_URL
-      - TWITTER_API_KEY
-      - TWITTER_API_SECRET_KEY
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
       - .:/app
     depends_on:
@@ -37,14 +30,14 @@ services:
     stdin_open: false
   redis:
     image: redis:latest
-    ports: 
-      - '6379:6379'
+    ports:
+      - "6379:6379"
     volumes:
       - redis-data:/data
 volumes:
   mysql-data:
     driver: local
-  bundle: 
+  bundle:
     driver: local
   redis-data:
     driver: local
