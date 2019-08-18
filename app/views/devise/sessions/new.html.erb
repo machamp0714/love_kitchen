@@ -15,7 +15,7 @@
           <hr>
           <p class="lead">メールアドレスでログイン</p>
           <%= form_for(resource, as: resource_name, url: login_path) do |f| %>
-            <%= devise_error_messages! %>
+            <%= render "shared/message", object: resource %>
             <div class="form-group">
               <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'メールアドレス' %>
             </div>

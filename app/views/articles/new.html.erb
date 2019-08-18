@@ -1,6 +1,7 @@
 <%= provide(:title, '新規投稿') %>
 <div class="articleEditor">
     <%= form_for @article do |f| %>
+        <%= render "shared/message", object: @article %>
         <div class="container">
             <div class="row">
                 <div class="col-md-2"></div>
