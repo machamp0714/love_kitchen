@@ -21,5 +21,7 @@ Rails/BulkChangeTable:
   Enabled: false
 
 AllCops:
+  TargetRubyVersion: 2.5.3
   Exclude:
     - "db/schema.rb"
+    - "vendor/**/*"
