@@ -25,7 +25,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: love_kitchen_development
+  database: love_kitchen_test
   host: <%= ENV["DB_HOST"] %>
   socket: /tmp/mysql.sock
 
