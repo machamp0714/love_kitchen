@@ -11,7 +11,7 @@ RSpec.feature "Rooms", type: :feature do
     visit rooms_path
     click_button "スレッドを作成する"
     expect {
-        fill_in "room[title]", with: "lovekitchen"
+        fill_in "room[title]", with: "lovekitchen", match: :first
         click_on "作成"
     }.to change(Room, :count).by(1)
 
@@ -23,7 +23,7 @@ RSpec.feature "Rooms", type: :feature do
     sign_in_as user
     visit rooms_path
     click_link "編集"
-    fill_in "room[title]", with: "edit title"
+    fill_in "edit-room-title", with: "edit title"
     click_on "更新"
     expect(page).to have_content "edit title"
     expect(page).to have_content "スレッドを更新しました。"
