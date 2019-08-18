@@ -23,6 +23,7 @@
 /public/assets
 /public/uploads/
 .byebug_history
+.docker-env
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key

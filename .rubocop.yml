@@ -1,6 +1,27 @@
+inherit_from: .rubocop_todo.yml
+
+require: rubocop-rails
+
 inherit_gem:
   rubocop-github:
     - config/default.yml
     - config/rails.yml
 
-require: rubocop-rails
+GitHub/RailsControllerRenderPathsExist:
+  Enabled: false
+Rails/SkipsModelValidations:
+  Enabled: false
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
+Rails/OutputSafety:
+  Enabled: false
+Rails/InverseOf:
+  Enabled: false
+Rails/BulkChangeTable:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.5.3
+  Exclude:
+    - "db/schema.rb"
+    - "vendor/**/*"

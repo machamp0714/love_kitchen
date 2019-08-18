@@ -18,9 +18,8 @@
 //= require activestorage
 //= require turbolinks
 //= require cable.js
-//= require channels/room.js 
+//= require toastr
+//= require channels/room.js
 //= require articles.js
 
-$(function () {
-  setTimeout("$('.fadeout').fadeOut('slow')", 1500)
-})
+toastr.options.timeOut = 1500;

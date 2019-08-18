@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.feature "Users", type: :feature do
 
   given(:user) { FactoryBot.create(:alice) }
-  given(:image_path) { File.join(Rails.root, "spec/fixtures/love_kitchen.png") }
+  given(:image_path) { Rails.root.join("spec", "fixtures", "love_kitchen.png") }
 
   scenario "新しいユーザーを作成できること" do
     visit root_path

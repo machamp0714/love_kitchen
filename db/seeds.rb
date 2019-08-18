@@ -84,7 +84,7 @@ second_user = User.find(2)
         data3: 3,
         data4: 4,
         data5: 5,
-        created_at: 1.days.ago
+        created_at: 1.day.ago
     )
 end
 
@@ -103,7 +103,7 @@ third_user = User.find(3)
         data3: 3,
         data4: 4,
         data5: 5,
-        created_at: 1.weeks.ago
+        created_at: 1.week.ago
     )
 end
 
@@ -122,6 +122,6 @@ fourth_user = User.find(4)
         data3: 3,
         data4: 4,
         data5: 5,
-        created_at: 1.years.ago
+        created_at: 1.year.ago
     )
 end

@@ -12,3 +12,4 @@ Capybara.register_driver :chrome_headless do |app|
 end
 
 Capybara.javascript_driver = :chrome_headless
+Capybara.ignore_hidden_elements = false

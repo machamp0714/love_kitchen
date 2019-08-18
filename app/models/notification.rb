@@ -11,9 +11,7 @@ class Notification < ApplicationRecord
     Article.find_by(id: self.article_id)
   end
 
-  def article_title
-    article.title
-  end
+  delegate :title, to: :article, prefix: true
 
   def user_name(user_id)
     User.find_by(id: user_id).name

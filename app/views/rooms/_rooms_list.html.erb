@@ -24,7 +24,7 @@
               <div class="modal-body">
                 <%= form_with model: room, local: true do |form| %>
                   <div class="form-group">
-                    <%= form.text_field :title, class: 'form-control' %>
+                    <%= form.text_field :title, class: 'form-control', id: "edit-room-title" %>
                   </div>
                   <%= form.submit '更新', class: 'btn btn-secondary' %>
                 <% end %>

@@ -9,7 +9,7 @@
           <hr>
           <p class="lead">メールアドレスで登録</p>
           <%= form_for(resource, as: resource_name, url: signup_path) do |f| %>
-            <%= devise_error_messages! %>
+            <%= render "shared/message", object: resource %>
             <div class="form-group">
               <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control', placeholder: 'ユーザー名' %>
               <p class="lead validation">

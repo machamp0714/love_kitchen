@@ -62,7 +62,7 @@ class ArticlesController < ApplicationController
         else
             flash[:alert] = "入力に誤りがあります。"
         end
-        redirect_back(fallback_location: request.referer)
+        redirect_back(fallback_location: request.referrer)
     end
 
     def destroy
@@ -92,6 +92,11 @@ class ArticlesController < ApplicationController
             :label1, :label2, :label3, :label4, :label5,
             :data1, :data2, :data3, :data4, :data5,
             pictures_attributes: [:image, :_destory, :id])
+    end
+
+    def correct_user
+        @article = current_user.articles.find_by(id: params[:id])
+        redirect_to root_url if @article.nil?
     end
 
     def create_form(pictures)

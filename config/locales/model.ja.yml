@@ -4,14 +4,22 @@ ja:
       models:
         article:
           attributes:
-            title: 
+            title:
               blank: "を入力してください。"
             content:
               blank: "を入力してください。"
-    attributes:
-      article:
-        title: "タイトル"
-        content: "ストーリー"
+            label1:
+              blank: "を入力してください。"
+            label2:
+              blank: "を入力してください。"
+            label3:
+              blank: "を入力してください。"
+            data1:
+              blank: "を選択してください。"
+            data2:
+              blank: "を選択してください。"
+            data3:
+              blank: "を選択してください。"
     attributes:
       room:
         title: "タイトル"

@@ -1,10 +1,8 @@
-<% if notice %>
-    <div class="flash alert alert-success alert-dismissible fadeout" role="alert">
-        <%= notice %> 
-    </div>
-<% end %>
-<% if alert %>
-    <div class="flash alert alert-danger alert-dismissible fadeout" role="alert">  
-        <%= alert %>
-    </div>
+<% unless flash.empty? %>
+  <script type="text/javascript">
+    <% flash.each do |key, value| %>
+      <% type = key.to_s.gsub('alert', 'error').gsub('notice', 'success') %>
+      toastr['<%= type %>']('<%= value %>')
+    <% end %>
+  </script>
 <% end %>
