@@ -31,6 +31,19 @@ ja:
         password_confirmation: "パスワード"
         remember_me: "ログインを記憶"
         remove_avatar: "画像を削除する"
+      article:
+        title: "タイトル"
+        content: "投稿内容"
+        label1: "ラベル1"
+        label2: "ラベル2"
+        label3: "ラベル3"
+        label4: "ラベル4"
+        label5: "ラベル5"
+        data1: "数値1"
+        data2: "数値2"
+        data3: "数値3"
+        data4: "数値4"
+        data5: "数値5"
     models:
       user: "ユーザ"
   devise:
