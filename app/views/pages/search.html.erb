@@ -1,46 +1,46 @@
 <div class="homeLayoutBody">
     <div class="container">
-        <div class='row'>
-            <div class='col-md-8'>
-                <% if @articles.blank? %>
+        <div class="row">
+            <div class="col-md-8">
+                <% if @results.blank? %>
                     <p class="search-warning"><span class="query"><%= @query %></span>に一致する記事は見つかりませんでした。</p>
                 <% end %>
             </div>
         </div>
-        <div class='row'>
-            <div class='col-md-3'>
-                <div class='add-search'>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="add-search">
                     <h5>検索条件を追加する</h5>
-                    <%= search_form_for @q, url: search_path, class: 'form-inline search-form' do |f| %>
-                        <div class='search-check'>
-                            <div class='form-check'>
+                    <%= search_form_for @q, url: search_path, class: "form-inline search-form" do |f| %>
+                        <div class="search-check">
+                            <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="like_order" id="like_count" value="checked">
                                 <label class="form-check-label" for="like_count">いいね順</label>
                             </div>
-                            <div class='form-check'>
+                            <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="view_order" id="view_count" value="checked">
                                 <label class="form-check-label" for="view_count">閲覧数順</label>
                             </div>
                         </div>
 
-                        <%= f.search_field :title_or_content_cont, placeholder: 'キーワードを入力', class: 'search-field search-input' %>
-                        <%= button_tag type: 'submit', class: 'search-box' do %>
+                        <%= f.search_field :title_or_content_cont, placeholder: "キーワードを入力", class: "search-field search-input" %>
+                        <%= button_tag type: "submit", class: "search-box" do %>
                             <i class="fas fa-search"></i>
                         <% end %>
                     <% end %>
                 </div>
             </div>
         </div>
-        <% if !@articles.blank? %>
-            <div class='row'>
-                <div class='col-md-8'>
-                    <div class='result'>
-                        <%= render "articles/articles", object: @articles %>
+        <% if !@results.blank? %>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="result">
+                        <%= render "articles/articles", object: @results %>
                     </div>
                 </div>
             </div>
         <% end %>
     </div>
 </div>
-<%= render 'shared/footer' %>
+<%= render "shared/footer" %>
 <%= javascript_include_tag "search.js" %>

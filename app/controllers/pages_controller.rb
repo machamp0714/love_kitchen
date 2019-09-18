@@ -17,9 +17,25 @@ class PagesController < ApplicationController
   end
 
   def search
-    @query = params[:q][:title_or_content_cont]
-    @q = Article.search(search_params)
-    @articles = @q.result.includes(:user).order("articles.created_at DESC").page(params[:page]).per(10)
+    @query = search_params[:title_or_content_cont]
+
+    if @query.present? && @query.strip != ""
+      session[:query] = search_params
+    end
+
+    if session[:query] && session[:query][:title_or_content_cont].strip != ""
+      articles = Article.ransack(session[:query])
+    else
+      articles = Article.ransack(search_params)
+    end
+
+    if params[:like_order] == "checked"
+      @results = articles.result
+    elsif params[:view_order] == "checked"
+      @results = articles.result
+    else
+      @results = articles.result.includes(:user).order("articles.created_at DESC").page(params[:page]).per(10)
+    end
   end
 
   private
