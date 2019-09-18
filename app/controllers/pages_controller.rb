@@ -24,17 +24,18 @@ class PagesController < ApplicationController
     end
 
     if session[:query] && session[:query][:title_or_content_cont].strip != ""
-      articles = Article.ransack(session[:query])
+      articles = Article.ransack(session[:query]).result
     else
-      articles = Article.ransack(search_params)
+      articles = Article.ransack(search_params).result
     end
 
     if params[:like_order] == "checked"
-      @results = articles.result
+      sql = "SELECT A.id, A.title, A.created_at, A.user_id, U.name, U.avatar, COUNT(L.article_id) AS 'likes' FROM articles AS A INNER JOIN users AS U ON A.user_id = U.id INNER JOIN likes AS L ON A.id = L.article_id GROUP BY L.article_id ORDER BY likes DESC"
+      @results = articles.find_by_sql(sql)
     elsif params[:view_order] == "checked"
-      @results = articles.result
+      @results = articles.includes(:user).order(view_count: :desc).page(params[:page]).per(10)
     else
-      @results = articles.result.includes(:user).order("articles.created_at DESC").page(params[:page]).per(10)
+      @results = articles.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
     end
   end
 
