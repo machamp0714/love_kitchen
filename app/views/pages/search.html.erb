@@ -1,19 +1,45 @@
 <div class="homeLayoutBody">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="search-form">
-                    <%= render 'shared/search_form' %>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <h2 class="result-text">検索結果</h2>
-                <div class="itemList">
-                    <%= render 'articles/articles', object: @articles %>
-                </div>
-                <%= paginate @articles %>
+        <div class='row'>
+            <div class='col-md-8'>
+                <% if @articles.blank? %>
+                    <p class="search-warning"><span class="query"><%= @query %></span>に一致する記事は見つかりませんでした。</p>
+                <% end %>
             </div>
         </div>
+        <div class='row'>
+            <div class='col-md-3'>
+                <div class='add-search'>
+                    <h5>検索条件を追加する</h5>
+                    <%= search_form_for @q, url: search_path, class: 'form-inline' do |f| %>
+                        <div class='search-check'>
+                            <div class='form-check'>
+                                <input class="form-check-input" type="checkbox" name="like_count" id="like_count" value="0" checked>
+                                <label class="form-check-label" for="like_count">いいね順</label>
+                            </div>
+                            <div class='form-check'>
+                                <input class="form-check-input" type="checkbox" name="view_count" id="view_count" value="1">
+                                <label class="form-check-label" for="view_count">閲覧数順</label>
+                            </div>
+                        </div>
+
+                        <%= f.search_field :title_or_content_cont, placeholder: 'キーワードを入力', class: 'search-field' %>
+                        <%= button_tag type: 'submit', class: 'search-box' do %>
+                            <i class="fas fa-search"></i>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <% if !@articles.blank? %>
+            <div class='row'>
+                <div class='col-md-8'>
+                    <div class='result'>
+                        <%= render "articles/articles", object: @articles %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
     </div>
 </div>
 <%= render 'shared/footer' %>
