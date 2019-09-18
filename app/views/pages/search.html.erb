@@ -14,11 +14,11 @@
                     <%= search_form_for @q, url: search_path, class: 'form-inline' do |f| %>
                         <div class='search-check'>
                             <div class='form-check'>
-                                <input class="form-check-input" type="checkbox" name="like_count" id="like_count" value="0" checked>
+                                <input class="form-check-input" type="checkbox" name="like_count" id="like_count" value="checked">
                                 <label class="form-check-label" for="like_count">いいね順</label>
                             </div>
                             <div class='form-check'>
-                                <input class="form-check-input" type="checkbox" name="view_count" id="view_count" value="1">
+                                <input class="form-check-input" type="checkbox" name="view_count" id="view_count" value="checked">
                                 <label class="form-check-label" for="view_count">閲覧数順</label>
                             </div>
                         </div>
@@ -43,3 +43,4 @@
     </div>
 </div>
 <%= render 'shared/footer' %>
+<%= javascript_include_tag "search.js" %>
