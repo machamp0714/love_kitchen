@@ -23,7 +23,7 @@ class PagesController < ApplicationController
       session[:query] = search_params
     end
 
-    if session[:query] && session[:query][:title_or_content_cont] != ""
+    if session[:query] && session[:query]["title_or_content_cont"] != ""
       articles = Article.ransack(session[:query]).result
     else
       articles = Article.ransack(search_params).result
