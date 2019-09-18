@@ -9,11 +9,9 @@
         <div class="collapse navbar-collapse" id="navbar-content">
             <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
-                    <% if !current_page?(search_path) %>
-                        <li class="nav-item mr-sm-2 nav-search">
-                            <%= render 'shared/search_form'%>
-                        </li>
-                    <% end %>
+                    <li class="nav-item mr-sm-2 nav-search">
+                        <%= render 'shared/search_form'%>
+                    </li>
                     <li class="nav-item">
                         <%= link_to rooms_path, data: { tip: 'チャット' }, class: 'tips nav-link icon-link' do %>
                             <i class="fas fa-comments"></i>

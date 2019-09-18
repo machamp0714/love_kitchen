@@ -11,22 +11,17 @@
             <div class="col-md-3">
                 <div class="add-search">
                     <h5>検索条件を追加する</h5>
-                    <%= search_form_for @q, url: search_path, class: "form-inline search-form" do |f| %>
+                    <%= search_form_for @q, url: search_path, class: "form-inline search-form", remote: true do |f| %>
                         <div class="search-check">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="like_order" id="like_count" value="checked">
+                                <input class="form-check-input" type="checkbox" name="q[like_order]" id="like_count" value="checked">
                                 <label class="form-check-label" for="like_count">いいね順</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="view_order" id="view_count" value="checked">
+                                <input class="form-check-input" type="checkbox" name="q[view_order]" id="view_count" value="checked">
                                 <label class="form-check-label" for="view_count">閲覧数順</label>
                             </div>
                         </div>
-
-                        <%= f.search_field :title_or_content_cont, placeholder: "キーワードを入力", class: "search-field search-input" %>
-                        <%= button_tag type: "submit", class: "search-box" do %>
-                            <i class="fas fa-search"></i>
-                        <% end %>
                     <% end %>
                 </div>
             </div>
@@ -34,7 +29,7 @@
         <% if !@results.blank? %>
             <div class="row">
                 <div class="col-md-8">
-                    <div class="result">
+                    <div id="result">
                         <%= render "articles/articles", object: @results %>
                     </div>
                 </div>
