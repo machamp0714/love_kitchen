@@ -6,9 +6,9 @@ class PagesController < ApplicationController
     if user_signed_in?
       @articles = Kaminari.paginate_array(articles).page(params[:page]).per(10)
 
-      @ranking = Article.order_by_likes_count.take(10)
+      @ranking = Article.order_by_likes_count.limit(10)
     else
-      @articles = Article.includes(:user).includes(:pictures).order("created_at DESC").limit(15)
+      @articles = Article.with_user.with_pictures.order_by_created.limit(15)
     end
   end
 
@@ -30,12 +30,11 @@ class PagesController < ApplicationController
     end
 
     if search_params[:like_order] == "checked"
-      sql = "SELECT A.id, A.title, A.created_at, A.user_id, U.name, U.avatar, COUNT(L.article_id) AS 'likes' FROM articles AS A INNER JOIN users AS U ON A.user_id = U.id INNER JOIN likes AS L ON A.id = L.article_id GROUP BY L.article_id ORDER BY likes DESC"
-      @results = articles.find_by_sql(sql)
+      @results = articles.order_by_likes_count
     elsif search_params[:view_order] == "checked"
-      @results = articles.includes(:user).order(view_count: :desc).page(params[:page]).per(10)
+      @results = articles.with_user.order_by_views_count.page(params[:page]).per(10)
     else
-      @results = articles.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+      @results = articles.with_user.order_by_created.page(params[:page]).per(10)
     end
   end
 

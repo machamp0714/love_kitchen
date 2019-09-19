@@ -38,14 +38,14 @@ class Article < ApplicationRecord
 
   scope :order_by_created, -> { order(created_at: :desc) }
 
+  scope :order_by_views_count, -> { order(view_count: :desc) }
+
   scope :order_by_likes_count, -> {
-    find_by_sql(<<-SQL)
-      SELECT A.id, A.title, A.created_at, A.user_id, U.name, U.avatar, COUNT(L.article_id) AS 'likes'
-      FROM articles AS A
-      INNER JOIN users AS U ON A.user_id = U.id
-      INNER JOIN likes AS L ON A.id = L.article_id
-      GROUP BY L.article_id
-      ORDER BY likes DESC, created_at DESC
-    SQL
+    joins(:user)
+    .joins(:likes)
+    .select("articles.id, articles.title, articles.created_at, articles.user_id, users.name, users.avatar, count(likes.article_id) as likes_count")
+    .group("likes.article_id")
+    .order("likes_count DESC")
+    .order("articles.created_at DESC")
   }
 end
