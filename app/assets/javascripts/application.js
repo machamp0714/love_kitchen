@@ -16,7 +16,6 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require cable.js
 //= require toastr
 //= require channels/room.js

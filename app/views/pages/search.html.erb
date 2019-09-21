@@ -1,19 +1,44 @@
 <div class="homeLayoutBody">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <div class="search-form">
-                    <%= render 'shared/search_form' %>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <h2 class="result-text">検索結果</h2>
-                <div class="itemList">
-                    <%= render 'articles/articles', object: @articles %>
-                </div>
-                <%= paginate @articles %>
+            <div class="col-md-8">
+                <% if @results.blank? %>
+                    <p class="search-warning"><span class="query">"<%= @query %>"</span> に一致する記事は見つかりませんでした。</p>
+                <% end %>
             </div>
         </div>
+        <% if !@results.blank? %>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="add-search">
+                        <h5>検索条件を追加する</h5>
+                        <%= search_form_for @q, url: search_path, class: "form-inline option-form", remote: true do |f| %>
+                            <div class="search-check">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="q[like_order]" id="like_count" value="checked">
+                                    <label class="form-check-label" for="like_count">いいね順</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="q[view_order]" id="view_count" value="checked">
+                                    <label class="form-check-label" for="view_count">閲覧数順</label>
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div id="result"　class="result-list">
+                        <%= render "articles/articles", object: @results %>
+                    </div>
+                </div>
+            </div>
+            <div class="pagenation-search">
+                <%= paginate @results %>
+            </div>
+        <% end %>
     </div>
 </div>
-<%= render 'shared/footer' %>
+<%= render "shared/footer" %>
+<%= javascript_include_tag "search.js" %>

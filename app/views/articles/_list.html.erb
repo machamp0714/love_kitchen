@@ -9,7 +9,11 @@
       <%= link_to article.title, article, class: 'articleItem_title' %>
       <div class="articleItem_content">
         <div class="articleItem_content_main">
-          <%= article.content %>
+          <% if article.content.length > 20 %>
+            <%= article.content[0, 20] + "....." %>
+          <% else %>
+            <%= article.content %>
+          <% end %>
         </div>
         <div class="articleItem_read">
           <%= link_to '続きを読む', article, class: 'rede-more' %>

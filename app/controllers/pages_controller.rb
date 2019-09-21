@@ -2,13 +2,13 @@
 
 class PagesController < ApplicationController
   def home
-    articles = Article.includes(:pictures).includes(:user).order("articles.created_at DESC")
+    articles = Article.with_user.with_pictures.order_by_created
     if user_signed_in?
       @articles = Kaminari.paginate_array(articles).page(params[:page]).per(10)
-      sql = "SELECT A.id, A.title, A.created_at, A.user_id, U.name, U.avatar, COUNT(L.article_id) AS 'likes' FROM articles AS A INNER JOIN users AS U ON A.user_id = U.id INNER JOIN likes AS L ON A.id = L.article_id GROUP BY L.article_id ORDER BY likes DESC LIMIT 10;"
-      @ranking = Article.find_by_sql(sql)
+
+      @ranking = Article.order_by_likes_count.limit(10)
     else
-      @articles = Article.includes(:user).includes(:pictures).order("created_at DESC").limit(15)
+      @articles = Article.with_user.with_pictures.order_by_created.limit(15)
     end
   end
 
@@ -17,12 +17,30 @@ class PagesController < ApplicationController
   end
 
   def search
-    @q = Article.search(search_params)
-    @articles = @q.result.includes(:user).order("articles.created_at DESC").page(params[:page]).per(10)
+    if search_params[:title_or_content_cont].present? && search_params[:title_or_content_cont].strip != ""
+      session[:query] = search_params
+      @query = search_params[:title_or_content_cont]
+    else
+      @query = session[:query]["title_or_content_cont"]
+    end
+
+    if session[:query] && session[:query]["title_or_content_cont"] != ""
+      articles = Article.ransack(session[:query]).result
+    else
+      articles = Article.ransack(search_params).result
+    end
+
+    if search_params[:like_order] == "checked"
+      @results = articles.order_by_likes_count.page(params[:page]).per(10)
+    elsif search_params[:view_order] == "checked"
+      @results = articles.with_user.order_by_views_count.page(params[:page]).per(10)
+    else
+      @results = articles.with_user.order_by_created.page(params[:page]).per(10)
+    end
   end
 
   private
     def search_params
-      params.require(:q).permit(:title_or_content_cont)
+      params.require(:q).permit(:title_or_content_cont, :like_order, :view_order)
     end
 end

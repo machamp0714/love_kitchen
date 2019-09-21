@@ -31,4 +31,21 @@ class Article < ApplicationRecord
       "blank.jpg"
     end
   end
+
+  scope :with_user, -> { includes(:user) }
+
+  scope :with_pictures, -> { includes(:pictures) }
+
+  scope :order_by_created, -> { order(created_at: :desc) }
+
+  scope :order_by_views_count, -> { order(view_count: :desc) }
+
+  scope :order_by_likes_count, -> {
+    joins(:user)
+    .joins(:likes)
+    .select("articles.id, articles.title, articles.created_at, articles.user_id, users.name, users.avatar, count(likes.article_id) as likes_count")
+    .group("likes.article_id")
+    .order("likes_count DESC")
+    .order("articles.created_at DESC")
+  }
 end
