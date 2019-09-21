@@ -17,10 +17,11 @@ class PagesController < ApplicationController
   end
 
   def search
-    @query = search_params[:title_or_content_cont]
-
-    if @query.present? && @query.strip != ""
+    if search_params[:title_or_content_cont].present? && search_params[:title_or_content_cont].strip != ""
       session[:query] = search_params
+      @query = search_params[:title_or_content_cont]
+    else
+      @query = session[:query]["title_or_content_cont"]
     end
 
     if session[:query] && session[:query]["title_or_content_cont"] != ""
@@ -30,7 +31,7 @@ class PagesController < ApplicationController
     end
 
     if search_params[:like_order] == "checked"
-      @results = articles.order_by_likes_count
+      @results = articles.order_by_likes_count.page(params[:page]).per(10)
     elsif search_params[:view_order] == "checked"
       @results = articles.with_user.order_by_views_count.page(params[:page]).per(10)
     else

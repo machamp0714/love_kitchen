@@ -1,0 +1,23 @@
+.search-warning {
+  margin-bottom: 20px;
+}
+.query {
+  color: #444;
+  font-weight: bold;
+}
+.search-check {
+  display: flex;
+  padding-top: 7px;
+  margin-bottom: 20px;
+}
+.form-check {
+  margin-right: 10px;
+}
+.pagenation-search {
+  padding: 30px 0;
+  nav {
+    ul {
+      justify-content: start !important;
+    }
+  }
+}
