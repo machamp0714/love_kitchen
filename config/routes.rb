@@ -27,14 +27,14 @@ Rails.application.routes.draw do
   patch "setting/password", to: "users#update_password"
   get "about", to: "pages#about"
 
-  patch "already_read", to: "notifications#already_read"
-
   resources :users, only: :show do
     resources :favorites, only: [:index, :create, :destroy]
     member do
       get :following, :followers
     end
   end
+
+  resources :notifications, only: [:index]
 
   resources :rooms, only: [:index, :show, :create, :update, :destroy]
 

@@ -10,6 +10,10 @@ class Like < ApplicationRecord
         def create_notification
             user = self.article.user
             user.increment!(:unread)
-            Notification.create(content: "#{self.user.name}さんが#{self.article.title}をいいねしました。", user_id: user.id)
+            Notification.create(
+                content: "#{self.user.name}さんが「#{self.article.title}」をいいねしました。",
+                user_id: user.id,
+                article_id: self.article.id
+            )
         end
 end

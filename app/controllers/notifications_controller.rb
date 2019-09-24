@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class NotificationsController < ApplicationController
-  def already_read
-    current_user.notifications.where(already: false).update_all(already: true)
-
-    redirect_back(fallback_location: request.referrer)
+  def index
+    current_user.update(unread: 0)
+    @notifications = current_user.notifications
   end
 end
