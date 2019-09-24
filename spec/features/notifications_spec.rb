@@ -33,10 +33,13 @@ RSpec.feature "Notifications", type: :feature do
   end
 
   scenario "記事が削除された時、通知も削除されること" do
-    sign_in_as other_user
+    sign_in_as user
     click_link article.title
     fill_in "comment[content]", with: "コメント"
     click_on "投稿"
+    click_link "ログアウト"
+    sign_in_as other_user
+    click_link article.title
     expect {
       click_link "削除する"
     }.to change(Notification, :count).by(-1)
