@@ -11,11 +11,13 @@ class Comment < ApplicationRecord
   private
     def create_notification
       user = self.article.user
-      user.increment!(:unread)
-      Notification.create(
-        content: "#{self.user.name}さんが「#{self.article.title}」にコメントしました。",
-        user_id: user.id,
-        article_id: self.article.id
-      )
+      if self.user.id != user.id
+        user.increment!(:unread)
+        Notification.create(
+          content: "#{self.user.name}さんが「#{self.article.title}」にコメントしました。",
+          user_id: user.id,
+          article_id: self.article.id
+        )
+      end
     end
 end
