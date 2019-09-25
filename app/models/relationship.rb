@@ -8,6 +8,7 @@ class Relationship < ApplicationRecord
 
     private
         def create_notification
+            self.followed.increment!(:unread)
             Notification.create(
                 content: "「#{self.follower.name}」さんがあなたをフォローしました。",
                 user_id: self.followed.id,
