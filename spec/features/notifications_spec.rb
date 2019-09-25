@@ -32,6 +32,14 @@ RSpec.feature "Notifications", type: :feature do
     }.to change(Notification, :count).by(1)
   end
 
+  scenario "フォローされた時、通知が来ること" do
+    sign_in_as other_user
+    visit user_path(user)
+    expect {
+      click_on "フォローする"
+    }.to change(Notification, :count).by(1)
+  end
+
   scenario "記事が削除された時、通知も削除されること" do
     sign_in_as user
     click_link article.title
