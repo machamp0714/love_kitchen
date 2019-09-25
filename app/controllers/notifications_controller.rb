@@ -3,6 +3,7 @@
 class NotificationsController < ApplicationController
   def index
     current_user.update(unread: 0)
-    @notifications = current_user.notifications
+    @notifications = current_user.notifications.order(created_at: :desc)
+    @notification_count = current_user.notifications.count
   end
 end

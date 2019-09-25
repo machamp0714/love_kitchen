@@ -1,14 +1,18 @@
-.notificationWrapper {
-  max-height: 500px;
-  overflow-y: scroll;
+.notifications {
+  margin-top: 20px;
 }
-
-.notificationItem {
-  border-bottom: 1px dotted #fff;
-  &:last-child {
-    border-bottom: none;
+.notification-link {
+  display: block;
+  margin-bottom: 20px;
+  color: #444444;
+  letter-spacing: 1.1;
+  &:hover {
+    color: #444444;
   }
 }
-.notification-count {
-  padding-left: 3px;
+.notification-wrapper {
+  display: flex;
+}
+.notification-datetime {
+  margin-left: auto;
 }

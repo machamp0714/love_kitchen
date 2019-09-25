@@ -1,0 +1,29 @@
+<div class="container notifications">
+  <div class='row'>
+    <div class='col-md-2'></div>
+    <div class="col-md-8">
+      <% if @notification_count > 0 %>
+        <% @notifications.each do |notification| %>
+          <% if notification.article_id.nil? %>
+            <%= link_to user_path(Article.find(notification.follower_id)), class: "notification-link" do %>
+              <div class="notification-wrapper">
+                  <div class="notification-content"><%= notification.content %></div>
+                  <time class="notification-datetime"><%= notification.created_at.strftime("%Y/%m/%d") %></time>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to article_path(Article.find(notification.article_id)), class: "notification-link"  do %>
+              <div class="notification-wrapper">
+                  <div class="notification-content"><%= notification.content %></div>
+                  <time class="notification-datetime"><%= notification.created_at.strftime("%Y/%m/%d") %></time>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <div class="no-content">通知はありません。</div>
+      <% end %>
+    </div>
+    <div class='col-md-2'></div>
+  </div>
+</div>
