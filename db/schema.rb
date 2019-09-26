@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_21_023632) do
+ActiveRecord::Schema.define(version: 2019_09_24_074903) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -84,14 +84,12 @@ ActiveRecord::Schema.define(version: 2019_07_21_023632) do
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "article_id"
-    t.integer "like_user_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "already", default: false
-    t.integer "comment_user_id"
-    t.integer "favorite_user_id"
+    t.string "content"
+    t.integer "article_id"
+    t.integer "follower_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
@@ -135,6 +133,7 @@ ActiveRecord::Schema.define(version: 2019_07_21_023632) do
     t.string "slug"
     t.string "uid"
     t.string "provider"
+    t.integer "unread", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

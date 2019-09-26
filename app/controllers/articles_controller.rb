@@ -66,11 +66,9 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
-        @article = Article.find(params[:id])
-        @article.destroy
-        if notification = Notification.where(article_id: @article.id)
-            notification.destroy_all
-        end
+        article = Article.find(params[:id])
+        article.destroy
+        Notification.where(article_id: article.id).destroy_all
         redirect_to current_user, notice: "Deleted!!"
     end
 

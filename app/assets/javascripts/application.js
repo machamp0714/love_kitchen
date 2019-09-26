@@ -19,6 +19,5 @@
 //= require cable.js
 //= require toastr
 //= require channels/room.js
-//= require articles.js
 
 toastr.options.timeOut = 1500;

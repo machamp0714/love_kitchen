@@ -27,23 +27,13 @@
                             <i class="fas fa-edit"></i> 投稿する
                         <% end %>
                     </li>
-                    <li class="nav-item dropdown">
-                        <% if already_read? %>
-                            <a href="#" class="nav-link dropdown-toggle" id="notificationDropdown" rolw="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
-                                0
-                            </a>
-                        <% else %>
-                            <a href="#" class="nav-link dropdown-toggle" id="notificationDropdown" rolw="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
-                                <%= Notification.count_unread %>
-                            </a>
-                        <% end %>
-                        <div class="dropdown-menu" aria-labelledby="notificationDropdown">
-                            <%= render 'notifications/index' %>
-                            <% if current_user.notifications.size > 0 %>
-                                <div class="dropdown-divider"></div>
+                    <li class="nav-item notification-bar">
+                        <%= link_to notifications_path, class: 'nav-link' do %>
+                            <% if current_user.unread > 0 %>
+                                <div class='unread'><span class="notification-count"><%= current_user.unread %></span></div>
                             <% end %>
-                            <%= link_to '既読にする', already_read_path, method: :patch, class: 'nav-link' %>
-                        </div>
+                            <i class="fas fa-bell"></i>
+                        <% end %>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

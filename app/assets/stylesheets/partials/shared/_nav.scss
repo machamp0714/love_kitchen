@@ -1,65 +1,90 @@
-.navbar-custom {    
-    z-index: 9999;
-    letter-spacing: 2px;
-    .navbar-brand {
-        color: #fff;
-        font-weight: bold;
+.navbar-custom {
+  z-index: 9999;
+  letter-spacing: 2px;
+  .navbar-brand {
+    color: #fff;
+    font-weight: bold;
+  }
+  .nav-item {
+    .nav-link {
+      font-size: 16px;
+      color: #fff;
+      &:hover {
+        outline: 0;
+        color: #e75926;
+        background-color: transparent;
+      }
     }
-    .nav-item {
-        .nav-link {
-            font-size:  14px;
-            color: #fff;
-            &:hover {
-                outline: 0;
-                color: #E75926;
-                background-color: transparent;
-            }
-        }
-    }
+  }
 }
 .navbar-nav {
-    align-items: center;
+  align-items: center;
 }
 .dropdown-menu {
-    background-color: #343a40
+  background-color: #343a40;
 }
 .tips {
-    position: relative;
+  position: relative;
 }
 .tips::before,
 .tips::after {
-    position: absolute;
-    transition: all 0.3s ease 0s;
-    opacity: 0;
+  position: absolute;
+  transition: all 0.3s ease 0s;
+  opacity: 0;
 }
 .tips::before {
-    content: "";
-    border: 10px solid transparent;
-    border-bottom-color: #000;
-    top: 10px;
-    left: 10px;
+  content: "";
+  border: 10px solid transparent;
+  border-bottom-color: #000;
+  top: 10px;
+  left: 10px;
 }
 .tips::after {
-    content: attr(data-tip);
-    width: 110px;
-    display: block;
-    padding: 10px;
-    background: #000;
-    color: #fff;
-    border-radius: 5px;
-    top: 30px;
-    left: 0;
+  content: attr(data-tip);
+  width: 110px;
+  display: block;
+  padding: 10px;
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+  top: 30px;
+  left: 0;
 }
-.tips:hover::before{
-    top: 16px;
-    opacity: 1;
+.tips:hover::before {
+  top: 16px;
+  opacity: 1;
 }
-.tips:hover::after{
-    top: 36px;
-    opacity: 1;
+.tips:hover::after {
+  top: 36px;
+  opacity: 1;
 }
-@media(max-width: 465px) {
-    .navbar-nav {
-        align-items: flex-start;
-    }
+.notification-bar {
+  position: relative;
+}
+.unread {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -1px;
+  right: 0px;
+  font-weight: bold;
+  background-color: red;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  color: #fff;
+  font-size: 8px;
+}
+.notification-count {
+  display: inline-block;
+  padding-left: 2px;
+}
+.no-content {
+  font-weight: bold;
+  text-align: center;
+}
+@media (max-width: 465px) {
+  .navbar-nav {
+    align-items: flex-start;
+  }
 }
