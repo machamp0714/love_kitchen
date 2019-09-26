@@ -20,6 +20,9 @@
             <% end %>
           <% end %>
         <% end %>
+        <div class="pagenation">
+          <%= paginate @notifications %>
+        </div>
       <% else %>
         <div class="no-content">通知はありません。</div>
       <% end %>
