@@ -51,8 +51,9 @@ jobs:
           name: build image
           command: |
             $(aws ecr get-login --no-include-email --region ap-northeast-1)
-            docker build -f Dockerfile.pro -t ${ECR_DOMAIN}/lovekitchen:$CIRCLE_SHA1 -t ${ECR_DOMAIN}/lovekitchen:latest
-            --build-arg RAILS_MASTER_KEY=${RAILS_MASTER_KEY} .
+            docker build -f Dockerfile.pro -t ${ECR_DOMAIN}/lovekitchen:$CIRCLE_SHA1 　--build-arg RAILS_MASTER_KEY=${RAILS_MASTER_KEY} .
+            docker build -f Dockerfile.pro -t ${ECR_DOMAIN}/lovekitchen:latest 　--build-arg RAILS_MASTER_KEY=${RAILS_MASTER_KEY} .
+
       - run:
           name: Push docker image
           command: |
