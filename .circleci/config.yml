@@ -63,7 +63,7 @@ workflows:
   test:
     jobs:
       - build
-      - build_image
+      - build_image:
           requires:
             - build
           filters:
