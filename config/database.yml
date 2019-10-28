@@ -50,7 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: love_kitchen_production
-  username: root
-  password:
-  socket: /var/lib/mysql/mysql.sock
+  database: <%= ENV["DB_PRODUCTION"] %>
+  username: <%= ENV["DB_PRODUCTION_USER"] %>
+  password: <%= ENV["DB_PRODUCTION_PASSWORD"] %>
+  host: <%= ENV["DB_PRODUCTION_HOST"] %>

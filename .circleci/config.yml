@@ -58,6 +58,33 @@ jobs:
           command: |
             docker push ${ECR_DOMAIN}/lovekitchen:$CIRCLE_SHA1
             docker push ${ECR_DOMAIN}/lovekitchen:latest
+  deploy:
+    docker:
+      - image: circleci/python:3.7
+    steps:
+      - run:
+          name: install aws cli
+          command: |
+            sudo pip install awscli
+      - run:
+          name: download jq
+          command: |
+            wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+            mv jq-linux64 jq
+      - run:
+          name: login
+          command: |
+            $(aws ecr get-login --no-include-email --region ap-northeast-1)
+      - run:
+          name: deploy
+          command: |
+            aws ecs describe-task-definition --task-definition rails-app | jq '.taskDefinition | { containerDefinitions: .containerDefinitions }' > definition.json
+            aws ecs register-task-definition --family rails-app --cli-input-json file://definition.json
+            aws ecs update-service --cluster lovekitchen-cluster --service rails-service --task-definition rails-app
+      - run:
+          name: migration
+          command: |
+            aws ecs run-task --cluster lovekitchen-cluster --task-definition rails-migration
 workflows:
   version: 2
   test:
@@ -66,6 +93,12 @@ workflows:
       - build_image:
           requires:
             - build
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - build_image
           filters:
             branches:
               only: master
