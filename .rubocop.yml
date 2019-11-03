@@ -1,7 +1,5 @@
 inherit_from: .rubocop_todo.yml
 
-require: rubocop-rails
-
 inherit_gem:
   rubocop-github:
     - config/default.yml
@@ -22,6 +20,8 @@ Rails/BulkChangeTable:
 
 AllCops:
   TargetRubyVersion: 2.5.3
+  Include:
+    - rubocop-rails
   Exclude:
     - "db/schema.rb"
     - "vendor/**/*"
