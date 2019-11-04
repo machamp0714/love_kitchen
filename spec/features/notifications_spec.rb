@@ -52,4 +52,28 @@ RSpec.feature "Notifications", type: :feature do
       click_link "削除する"
     }.to change(Notification, :count).by(-1)
   end
+
+  scenario "ユーザーが退会した時、通知も削除されること" do
+    sign_in_as other_user
+    visit user_path(user)
+    find(".btn-follow").click
+    click_link "ログアウト"
+    sign_in_as user
+    click_link "プロフィール"
+    click_link "プロフィールを編集する"
+    expect {
+      click_link "アカウントを削除する"
+    }.to change(Notification, :count).by(-1)
+  end
+
+  scenario "フォロワーが退化した時、それに関する通知も削除されること" do
+    sign_in_as other_user
+    visit user_path(user)
+    find(".btn-follow").click
+    click_link "プロフィール"
+    click_link "プロフィールを編集する"
+    expect {
+      click_link "アカウントを削除する"
+    }.to change(Notification, :count).by(-1)
+  end
 end
