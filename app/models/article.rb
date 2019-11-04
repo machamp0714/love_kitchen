@@ -2,6 +2,9 @@
 
 class Article < ApplicationRecord
   belongs_to :user
+
+  after_destroy_commit :delete_notifications
+  
   has_many :comments, dependent: :destroy
   has_many :pictures, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -48,4 +51,10 @@ class Article < ApplicationRecord
     .order("likes_count DESC")
     .order("articles.created_at DESC")
   }
+
+  private
+
+    def delete_notifications
+      Notification.where(article_id: self.id).destroy_all
+    end
 end

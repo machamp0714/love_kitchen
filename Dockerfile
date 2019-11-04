@@ -34,8 +34,6 @@ ADD . $APP_ROOT
 
 EXPOSE 3000
 
-RUN if [ "RAILS_ENV" = "production" ]; then bundle exec rails assets:precompile; fi
-
 ENTRYPOINT [ \
   "prehook", "ruby -v", "--", \
   "prehook", "bundle install -j3 --quiet", "--"]
