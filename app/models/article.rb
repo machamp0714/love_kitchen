@@ -2,14 +2,15 @@
 
 class Article < ApplicationRecord
   belongs_to :user
+
+  after_destroy_commit :delete_notifications
+  
   has_many :comments, dependent: :destroy
   has_many :pictures, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
   accepts_nested_attributes_for :pictures
-
-  after_destroy_commit :delete_notifications
 
   validates :title, presence: true
   validates :content, presence: true

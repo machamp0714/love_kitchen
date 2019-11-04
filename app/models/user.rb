@@ -2,6 +2,9 @@
 
 class User < ApplicationRecord
   before_save { self.name = name.downcase }
+
+  after_destroy_commit :delete_notifications
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 
@@ -76,4 +79,10 @@ class User < ApplicationRecord
   def self.get_email(auth)
     auth.info.email || "#{auth.uid}-#{auth.provider}@example.com"
   end
+
+  private
+
+    def delete_notifications
+      Notification.where(follower_id: self.id).destroy_all
+    end
 end
