@@ -9,6 +9,8 @@ class Article < ApplicationRecord
 
   accepts_nested_attributes_for :pictures
 
+  after_destroy_commit :delete_notifications
+
   validates :title, presence: true
   validates :content, presence: true
   validates :label1, presence: true, length: { maximum: 10 }
@@ -48,4 +50,10 @@ class Article < ApplicationRecord
     .order("likes_count DESC")
     .order("articles.created_at DESC")
   }
+
+  private
+
+    def delete_notifications
+      Notification.where(article_id: self.id).destroy_all
+    end
 end
