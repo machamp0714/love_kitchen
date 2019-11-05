@@ -260,7 +260,7 @@ Devise.setup do |config|
   if Rails.env.development?
     config.omniauth :twitter, ENV["TWITTER_API_KEY"], ENV["TWITTER_API_SECRET_KEY"], callback_url: "http://localhost:3000/users/auth/twitter/callback"
   elsif Rails.env.production?
-    config.omniauth :twitter, ENV["TWITTER_API_KEY"], ENV["TWITTER_API_SECRET_KEY"], callback_url: "http://lovekitchen.cf/users/auth/twitter/callback"
+    config.omniauth :twitter, ENV["TWITTER_API_KEY"], ENV["TWITTER_API_SECRET_KEY"], callback_url: "http://lovekitchen.tk/users/auth/twitter/callback"
   else
     config.omniauth :twitter, ENV["TWITTER_API_KEY"], ENV["TWITTER_API_SECRET_KEY"], callback_url: "http://localhost:3000/users/auth/twitter/callback"
   end
