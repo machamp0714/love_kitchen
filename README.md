@@ -45,7 +45,7 @@ http://lovekitchen.tk/
 
 ## AWS 構成図
 
-![インフラ構成図]](https://i.imgur.com/2jWWDKC.png)
+![インフラ構成図](https://i.imgur.com/2jWWDKC.png)
 
 ## 概要
 
