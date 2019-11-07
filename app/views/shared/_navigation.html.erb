@@ -12,11 +12,6 @@
                     <li class="nav-item mr-sm-2 nav-search">
                         <%= render 'shared/search_form'%>
                     </li>
-                    <li class="nav-item">
-                        <%= link_to rooms_path, data: { tip: 'チャット' }, class: 'tips nav-link icon-link' do %>
-                            <i class="fas fa-comments"></i>
-                        <% end %>
-                    </li>
                     <li class="nav-item"> 
                         <%= link_to user_favorites_path(current_user), data: { tip: 'お気に入り' }, class: 'tips nav-link icon-link' do %>
                             <i class="fas fa-heart"></i>
