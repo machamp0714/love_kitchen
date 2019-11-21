@@ -72,4 +72,16 @@ RSpec.describe Article, type: :model do
       expect(article).to_not be_valid
     end
   end
+
+  describe "#set_labels" do
+    let(:article) { FactoryBot.create(:alice_article) }
+    
+    it "articleのラベルの配列を返すこと" do
+      expect(article.set_labels).to eq(%w[ラベル1 ラベル2 ラベル3])
+    end
+
+    it "articleのデータの配列を返すこと" do
+      expect(article.set_data).to eq([1, 2, 3])
+    end
+  end
 end

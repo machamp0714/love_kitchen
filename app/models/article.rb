@@ -23,18 +23,6 @@ class Article < ApplicationRecord
   validates :data2, presence: true
   validates :data3, presence: true
 
-  def cover_picture
-    if self.pictures.size > 0
-      if self.pictures[0].image.present?
-        self.pictures[0].image.to_s
-      else
-        "blank.jpg"
-      end
-    else
-      "blank.jpg"
-    end
-  end
-
   scope :with_user, -> { includes(:user) }
 
   scope :with_pictures, -> { includes(:pictures) }
@@ -51,6 +39,26 @@ class Article < ApplicationRecord
     .order("likes_count DESC")
     .order("articles.created_at DESC")
   }
+
+  def cover_picture
+    if self.pictures.size > 0
+      if self.pictures[0].image.present?
+        self.pictures[0].image.to_s
+      else
+        "blank.jpg"
+      end
+    else
+      "blank.jpg"
+    end
+  end
+
+  def set_labels
+    self.attributes.map { |key, value| value if key.include?("label") }.reject { |value| value.blank? }
+  end
+
+  def set_data
+    self.attributes.map { |key, value| value if key.include?("data") }.reject { |value| value.blank? }
+  end
 
   private
 
