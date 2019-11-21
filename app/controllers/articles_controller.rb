@@ -11,25 +11,20 @@ class ArticlesController < ApplicationController
 
     def create
         @article = current_user.articles.build(article_params)
-        pictures = @article.pictures
         if @article.save
             redirect_to @article, notice: "Success!!"
         else
-            create_form(pictures)
+            create_form(@article.pictures)
             render "new"
         end
     end
 
     def show
         @article = Article.find(params[:id])
-        if user_signed_in?
-            @article.update(view_count: @article.view_count + 1) if current_user.id != @article.user_id
-        end
-        labels = [@article.label1, @article.label2, @article.label3, @article.label4, @article.label5]
-        data = [@article.data1, @article.data2, @article.data3, @article.data4, @article.data5]
+        @article.increment(:view_count, 1) if user_signed_in? && current_user.id != @article.user_id
         @pictures = @article.pictures.reject { |picture| picture.image.blank? }
-        gon.labels = labels.reject { |label| label.blank? }
-        gon.data = data.reject { |data| data.blank? }
+        gon.labels = @article.set_labels
+        gon.data = @article.set_data
     end
 
     def title
@@ -48,11 +43,8 @@ class ArticlesController < ApplicationController
 
     def chart
         @article = Article.find(params[:id])
-        labels = [@article.label1, @article.label2, @article.label3, @article.label4, @article.label5]
-        data = [@article.data1, @article.data2, @article.data3, @article.data4, @article.data5]
-
-        gon.labels = labels.reject { |label| label.blank? }
-        gon.data = data.reject { |data| data.blank? }
+        gon.labels = @article.set_labels
+        gon.data = @article.set_data
     end
 
     def update
@@ -92,7 +84,7 @@ class ArticlesController < ApplicationController
 
     def correct_user
         @article = current_user.articles.find_by(id: params[:id])
-        redirect_to root_url if @article.nil?
+        redirect_to root_url if @article.blank?
     end
 
     def create_form(pictures)
