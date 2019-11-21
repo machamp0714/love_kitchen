@@ -21,9 +21,7 @@ class ArticlesController < ApplicationController
 
     def show
         @article = Article.find(params[:id])
-        if user_signed_in?
-            @article.update(view_count: @article.view_count + 1) if current_user.id != @article.user_id
-        end
+        @article.increment(:view_count, 1) if user_signed_in? && current_user.id != @article.user_id
         @pictures = @article.pictures.reject { |picture| picture.image.blank? }
         gon.labels = @article.set_labels
         gon.data = @article.set_data
@@ -86,7 +84,7 @@ class ArticlesController < ApplicationController
 
     def correct_user
         @article = current_user.articles.find_by(id: params[:id])
-        redirect_to root_url if @article.nil?
+        redirect_to root_url if @article.blank?
     end
 
     def create_form(pictures)

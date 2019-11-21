@@ -6,9 +6,7 @@ RSpec.describe "Articles", type: :request do
 
   let(:alice) { FactoryBot.create(:alice) }
   let(:bob) { FactoryBot.create(:bob) }
-  before do
-    @bob_article = FactoryBot.create(:bob_article, user: bob)
-  end
+  let!(:bob_article) { FactoryBot.create(:bob_article) }
 
   describe "GET #new" do
     it "ログインしていない場合ログインページにリダイレクトされること" do
@@ -20,7 +18,7 @@ RSpec.describe "Articles", type: :request do
   describe "DELETE #destroy" do
     it "他のユーザーの記事を削除できないこと" do
       sign_in alice
-      delete article_path(@bob_article)
+      delete article_path(bob_article)
       expect(response).to redirect_to root_url
     end
   end
