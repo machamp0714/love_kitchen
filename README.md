@@ -2,7 +2,7 @@
 
 料理好きなユーザーが普段使っているアイテム(フライパン、包丁...)や  
 調味料等をシェアできるサービスです。
-http://lovekitchen.tk/
+http://lovekitchen.ml/
 
 **_DebugAccount:_**
 
