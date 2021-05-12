@@ -2,6 +2,6 @@
   "name": "love_kitchen",
   "private": true,
   "dependencies": {
-    "chart.js": "2.8.0"
+    "chart.js": "2.9.4"
   }
 }
